@@ -1,3 +1,32 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript"],
+  "globals": {
+    "React": "readonly"
+  },
+  "plugins": ["prettier"],
+
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
+  "rules": {
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/forbid-prop-types": "off"
+  }
 }
+
+// # Run ESLint
+// npm run eslint
+
+// # Fix ESLint issues
+// npm run eslint:fix
+
+// # Run Prettier
+// npm run prettier
+
+// # Fix Prettier formatting issues
+
+
+// npm run prettier:fix
