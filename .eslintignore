@@ -1,0 +1,8 @@
+.eslintrc.cjs
+/dist
+tsconfig.json
+.next
+/node_module
+.husky
+.prettirrc
+next.config.js
