@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Horizon Explorers Travel agency',
   icons: {
     icon: '/favicons/favicon-32x32.png',
-    apple: '/favicons/apple-touch-icon.png',
+    apple: '/favicons/apple-icon-57x57.png',
   },
 };
 

@@ -12,7 +12,7 @@ npm run check-format ||
 )
 
 # Check ESLint Standards
-npm run check-lint ||
+npm run eslint ||
 (
         echo '😤🏀👋😤 ESLINT Strikes 😤🏀👋😤 
                 ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
@@ -23,7 +23,7 @@ npm run check-lint ||
 npm run check-types ||
 (
     echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
-            Are you seriously trying to write that? Make the changes required above.'
+            Typescript is angry with you!! Make the changes required above.'
     false;
 )
 
@@ -32,7 +32,7 @@ echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build n
 
 npm run build ||
 (
-    echo '❌👷🔨❌ Because your build failed ❌👷🔨❌
+    echo '❌👷🔨❌ Build failed ❌👷🔨❌
             Next build failed: View the errors above to see why. 
     '
     false;
