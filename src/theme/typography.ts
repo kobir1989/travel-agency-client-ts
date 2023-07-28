@@ -5,19 +5,22 @@ export const typography = {
   h1: {
     fontSize: '2.75rem',
     lineHeight: '2.6875rem',
+    letterSpacing: '0.1px',
     fontWeight: '700',
     color: palette.primary.main,
   },
   h2: {
     fontSize: '1.71rem',
     lineHeight: '2.5rem',
+    letterSpacing: '0.1px',
     fontWeight: '700',
     color: palette.primary.main,
   },
   h3: {
-    fontSize: '1.5rem',
-    lineHeight: '2.1rem',
-    fontWeight: '500',
+    fontSize: '1.1rem',
+    lineHeight: '1.5rem',
+    letterSpacing: '0.1px',
+    fontWeight: '600',
     color: palette.primary.main,
   },
   h4: {
@@ -31,13 +34,13 @@ export const typography = {
     lineHeight: '1.4375rem',
     letterSpacing: '0.2px',
     fontWeight: '300',
-    color: palette.primary.dark,
+    color: palette.info.dark,
   },
   body2: {
     fontSize: '0.81rem',
-    lineHeight: '175rem',
+    lineHeight: '1.1rem',
     letterSpacing: '0.1px',
     fontWeight: '300',
-    color: palette.primary.dark,
+    color: palette.info.dark,
   },
 };

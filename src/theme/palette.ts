@@ -5,20 +5,20 @@ export const palette = {
     dark: '#057aac',
   },
   secondary: {
-    main: '#fccd03',
+    main: '#ffe505',
     light: '#ffb74d',
     dark: '#f57c00',
   },
   // text colors
-  Info: {
+  info: {
     main: '#5d6974',
-    dark: '#3a4856',
+    dark: '#52606d',
     light: '#FFF',
   },
   error: {
     main: '#f44336',
     light: '#e57373',
-    dark: '#d32f2f',
+    dark: '#828d99',
   },
   success: {
     main: '#66bb6a',

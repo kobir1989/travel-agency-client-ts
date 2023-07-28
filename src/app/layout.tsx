@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={opensans.className}>
+      <body className={opensans.className} style={{ background: '#ebf0f4' }}>
         <ReduxProvider>
           <ThemeRegistry>{children}</ThemeRegistry>
         </ReduxProvider>
