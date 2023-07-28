@@ -60,7 +60,6 @@ const FlightCard = () => {
               imgUrl="/assets/emitates.png"
               width={70}
               height={20}
-              radius="0"
             />
             <Typography variant="body1" fontSize="1rem">
               Amerats Airlines
