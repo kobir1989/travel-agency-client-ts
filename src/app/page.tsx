@@ -18,6 +18,7 @@ const Home = () => {
           preload="metadata"
         />
       </Box>
+      <Box m={8} />
     </main>
   );
 };
