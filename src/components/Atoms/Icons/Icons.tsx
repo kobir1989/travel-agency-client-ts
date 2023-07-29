@@ -11,10 +11,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import AssignmentReturnOutlinedIcon from '@mui/icons-material/AssignmentReturnOutlined';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import EmailIcon from '@mui/icons-material/Email';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ErrorIcon from '@mui/icons-material/Error';
@@ -38,6 +34,7 @@ import StarRateIcon from '@mui/icons-material/StarRate';
 import FlightIcon from '@mui/icons-material/Flight';
 import HotelIcon from '@mui/icons-material/Hotel';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import LanguageIcon from '@mui/icons-material/Language';
 
 const icons: IconMap = {
   search: SearchIcon,
@@ -51,10 +48,6 @@ const icons: IconMap = {
   subtract: RemoveIcon,
   add: AddIcon,
   return: AssignmentReturnOutlinedIcon,
-  facebook: FacebookIcon,
-  email: EmailIcon,
-  phone: LocalPhoneIcon,
-  instagram: InstagramIcon,
   backArrow: ArrowBackIosNewIcon,
   forwardArrow: ArrowForwardIosIcon,
   error: ErrorIcon,
@@ -77,6 +70,7 @@ const icons: IconMap = {
   flight: FlightIcon,
   hotel: HotelIcon,
   tour: BeachAccessIcon,
+  web: LanguageIcon,
 };
 
 const Icons = (props: IconsProps) => {
