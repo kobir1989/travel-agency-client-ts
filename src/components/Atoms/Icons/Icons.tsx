@@ -1,11 +1,8 @@
 'use client';
 
 import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -38,14 +35,14 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import StarRateIcon from '@mui/icons-material/StarRate';
+import FlightIcon from '@mui/icons-material/Flight';
+import HotelIcon from '@mui/icons-material/Hotel';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 
 const icons: IconMap = {
   search: SearchIcon,
-  menu: MenuIcon,
   cross: CloseIcon,
-  login: LoginIcon,
   logout: LogoutIcon,
-  signup: AppRegistrationIcon,
   account: ManageAccountsIcon,
   check: CheckCircleOutlineIcon,
   settings: SettingsOutlinedIcon,
@@ -77,6 +74,9 @@ const icons: IconMap = {
   accessible: AccessibleForwardIcon,
   parking: LocalParkingIcon,
   star: StarRateIcon,
+  flight: FlightIcon,
+  hotel: HotelIcon,
+  tour: BeachAccessIcon,
 };
 
 const Icons = (props: IconsProps) => {

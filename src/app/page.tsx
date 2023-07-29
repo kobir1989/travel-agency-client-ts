@@ -1,14 +1,16 @@
-import SearchWidget from '@/components/Atoms/widgets/SearchWidget';
 import { Box } from '@mui/material';
 
 const Home = () => {
   return (
     <main>
-      <Box mt={4} ml={4}>
-        <SearchWidget
-          title="Cox bazar"
-          tags="CITY/HOTEL"
-          subTitle="Bangladesh"
+      <Box>
+        <video
+          style={{ height: '100vh', width: '100%', objectFit: 'cover' }}
+          src="/assets/video.mp4"
+          autoPlay
+          muted
+          loop
+          preload="metadata"
         />
       </Box>
     </main>

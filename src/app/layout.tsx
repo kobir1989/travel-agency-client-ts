@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import ReduxProvider from '@/redux/store/provider';
 import ThemeRegistry from '@/theme';
+import Navigation from '@/components/Organisms/Navigation/Navigation';
 
 const opensans = Open_Sans({ subsets: ['latin'] });
 
@@ -24,7 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={opensans.className} style={{ background: '#ebf0f4' }}>
         <ReduxProvider>
-          <ThemeRegistry>{children}</ThemeRegistry>
+          <ThemeRegistry>
+            <Navigation />
+            {children}
+          </ThemeRegistry>
         </ReduxProvider>
       </body>
     </html>
