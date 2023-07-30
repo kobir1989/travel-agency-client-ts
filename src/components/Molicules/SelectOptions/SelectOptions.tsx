@@ -2,7 +2,7 @@
 
 import Icons from '@/components/Atoms/Icons';
 import {
-  SelectDepart,
+  OptionsType,
   SlectOptionsProps,
 } from '@/components/Molicules/SelectOptions/types';
 import { Box, Typography, styled, List, ListItem } from '@mui/material';
@@ -23,10 +23,11 @@ const StyledInput = styled('input')(({ theme }) => ({
   letterSpacing: '0.2px',
 }));
 
-const StyledListITem = styled(ListItem)({
+const StyledListItem = styled(ListItem)({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
+  cursor: 'pointer',
 });
 
 const StyledSpan = styled('span')({
@@ -38,11 +39,12 @@ const StyledSpan = styled('span')({
   color: '#a2a8c0',
 });
 
-const SelectOptions = ({ departFrom }: SlectOptionsProps) => {
+// custom select options component
+const SelectOptions = ({ options, onOptionSelect }: SlectOptionsProps) => {
   const [searchKey, setSearchKey] = useState('');
-  const [dipartAirportsList] = useState(departFrom);
+  const [dipartAirportsList] = useState(options);
 
-  // filter the departure list based on search key
+  // filter the options list based on search key
   const filteredDepartList = dipartAirportsList.filter(
     (list) =>
       list.location.toLowerCase().includes(searchKey.toLowerCase()) ||
@@ -70,8 +72,14 @@ const SelectOptions = ({ departFrom }: SlectOptionsProps) => {
         </StyledSpan>
       </Box>
       <List>
-        {filteredDepartList.map((list: SelectDepart) => (
-          <StyledListITem key={list.id}>
+        {filteredDepartList.map((list: OptionsType) => (
+          <StyledListItem
+            key={list.id}
+            onClick={(e) => {
+              onOptionSelect({ title: list.location, subtitle: list.airport });
+              e.stopPropagation();
+            }}
+          >
             <Box>
               <Typography
                 variant="h5"
@@ -93,7 +101,7 @@ const SelectOptions = ({ departFrom }: SlectOptionsProps) => {
             >
               {list.code}
             </Typography>
-          </StyledListITem>
+          </StyledListItem>
         ))}
       </List>
     </Box>

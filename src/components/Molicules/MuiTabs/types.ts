@@ -7,6 +7,7 @@ export interface TabPanelProps {
 export interface TabLabel {
   id: string;
   label: string;
+  icon?: string;
 }
 
 export interface TabComponents {
@@ -17,4 +18,5 @@ export interface TabComponents {
 export interface MuiTabsProps {
   tabLabels: TabLabel[];
   tabComponents: TabComponents[];
+  tabsStyles?: object;
 }

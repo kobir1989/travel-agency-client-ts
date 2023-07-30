@@ -1,3 +1,4 @@
 import SelectOptions from './SelectOptions';
+import SelectButton from './SelecteButton';
 
-export default SelectOptions;
+export { SelectOptions, SelectButton };

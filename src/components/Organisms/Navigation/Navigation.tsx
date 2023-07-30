@@ -17,6 +17,8 @@ import {
   // Avatar,
 } from '@mui/material';
 import Link from 'next/link';
+import { useCurrentScroll } from '@/hooks/useCurrentScroll';
+import Condition from '@/components/Atoms/Condition';
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
   fontSize: '0.9rem',
@@ -26,14 +28,19 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 }));
 
 const Navigation = () => {
+  const currentScrollPosition = useCurrentScroll();
   return (
     <AppBar
       position="fixed"
       sx={{
-        background: '#ffffffd1',
-        boxShadow: '',
+        background: currentScrollPosition > 200 ? '#ffffffd1' : 'none',
+        boxShadow:
+          currentScrollPosition > 200
+            ? ' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
+            : 'none',
         height: '5rem',
-        backdropFilter: 'blur(2px)',
+        backdropFilter: currentScrollPosition > 200 ? 'blur(2px)' : 'none',
+        transition: 'all 0.2s ease-in-out',
       }}
     >
       <Container maxWidth="lg">
@@ -46,25 +53,26 @@ const Navigation = () => {
               height={50}
             />
           </Box>
-          <Stack direction="row" gap={4}>
-            <Link href="/">
-              <StyledIconButton
-                sx={{ '& svg': { transform: 'rotate(60deg)' } }}
-              >
-                <Icons name="flight" /> Flight
-              </StyledIconButton>
-            </Link>
-            <Link href="/">
-              <StyledIconButton>
-                <Icons name="hotel" /> Hotel
-              </StyledIconButton>
-            </Link>
-            <Link href="/">
-              <StyledIconButton>
-                <Icons name="tour" /> Tour
-              </StyledIconButton>
-            </Link>
-          </Stack>
+          <Condition condition={currentScrollPosition > 200}>
+            <Stack direction="row" gap={4}>
+              <Link href="/">
+                <StyledIconButton>
+                  <Icons name="flight" /> Flight
+                </StyledIconButton>
+              </Link>
+              <Link href="/">
+                <StyledIconButton>
+                  <Icons name="hotel" /> Hotel
+                </StyledIconButton>
+              </Link>
+              <Link href="/">
+                <StyledIconButton>
+                  <Icons name="tour" /> Tour
+                </StyledIconButton>
+              </Link>
+            </Stack>
+          </Condition>
+
           <Box position="relative">
             {/* <IconButton>
               <Avatar src="/assets/user.jpg" />

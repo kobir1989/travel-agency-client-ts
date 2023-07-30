@@ -28,11 +28,11 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import StarRateIcon from '@mui/icons-material/StarRate';
-import FlightIcon from '@mui/icons-material/Flight';
 import HotelIcon from '@mui/icons-material/Hotel';
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import LandscapeIcon from '@mui/icons-material/Landscape';
 import LanguageIcon from '@mui/icons-material/Language';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import ConnectingAirportsIcon from '@mui/icons-material/ConnectingAirports';
 
 const icons: IconMap = {
   search: TravelExploreIcon,
@@ -63,9 +63,9 @@ const icons: IconMap = {
   accessible: AccessibleForwardIcon,
   parking: LocalParkingIcon,
   star: StarRateIcon,
-  flight: FlightIcon,
+  flight: ConnectingAirportsIcon,
   hotel: HotelIcon,
-  tour: BeachAccessIcon,
+  tour: LandscapeIcon,
   web: LanguageIcon,
 };
 

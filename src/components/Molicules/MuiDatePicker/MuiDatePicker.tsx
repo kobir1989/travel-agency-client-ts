@@ -5,14 +5,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { Box, Typography } from '@mui/material';
 import { MuiDatePickerProps } from '@/components/Molicules/MuiDatePicker/types';
+import dayjs from 'dayjs';
 
 const MuiDatePicker = ({
   isReturn,
   onGetDateValue,
   value,
-  maxDate,
-  minDate,
 }: MuiDatePickerProps) => {
+  const today = dayjs().format('YYYY/MM/DD');
   return (
     <Box
       sx={(theme) => ({
@@ -36,8 +36,8 @@ const MuiDatePicker = ({
           value={value}
           onChange={(newValue) => onGetDateValue(newValue)}
           disablePast
-          maxDate={maxDate}
-          minDate={minDate}
+          maxDate={dayjs('2023/10/30')}
+          minDate={dayjs(today)}
           views={['day']}
         />
       </LocalizationProvider>
