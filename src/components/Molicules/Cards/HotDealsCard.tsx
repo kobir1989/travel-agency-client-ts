@@ -24,13 +24,7 @@ const HotDealsCard = ({
     >
       <Stack direction="row" gap={4}>
         <Box sx={{ marginTop: '-3rem', marginLeft: '-2rem' }}>
-          <NextImage
-            imgUrl={image}
-            alt="offer"
-            width={180}
-            height={130}
-            radius="8px"
-          />
+          <NextImage imgUrl={image} alt="offer" width={180} height={130} />
         </Box>
 
         <Stack gap={1}>

@@ -1,11 +1,7 @@
 'use client';
 
-import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -14,16 +10,10 @@ import EditIcon from '@mui/icons-material/Edit';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import AssignmentReturnOutlinedIcon from '@mui/icons-material/AssignmentReturnOutlined';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import EmailIcon from '@mui/icons-material/Email';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ErrorIcon from '@mui/icons-material/Error';
 import ToggleOnIcon from '@mui/icons-material/ToggleOn';
-import ToggleOffIcon from '@mui/icons-material/ToggleOff';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
@@ -38,14 +28,16 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import StarRateIcon from '@mui/icons-material/StarRate';
+import FlightIcon from '@mui/icons-material/Flight';
+import HotelIcon from '@mui/icons-material/Hotel';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import LanguageIcon from '@mui/icons-material/Language';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 const icons: IconMap = {
-  search: SearchIcon,
-  menu: MenuIcon,
+  search: TravelExploreIcon,
   cross: CloseIcon,
-  login: LoginIcon,
   logout: LogoutIcon,
-  signup: AppRegistrationIcon,
   account: ManageAccountsIcon,
   check: CheckCircleOutlineIcon,
   settings: SettingsOutlinedIcon,
@@ -54,16 +46,10 @@ const icons: IconMap = {
   subtract: RemoveIcon,
   add: AddIcon,
   return: AssignmentReturnOutlinedIcon,
-  facebook: FacebookIcon,
-  email: EmailIcon,
-  phone: LocalPhoneIcon,
-  instagram: InstagramIcon,
   backArrow: ArrowBackIosNewIcon,
   forwardArrow: ArrowForwardIosIcon,
   error: ErrorIcon,
-  off: ToggleOffIcon,
   on: ToggleOnIcon,
-  arrowBack: ArrowBackIosIcon,
   eyeOpen: RemoveRedEyeIcon,
   eyeClosed: VisibilityOffIcon,
   uploadIcon: DriveFolderUploadIcon,
@@ -77,6 +63,10 @@ const icons: IconMap = {
   accessible: AccessibleForwardIcon,
   parking: LocalParkingIcon,
   star: StarRateIcon,
+  flight: FlightIcon,
+  hotel: HotelIcon,
+  tour: BeachAccessIcon,
+  web: LanguageIcon,
 };
 
 const Icons = (props: IconsProps) => {

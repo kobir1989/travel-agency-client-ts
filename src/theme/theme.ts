@@ -24,7 +24,7 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          padding: '0.6rem 1.3rem',
+          padding: '0.35rem 1.3rem',
           fontSize: '0.9rem',
           fontWeight: 600,
           textTransform: 'none',
@@ -43,6 +43,7 @@ export const theme = createTheme({
             background: palette.secondary.main,
             color: palette.primary.main,
             fontSize: '0.9rem',
+            padding: '0.6rem 1.3rem',
             '&:hover': {
               background: palette.secondary.light,
             },

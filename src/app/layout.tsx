@@ -3,6 +3,10 @@ import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import ReduxProvider from '@/redux/store/provider';
 import ThemeRegistry from '@/theme';
+import Navigation from '@/components/Organisms/Navigation/Navigation';
+import Footer from '@/components/Organisms/Footer/Footer';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const opensans = Open_Sans({ subsets: ['latin'] });
 
@@ -24,7 +28,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={opensans.className} style={{ background: '#ebf0f4' }}>
         <ReduxProvider>
-          <ThemeRegistry>{children}</ThemeRegistry>
+          <ThemeRegistry>
+            <Navigation />
+            {children}
+            <Footer />
+          </ThemeRegistry>
         </ReduxProvider>
       </body>
     </html>
