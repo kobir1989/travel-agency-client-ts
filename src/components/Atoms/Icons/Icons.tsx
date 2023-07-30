@@ -1,6 +1,5 @@
 'use client';
 
-import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
@@ -35,9 +34,10 @@ import FlightIcon from '@mui/icons-material/Flight';
 import HotelIcon from '@mui/icons-material/Hotel';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import LanguageIcon from '@mui/icons-material/Language';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 const icons: IconMap = {
-  search: SearchIcon,
+  search: TravelExploreIcon,
   cross: CloseIcon,
   logout: LogoutIcon,
   account: ManageAccountsIcon,

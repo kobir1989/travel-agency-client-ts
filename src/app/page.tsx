@@ -1,4 +1,20 @@
+import SelectOptions from '@/components/Molicules/SelectOptions';
 import { Box } from '@mui/material';
+
+const SelectDepart = [
+  {
+    location: 'Dhaka, Bangladesh',
+    airport: ' Hazrat Shahjalal International Airport',
+    code: 'DAC',
+    id: 'A1',
+  },
+  {
+    location: 'Dhilli, India',
+    airport: 'Dhili airport',
+    code: 'DHL',
+    id: 'A2',
+  },
+];
 
 const Home = () => {
   return (
@@ -18,7 +34,9 @@ const Home = () => {
           preload="metadata"
         />
       </Box>
-      <Box m={8} />
+      <Box p={5}>
+        <SelectOptions departFrom={SelectDepart} />
+      </Box>
     </main>
   );
 };
