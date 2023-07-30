@@ -5,6 +5,8 @@ import ReduxProvider from '@/redux/store/provider';
 import ThemeRegistry from '@/theme';
 import Navigation from '@/components/Organisms/Navigation/Navigation';
 import Footer from '@/components/Organisms/Footer/Footer';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const opensans = Open_Sans({ subsets: ['latin'] });
 

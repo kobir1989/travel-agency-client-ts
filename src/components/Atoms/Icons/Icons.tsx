@@ -14,8 +14,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ErrorIcon from '@mui/icons-material/Error';
 import ToggleOnIcon from '@mui/icons-material/ToggleOn';
-import ToggleOffIcon from '@mui/icons-material/ToggleOff';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
@@ -51,9 +49,7 @@ const icons: IconMap = {
   backArrow: ArrowBackIosNewIcon,
   forwardArrow: ArrowForwardIosIcon,
   error: ErrorIcon,
-  off: ToggleOffIcon,
   on: ToggleOnIcon,
-  arrowBack: ArrowBackIosIcon,
   eyeOpen: RemoveRedEyeIcon,
   eyeClosed: VisibilityOffIcon,
   uploadIcon: DriveFolderUploadIcon,
