@@ -233,7 +233,7 @@ const FlightTab = () => {
             <Condition condition={openOptionsPopup.isDepartDateOpen}>
               <StyledOptionsWrapper>
                 <MuiDatePicker
-                  isReturn={false}
+                  lable="Select Departure date"
                   onDateValue={handleDepartDate}
                   value={departDate}
                   minDate={dayjs(new Date())}
@@ -267,21 +267,14 @@ const FlightTab = () => {
                 label="RETURN DATE"
               />
               <Condition condition={openOptionsPopup.isArrivalDateOpen}>
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: '100%',
-                    right: '0',
-                    zIndex: 20,
-                  }}
-                >
+                <StyledOptionsWrapper right={0}>
                   <MuiDatePicker
-                    isReturn
+                    lable="Select Return date"
                     onDateValue={handleSelectedArrivalDate}
                     value={arrivalDate}
                     minDate={departDate}
                   />
-                </Box>
+                </StyledOptionsWrapper>
               </Condition>
             </Grid>
           </Condition>

@@ -10,6 +10,8 @@ import {
 } from '@mui/material';
 import MuiTabs from '@/components/Molicules/MuiTabs';
 import FlightTab from '@/components/Templates/HomeSearchSection/FlightTabComponents/FlightTab';
+import HotelsTab from '@/components/Templates/HomeSearchSection/HotelsTabComponents/HotelsTab';
+import TourTab from '@/components/Templates/HomeSearchSection/TourTabComponents/TourTab';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   background: theme.palette.info.light,
@@ -42,6 +44,14 @@ const tabComponents = [
   {
     id: 'Cmp1',
     component: <FlightTab />,
+  },
+  {
+    id: 'Cmp2',
+    component: <HotelsTab />,
+  },
+  {
+    id: 'Cmp3',
+    component: <TourTab />,
   },
 ];
 

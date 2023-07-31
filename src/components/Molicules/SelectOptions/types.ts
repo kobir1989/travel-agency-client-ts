@@ -1,7 +1,7 @@
 // selected value type
 export interface SelectedValueType {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 // SelectButton component props

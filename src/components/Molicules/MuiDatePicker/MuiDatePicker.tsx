@@ -8,7 +8,7 @@ import { MuiDatePickerProps } from '@/components/Molicules/MuiDatePicker/types';
 import dayjs from 'dayjs';
 
 const MuiDatePicker = ({
-  isReturn,
+  lable,
   onDateValue,
   minDate,
   value,
@@ -30,7 +30,7 @@ const MuiDatePicker = ({
         pt={2}
         fontWeight={500}
       >
-        Select {isReturn ? 'Arrival' : 'Departure'} date
+        {lable}
       </Typography>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
