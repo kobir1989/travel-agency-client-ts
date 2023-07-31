@@ -1,4 +1,4 @@
-import SelectOptions from './SelectOptions';
-import SelectButton from './SelecteButton';
+import OptionsList from './OptionsList';
+import SelectButton from './SelectButton';
 
-export { SelectOptions, SelectButton };
+export { OptionsList, SelectButton };

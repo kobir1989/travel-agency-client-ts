@@ -2,10 +2,9 @@ import Condition from '@/components/Atoms/Condition';
 import Icons from '@/components/Atoms/Icons';
 import MuiDatePicker from '@/components/Molicules/MuiDatePicker';
 import {
-  SelectOptions,
+  OptionsList,
   SelectButton,
 } from '@/components/Molicules/SelectOptions';
-import { SelectedValueType } from '@/components/Molicules/SelectOptions/types';
 import RadioButtonGroup from '@/components/Atoms/RadioButtons';
 import {
   Box,
@@ -15,7 +14,17 @@ import {
   IconButton,
 } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/redux/store/store';
+import {
+  setArrivalDate,
+  setDepartDate,
+  setFlightType,
+  setOpenOptionsBox,
+  setSelectedArrivalValue,
+  setSelectedDepartValue,
+} from '@/redux/features/searchFlight/searhFlightSlice';
+import { OptionType } from '@/components/Molicules/SelectOptions/types';
 
 const departOptions = [
   {
@@ -47,78 +56,83 @@ const StyledOptionsWrapper = styled(Box)({
   zIndex: 20,
 });
 
-// initial open option box state
-const initialValue = {
-  isDepartOptionsOpen: false,
-  isArrivalOptionsOpen: false,
-  isArrivalDateOpen: false,
-  isDepartDateOpen: false,
-};
-const FlightTab = () => {
-  const [openOptions, setOpenOptions] = useState(initialValue);
-  // selected departure value
-  const [selectedDepartValue, setSelectedDepartValue] =
-    useState<SelectedValueType>({
-      title: 'Dhaka, Bangladesh',
-      subtitle: 'Shazalal int Airport',
-    });
-  // selected arrival value
-  const [selectedArrival, setSelectedArrival] = useState<SelectedValueType>({
-    title: 'Delhi, India',
-    subtitle: 'Delhi Airport',
-  });
-  // selected departure date
-  const [departDate, setDepartDate] = useState<Dayjs | null>(dayjs(new Date()));
-  // selected arrival date
-  const [arrivalDate, setArrivalDate] = useState<Dayjs | null>(
-    departDate || dayjs(new Date()).add(1, 'week'),
-  );
+const SwapButtonWrapper = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  top: '50%',
+  right: '-1.3rem',
+  transform: 'translate(0,-50%)',
+  boxShadow:
+    'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px',
+  borderRadius: '50%',
+  background: theme.palette.info.light,
+  zIndex: 50,
+}));
 
-  // Flight type Radio button states
-  const [flightType, setFlightType] = useState('oneWay');
+const FlightTab = () => {
+  const {
+    arrivalDate,
+    flightType,
+    departDate,
+    selectedArrival,
+    selectedDepartValue,
+    openOptionsPopup,
+  } = useSelector((state: RootState) => state.searchFlight);
+  const dispatch = useDispatch();
+
+  // flight type radio button onChange handler
+  const handleFlightType = (event: React.SyntheticEvent<Element, Event>) => {
+    dispatch(setFlightType((event.target as HTMLInputElement).value));
+  };
 
   // close option on outside click
   const handleCloseSelect = () => {
-    setOpenOptions(initialValue);
+    dispatch(
+      setOpenOptionsBox({
+        isDepartOptionsOpen: false,
+        isArrivalOptionsOpen: false,
+        isArrivalDateOpen: false,
+        isDepartDateOpen: false,
+      }),
+    );
   };
 
   // handle select departure option
-  const handleSelectDepartOption = (option: SelectedValueType) => {
-    setSelectedDepartValue(option);
+  const handleSelectDepartOption = (option: OptionType) => {
+    dispatch(setSelectedDepartValue(option));
     // close options after select
     handleCloseSelect();
   };
 
   // handle select arrival options
-  const handleSelectArrivalOption = (option: SelectedValueType) => {
-    setSelectedArrival(option);
+  const handleSelectArrivalOption = (option: OptionType) => {
+    dispatch(setSelectedArrivalValue(option));
     // close options after select
     handleCloseSelect();
   };
 
   // handle select departure date value
   const handleDepartDate = (newValue: Dayjs) => {
-    setDepartDate(newValue);
+    dispatch(setDepartDate(newValue));
+    dispatch(
+      setArrivalDate(
+        newValue && newValue > arrivalDate ? newValue : arrivalDate,
+      ),
+    );
+    // close options after select
+    handleCloseSelect();
+  };
+
+  // handle selected arrival date value
+  const handleSelectedArrivalDate = (newValue: Dayjs) => {
+    dispatch(setArrivalDate(newValue));
     // close options after select
     handleCloseSelect();
   };
 
   // swap the value "ARRIVAL will be DEPART"
   const swapSelectedValue = () => {
-    setSelectedArrival(selectedDepartValue);
-    setSelectedDepartValue(selectedArrival);
-  };
-
-  // handle selected arrival date value
-  const handleSelectedArrivalDate = (newValue: Dayjs) => {
-    setArrivalDate(newValue);
-    // close options after select
-    handleCloseSelect();
-  };
-
-  // flight type radio button onChange handler
-  const handleFlightType = (event: React.SyntheticEvent<Element, Event>) => {
-    setFlightType((event.target as HTMLInputElement).value);
+    dispatch(setSelectedArrivalValue(selectedDepartValue));
+    dispatch(setSelectedDepartValue(selectedArrival));
   };
 
   return (
@@ -135,42 +149,34 @@ const FlightTab = () => {
             item
             lg={4}
             onClick={() =>
-              setOpenOptions({
-                isDepartOptionsOpen: true,
-                isArrivalOptionsOpen: false,
-                isArrivalDateOpen: false,
-                isDepartDateOpen: false,
-              })
+              dispatch(
+                setOpenOptionsBox({
+                  isDepartOptionsOpen: true,
+                  isArrivalOptionsOpen: false,
+                  isArrivalDateOpen: false,
+                  isDepartDateOpen: false,
+                }),
+              )
             }
           >
             <SelectButton selectedValue={selectedDepartValue} label="FROM" />
-            <Condition condition={openOptions.isDepartOptionsOpen}>
+            <Condition condition={openOptionsPopup.isDepartOptionsOpen}>
               <StyledOptionsWrapper>
-                <SelectOptions
+                <OptionsList
                   options={departOptions}
                   onOptionSelect={handleSelectDepartOption}
+                  subtitleKey="location"
+                  titleKey="airport"
+                  placeholder="Search Flight..."
                 />
               </StyledOptionsWrapper>
             </Condition>
             {/* swap selected value */}
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '50%',
-                right: '-1.3rem',
-                transform: 'translate(0,-50%)',
-                boxShadow:
-                  'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px',
-                borderRadius: '50%',
-                background: '#FFF',
-                zIndex: 50,
-              }}
-              onClick={(e) => e.stopPropagation()}
-            >
+            <SwapButtonWrapper onClick={(e) => e.stopPropagation()}>
               <IconButton onClick={swapSelectedValue}>
                 <Icons name="swap" size="1.2rem" />
               </IconButton>
-            </Box>
+            </SwapButtonWrapper>
           </Grid>
 
           {/* arrival to */}
@@ -178,20 +184,25 @@ const FlightTab = () => {
             item
             lg={4}
             onClick={() =>
-              setOpenOptions({
-                isDepartOptionsOpen: false,
-                isArrivalOptionsOpen: true,
-                isArrivalDateOpen: false,
-                isDepartDateOpen: false,
-              })
+              dispatch(
+                setOpenOptionsBox({
+                  isDepartOptionsOpen: false,
+                  isArrivalOptionsOpen: true,
+                  isArrivalDateOpen: false,
+                  isDepartDateOpen: false,
+                }),
+              )
             }
           >
             <SelectButton selectedValue={selectedArrival} label="TO" />
-            <Condition condition={openOptions.isArrivalOptionsOpen}>
+            <Condition condition={openOptionsPopup.isArrivalOptionsOpen}>
               <StyledOptionsWrapper>
-                <SelectOptions
+                <OptionsList
                   options={arrivalOptions}
                   onOptionSelect={handleSelectArrivalOption}
+                  subtitleKey="location"
+                  titleKey="airport"
+                  placeholder="Search Flight..."
                 />
               </StyledOptionsWrapper>
             </Condition>
@@ -202,12 +213,14 @@ const FlightTab = () => {
             lg={flightType === 'roundWay' ? 2 : 4}
             position="relative"
             onClick={() =>
-              setOpenOptions({
-                isDepartOptionsOpen: false,
-                isArrivalOptionsOpen: false,
-                isArrivalDateOpen: false,
-                isDepartDateOpen: true,
-              })
+              dispatch(
+                setOpenOptionsBox({
+                  isDepartOptionsOpen: false,
+                  isArrivalOptionsOpen: false,
+                  isArrivalDateOpen: false,
+                  isDepartDateOpen: true,
+                }),
+              )
             }
           >
             <SelectButton
@@ -217,7 +230,7 @@ const FlightTab = () => {
               }}
               label="DIPARTURE DATE"
             />
-            <Condition condition={openOptions.isDepartDateOpen}>
+            <Condition condition={openOptionsPopup.isDepartDateOpen}>
               <StyledOptionsWrapper>
                 <MuiDatePicker
                   isReturn={false}
@@ -236,12 +249,14 @@ const FlightTab = () => {
               item
               lg={2}
               onClick={() =>
-                setOpenOptions({
-                  isDepartOptionsOpen: false,
-                  isArrivalOptionsOpen: false,
-                  isArrivalDateOpen: true,
-                  isDepartDateOpen: false,
-                })
+                dispatch(
+                  setOpenOptionsBox({
+                    isDepartOptionsOpen: false,
+                    isArrivalOptionsOpen: false,
+                    isArrivalDateOpen: true,
+                    isDepartDateOpen: false,
+                  }),
+                )
               }
             >
               <SelectButton
@@ -251,7 +266,7 @@ const FlightTab = () => {
                 }}
                 label="RETURN DATE"
               />
-              <Condition condition={openOptions.isArrivalDateOpen}>
+              <Condition condition={openOptionsPopup.isArrivalDateOpen}>
                 <Box
                   sx={{
                     position: 'absolute',

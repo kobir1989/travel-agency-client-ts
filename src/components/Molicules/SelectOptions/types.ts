@@ -1,10 +1,3 @@
-// options object types
-export interface OptionsType {
-  location: string;
-  airport: string;
-  code: string;
-  id: string;
-}
 // selected value type
 export interface SelectedValueType {
   title: string;
@@ -17,8 +10,18 @@ export interface SelectButtonProps {
   label: string;
 }
 
-// SlectOptions component props
-export interface SlectOptionsProps {
-  options: OptionsType[];
-  onOptionSelect(option: SelectedValueType): void;
+// Define a generic options type
+export interface OptionType {
+  [key: string]: string;
+  location: string;
+  id: string;
+}
+
+// Define a generic component props
+export interface OptionsListProps {
+  options: OptionType[];
+  onOptionSelect(option: OptionType): void;
+  placeholder: string;
+  titleKey: keyof OptionType; // The key to be used for the title (e.g., 'location' or 'airport')
+  subtitleKey: keyof OptionType; // The key to be used for the subtitle (e.g., 'hotel' or 'airport')
 }
