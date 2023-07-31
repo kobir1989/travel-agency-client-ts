@@ -9,10 +9,10 @@ import dayjs from 'dayjs';
 
 const MuiDatePicker = ({
   isReturn,
-  onGetDateValue,
+  onDateValue,
+  minDate,
   value,
 }: MuiDatePickerProps) => {
-  const today = dayjs().format('YYYY/MM/DD');
   return (
     <Box
       sx={(theme) => ({
@@ -21,6 +21,7 @@ const MuiDatePicker = ({
         borderRadius: '6px',
         width: '20rem',
       })}
+      onClick={(e) => e.stopPropagation()}
     >
       <Typography
         variant="h5"
@@ -34,10 +35,10 @@ const MuiDatePicker = ({
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
           value={value}
-          onChange={(newValue) => onGetDateValue(newValue)}
+          onChange={(newValue) => onDateValue(newValue)}
           disablePast
-          maxDate={dayjs('2023/10/30')}
-          minDate={dayjs(today)}
+          maxDate={dayjs(new Date()).add(3, 'months')}
+          minDate={minDate}
           views={['day']}
         />
       </LocalizationProvider>
