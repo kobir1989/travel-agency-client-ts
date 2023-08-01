@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Icons from '@/components/Atoms/Icons';
 import { Box, List, Typography, Stack } from '@mui/material';
 import { StyledInput, StyledListItem, StyledSpan } from './styles';
-import { OptionsListProps, OptionType } from './types';
+import { OptionsListProps, OptionType } from './types/types';
 
 const OptionsList = ({
   options,
@@ -15,9 +15,9 @@ const OptionsList = ({
   const [filteredOptions, setFilteredOptions] = useState(options);
 
   // filter the options list based on search key
-  const filterOptions = () => {
+  const filterOptions = (key: string) => {
     const filteredList = options.filter((option) =>
-      option[titleKey].toLowerCase().includes(searchKey.toLowerCase()),
+      option[titleKey || subtitleKey].toLowerCase().includes(key.toLowerCase()),
     );
     setFilteredOptions(filteredList);
   };
@@ -37,7 +37,7 @@ const OptionsList = ({
         background: theme.palette.info.light,
         borderRadius: '0 0 4px 4px',
         boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
-        width: '25rem',
+        width: '98.5%',
         pb: 2,
       })}
     >
@@ -47,7 +47,7 @@ const OptionsList = ({
           value={searchKey}
           onChange={(e) => {
             setSearchKey(e.target.value);
-            filterOptions();
+            filterOptions(e.target.value);
           }}
         />
         <StyledSpan>

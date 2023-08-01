@@ -1,18 +1,8 @@
 import Condition from '@/components/Atoms/Condition';
-import Icons from '@/components/Atoms/Icons';
 import MuiDatePicker from '@/components/Molicules/MuiDatePicker';
-import {
-  OptionsList,
-  SelectButton,
-} from '@/components/Molicules/SelectOptions';
+import { OptionsList } from '@/components/Molicules/SelectOptions';
 import RadioButtonGroup from '@/components/Atoms/RadioButtons';
-import {
-  Box,
-  ClickAwayListener,
-  Grid,
-  styled,
-  IconButton,
-} from '@mui/material';
+import { Box, ClickAwayListener, Grid } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux/store/store';
@@ -24,7 +14,8 @@ import {
   setSelectedArrivalValue,
   setSelectedDepartValue,
 } from '@/redux/features/searchFlight/searhFlightSlice';
-import { OptionType } from '@/components/Molicules/SelectOptions/types';
+import { OptionType } from '@/components/Molicules/SelectOptions/types/types';
+import GridItem from '@/components/Templates/HomeSearchSection/SearchTabs/GridItem';
 
 const departOptions = [
   {
@@ -49,24 +40,6 @@ const arrivalOptions = [
     id: 'op2',
   },
 ];
-
-const StyledOptionsWrapper = styled(Box)({
-  position: 'absolute',
-  top: '100%',
-  zIndex: 20,
-});
-
-const SwapButtonWrapper = styled(Box)(({ theme }) => ({
-  position: 'absolute',
-  top: '50%',
-  right: '-1.3rem',
-  transform: 'translate(0,-50%)',
-  boxShadow:
-    'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px',
-  borderRadius: '50%',
-  background: theme.palette.info.light,
-  zIndex: 50,
-}));
 
 const FlightTab = () => {
   const {
@@ -144,11 +117,12 @@ const FlightTab = () => {
         />
         <Grid container spacing={1}>
           {/* depart from  */}
-          <Grid
-            position="relative"
-            item
-            lg={4}
-            onClick={() =>
+          <GridItem
+            column={4}
+            isPopupOpen={openOptionsPopup.isDepartOptionsOpen}
+            label="FROM"
+            onSwapValue={swapSelectedValue}
+            onHandleClick={() =>
               dispatch(
                 setOpenOptionsBox({
                   isDepartOptionsOpen: true,
@@ -158,32 +132,22 @@ const FlightTab = () => {
                 }),
               )
             }
+            selectedValue={selectedDepartValue}
           >
-            <SelectButton selectedValue={selectedDepartValue} label="FROM" />
-            <Condition condition={openOptionsPopup.isDepartOptionsOpen}>
-              <StyledOptionsWrapper>
-                <OptionsList
-                  options={departOptions}
-                  onOptionSelect={handleSelectDepartOption}
-                  subtitleKey="location"
-                  titleKey="airport"
-                  placeholder="Search Flight..."
-                />
-              </StyledOptionsWrapper>
-            </Condition>
-            {/* swap selected value */}
-            <SwapButtonWrapper onClick={(e) => e.stopPropagation()}>
-              <IconButton onClick={swapSelectedValue}>
-                <Icons name="swap" size="1.2rem" />
-              </IconButton>
-            </SwapButtonWrapper>
-          </Grid>
-
+            <OptionsList
+              options={departOptions}
+              onOptionSelect={handleSelectDepartOption}
+              subtitleKey="location"
+              titleKey="airport"
+              placeholder="Search Flight..."
+            />
+          </GridItem>
           {/* arrival to */}
-          <Grid
-            item
-            lg={4}
-            onClick={() =>
+          <GridItem
+            column={4}
+            isPopupOpen={openOptionsPopup.isArrivalOptionsOpen}
+            label="TO"
+            onHandleClick={() =>
               dispatch(
                 setOpenOptionsBox({
                   isDepartOptionsOpen: false,
@@ -193,26 +157,22 @@ const FlightTab = () => {
                 }),
               )
             }
+            selectedValue={selectedArrival}
           >
-            <SelectButton selectedValue={selectedArrival} label="TO" />
-            <Condition condition={openOptionsPopup.isArrivalOptionsOpen}>
-              <StyledOptionsWrapper>
-                <OptionsList
-                  options={arrivalOptions}
-                  onOptionSelect={handleSelectArrivalOption}
-                  subtitleKey="location"
-                  titleKey="airport"
-                  placeholder="Search Flight..."
-                />
-              </StyledOptionsWrapper>
-            </Condition>
-          </Grid>
+            <OptionsList
+              options={arrivalOptions}
+              onOptionSelect={handleSelectArrivalOption}
+              subtitleKey="location"
+              titleKey="airport"
+              placeholder="Search Flight..."
+            />
+          </GridItem>
           {/* depart date */}
-          <Grid
-            item
-            lg={flightType === 'roundWay' ? 2 : 4}
-            position="relative"
-            onClick={() =>
+          <GridItem
+            column={flightType === 'roundWay' ? 2 : 4}
+            isPopupOpen={openOptionsPopup.isDepartDateOpen}
+            label="DEPARTURE DATE"
+            onHandleClick={() =>
               dispatch(
                 setOpenOptionsBox({
                   isDepartOptionsOpen: false,
@@ -222,33 +182,26 @@ const FlightTab = () => {
                 }),
               )
             }
+            selectedValue={{
+              title: dayjs(departDate).format('DD MMM YYYY'),
+              subtitle: dayjs(departDate).format('dddd'),
+            }}
           >
-            <SelectButton
-              selectedValue={{
-                title: dayjs(departDate).format('DD MMM YYYY'),
-                subtitle: dayjs(departDate).format('dddd'),
-              }}
-              label="DIPARTURE DATE"
+            <MuiDatePicker
+              lable="Select Departure date"
+              onDateValue={handleDepartDate}
+              value={departDate}
+              minDate={dayjs(new Date())}
             />
-            <Condition condition={openOptionsPopup.isDepartDateOpen}>
-              <StyledOptionsWrapper>
-                <MuiDatePicker
-                  lable="Select Departure date"
-                  onDateValue={handleDepartDate}
-                  value={departDate}
-                  minDate={dayjs(new Date())}
-                />
-              </StyledOptionsWrapper>
-            </Condition>
-          </Grid>
-
+          </GridItem>
           {/* arrival date show when round way selectd */}
           <Condition condition={flightType === 'roundWay'}>
-            <Grid
-              position="relative"
-              item
-              lg={2}
-              onClick={() =>
+            <GridItem
+              column={2}
+              isPopupOpen={openOptionsPopup.isArrivalDateOpen}
+              label="RETURN DATE"
+              positionRight="0"
+              onHandleClick={() =>
                 dispatch(
                   setOpenOptionsBox({
                     isDepartOptionsOpen: false,
@@ -258,25 +211,18 @@ const FlightTab = () => {
                   }),
                 )
               }
+              selectedValue={{
+                title: dayjs(arrivalDate).format('DD MMM YYYY'),
+                subtitle: dayjs(arrivalDate).format('dddd'),
+              }}
             >
-              <SelectButton
-                selectedValue={{
-                  title: dayjs(arrivalDate).format('DD MMM YYYY'),
-                  subtitle: dayjs(arrivalDate).format('dddd'),
-                }}
-                label="RETURN DATE"
+              <MuiDatePicker
+                lable="Select Return date"
+                onDateValue={handleSelectedArrivalDate}
+                value={arrivalDate}
+                minDate={departDate}
               />
-              <Condition condition={openOptionsPopup.isArrivalDateOpen}>
-                <StyledOptionsWrapper right={0}>
-                  <MuiDatePicker
-                    lable="Select Return date"
-                    onDateValue={handleSelectedArrivalDate}
-                    value={arrivalDate}
-                    minDate={departDate}
-                  />
-                </StyledOptionsWrapper>
-              </Condition>
-            </Grid>
+            </GridItem>
           </Condition>
         </Grid>
       </Box>

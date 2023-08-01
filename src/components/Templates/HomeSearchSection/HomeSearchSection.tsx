@@ -9,9 +9,9 @@ import {
   Container,
 } from '@mui/material';
 import MuiTabs from '@/components/Molicules/MuiTabs';
-import FlightTab from '@/components/Templates/HomeSearchSection/FlightTabComponents/FlightTab';
-import HotelsTab from '@/components/Templates/HomeSearchSection/HotelsTabComponents/HotelsTab';
-import TourTab from '@/components/Templates/HomeSearchSection/TourTabComponents/TourTab';
+import FlightTab from '@/components/Templates/HomeSearchSection/SearchTabs/FlightTab';
+import HotelsTab from '@/components/Templates/HomeSearchSection/SearchTabs/HotelsTab';
+import TourTab from '@/components/Templates/HomeSearchSection/SearchTabs/TourTab';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   background: theme.palette.info.light,
