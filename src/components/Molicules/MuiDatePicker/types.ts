@@ -1,7 +1,8 @@
+import { Dayjs } from 'dayjs';
+
 export interface MuiDatePickerProps {
-  isReturn: boolean;
-  minDate: string;
-  maxDate: string;
-  value: string;
-  onGetDateValue(newValue: string | null): void;
+  value: Dayjs | null;
+  minDate: Dayjs | null;
+  lable: string;
+  onDateValue(newValue: any): void;
 }

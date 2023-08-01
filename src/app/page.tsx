@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import HomeSearchSection from '@/components/Templates/HomeSearchSection';
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
           preload="metadata"
         />
       </Box>
+      <HomeSearchSection />
     </main>
   );
 };
