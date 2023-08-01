@@ -8,9 +8,13 @@ const StyledPrevIconButton = styled(IconButton)(({ theme }) => ({
   width: '2rem',
   height: '2rem',
   position: 'absolute',
-  left: '0',
+  left: '1rem',
   top: '50%',
   transform: 'translate(0,-50%)',
+  zIndex: 20,
+  '&:hover': {
+    background: theme.palette.primary.light,
+  },
 }));
 
 const StyledNextIconButton = styled(IconButton)(({ theme }) => ({
@@ -19,9 +23,13 @@ const StyledNextIconButton = styled(IconButton)(({ theme }) => ({
   width: '2rem',
   height: '2rem',
   position: 'absolute',
-  right: '0',
+  right: '1rem',
   top: '50%',
   transform: 'translate(0,-50%)',
+  zIndex: 20,
+  '&:hover': {
+    background: theme.palette.primary.light,
+  },
 }));
 
 export const NextArrow = ({ onClick }: SlickSliderArrowProps) => {

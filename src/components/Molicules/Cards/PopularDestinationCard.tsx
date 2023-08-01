@@ -3,17 +3,20 @@
 import { Stack, Box, Typography, Button } from '@mui/material';
 import Image from 'next/image';
 
-const SpecialOffersCard = () => {
+const PopularDestinationCard = () => {
   return (
     <Box
       sx={(theme) => ({
         background: theme.palette.info.light,
         borderRadius: '6px',
         padding: '0.8rem 0.8rem 2.5rem 0.8rem',
-        maxWidth: '21rem',
-        boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+        width: '100%',
+        transition: 'all 0.3s ease-in-out',
         position: 'relative',
-        marginLeft: 8,
+        '&:hover': {
+          boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+          transition: 'all 0.3s ease-in-out',
+        },
       })}
     >
       <Stack gap={2} width="100%">
@@ -23,7 +26,7 @@ const SpecialOffersCard = () => {
             alt="istanbul"
             width={310}
             height={200}
-            style={{ borderRadius: '12px' }}
+            style={{ borderRadius: '12px', width: '100%' }}
           />
         </Box>
         <Typography variant="h3">
@@ -31,10 +34,10 @@ const SpecialOffersCard = () => {
         </Typography>
       </Stack>
       <Box sx={{ position: 'absolute', right: '0.54rem', bottom: '-1.3rem' }}>
-        <Button variant="secondary">Learn More</Button>
+        <Button variant="secondary">Book Now</Button>
       </Box>
     </Box>
   );
 };
 
-export default SpecialOffersCard;
+export default PopularDestinationCard;

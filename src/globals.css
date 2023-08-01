@@ -65,3 +65,9 @@ img {
   overflow-clip-margin: content-box;
   overflow: clip;
 }
+.slick-slide > div {
+  margin: 2rem 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}

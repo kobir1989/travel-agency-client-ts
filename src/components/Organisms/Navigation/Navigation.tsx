@@ -1,6 +1,5 @@
 'use client';
 
-import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
 // import AvaterDropdown from '@/components/Organisms/Navigation/AvaterDropdown';
 import {
@@ -8,24 +7,13 @@ import {
   Toolbar,
   Button,
   Container,
-  Stack,
   Box,
-  IconButton,
-  styled,
   // Grow,
   // ClickAwayListener,
   // Avatar,
 } from '@mui/material';
-import Link from 'next/link';
-import { useCurrentScroll } from '@/hooks/useCurrentScroll';
-import Condition from '@/components/Atoms/Condition';
 
-const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  fontSize: '0.9rem',
-  fontWeight: 600,
-  gap: '0.2rem',
-  color: theme.palette.primary.main,
-}));
+import { useCurrentScroll } from '@/hooks/useCurrentScroll';
 
 const Navigation = () => {
   const currentScrollPosition = useCurrentScroll();
@@ -43,7 +31,7 @@ const Navigation = () => {
         transition: 'all 0.2s ease-in-out',
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" disableGutters>
         <Toolbar sx={{ justifyContent: 'space-between', height: '5rem' }}>
           <Box>
             <NextImage
@@ -53,26 +41,6 @@ const Navigation = () => {
               height={50}
             />
           </Box>
-          <Condition condition={currentScrollPosition > 200}>
-            <Stack direction="row" gap={4}>
-              <Link href="/">
-                <StyledIconButton>
-                  <Icons name="flight" /> Flight
-                </StyledIconButton>
-              </Link>
-              <Link href="/">
-                <StyledIconButton>
-                  <Icons name="hotel" /> Hotel
-                </StyledIconButton>
-              </Link>
-              <Link href="/">
-                <StyledIconButton>
-                  <Icons name="tour" /> Tour
-                </StyledIconButton>
-              </Link>
-            </Stack>
-          </Condition>
-
           <Box position="relative">
             {/* <IconButton>
               <Avatar src="/assets/user.jpg" />

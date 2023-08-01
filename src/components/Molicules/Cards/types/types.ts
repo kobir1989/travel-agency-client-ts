@@ -4,3 +4,8 @@ export interface HotDealsCardProps {
   discount: string;
   title: string;
 }
+
+export interface PopularHotelCardProps {
+  title: string;
+  subTitle: string;
+}
