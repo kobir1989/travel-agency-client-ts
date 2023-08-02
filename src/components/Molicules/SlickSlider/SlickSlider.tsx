@@ -11,6 +11,8 @@ import {
 const SlickSlider = ({
   children,
   desktopSlideToShow,
+  tabSlideToShow = 2,
+  mobileSlideToShow = 1,
   slidesToShow,
   slidesToScroll,
 }: SlickSliderProps) => {
@@ -32,18 +34,18 @@ const SlickSlider = ({
         },
       },
       {
-        breakpoint: 998,
+        breakpoint: 898,
         settings: {
-          initialSlide: desktopSlideToShow,
-          slidesToShow: desktopSlideToShow,
+          initialSlide: tabSlideToShow,
+          slidesToShow: tabSlideToShow,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 588,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: mobileSlideToShow,
+          slidesToScroll: mobileSlideToShow,
         },
       },
       {

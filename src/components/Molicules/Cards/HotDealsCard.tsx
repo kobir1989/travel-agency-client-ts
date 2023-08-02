@@ -24,20 +24,75 @@ const HotDealsCard = ({
         position: 'relative',
       })}
     >
-      <Stack direction="row" gap={4}>
-        <Box sx={{ marginTop: '-3rem', marginLeft: '-2rem' }}>
+      <Stack
+        sx={(theme) => ({
+          flexDirection: 'column',
+          gap: 4,
+          [theme.breakpoints.up('sm')]: {
+            flexDirection: 'row',
+          },
+        })}
+      >
+        <Box
+          sx={(theme) => ({
+            marginTop: '-3rem',
+            marginLeft: '-2rem',
+            width: '80%',
+            height: '200px',
+            [theme.breakpoints.up('sm')]: {
+              width: '180px',
+              height: '130px',
+            },
+          })}
+        >
           <NextImage
             imgUrl={image}
             alt="offer"
             width={180}
             height={130}
-            styles={{ borderRadius: '8px' }}
+            styles={{ borderRadius: '8px', width: '100%', height: '100%' }}
           />
         </Box>
 
-        <Stack gap={1}>
-          <Typography variant="h3">{title}</Typography>
-          <Typography variant="body1">{descriptions}</Typography>
+        <Stack
+          gap={1}
+          sx={(theme) => ({
+            width: '100%',
+            [theme.breakpoints.up('sm')]: {
+              width: '80%',
+            },
+          })}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              height: '3rem',
+              whiteSpace: 'pre-wrap',
+              wordWrap: 'break-word',
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              display: '-webkit-box',
+              WebkitLineClamp: 4,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              height: '4.5rem',
+              whiteSpace: 'pre-wrap',
+              wordWrap: 'break-word',
+            }}
+          >
+            {descriptions}
+          </Typography>
         </Stack>
       </Stack>
       <Box mb={-1} mt={2}>

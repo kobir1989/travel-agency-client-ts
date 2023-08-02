@@ -3,6 +3,8 @@ export interface SlickSliderProps {
   desktopSlideToShow: number;
   slidesToShow: number;
   slidesToScroll: number;
+  tabSlideToShow?: number;
+  mobileSlideToShow?: number;
 }
 
 export interface SlickSliderArrowProps {

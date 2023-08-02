@@ -44,7 +44,12 @@ const HotDealSection = () => {
         <Typography variant="h2">Hot Deals</Typography>
       </Box>
       <Stack>
-        <SlickSlider desktopSlideToShow={2} slidesToScroll={1} slidesToShow={2}>
+        <SlickSlider
+          desktopSlideToShow={2}
+          tabSlideToShow={1}
+          slidesToScroll={1}
+          slidesToShow={2}
+        >
           {cards.map((card) => (
             <Box
               sx={{

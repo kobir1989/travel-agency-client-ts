@@ -8,7 +8,13 @@ const PopularHotels = () => {
       <Box>
         <Typography variant="h2">Popular Hotels & Resorts</Typography>
       </Box>
-      <SlickSlider desktopSlideToShow={4} slidesToShow={4} slidesToScroll={1}>
+      <SlickSlider
+        desktopSlideToShow={4}
+        mobileSlideToShow={2}
+        tabSlideToShow={2}
+        slidesToShow={4}
+        slidesToScroll={1}
+      >
         <Box>
           <PopularHotelCard title="dfdff" subTitle="fdfdffd" />
         </Box>

@@ -8,7 +8,12 @@ const PopularDestination = () => {
       <Box>
         <Typography variant="h2">Popular Destinations</Typography>
       </Box>
-      <SlickSlider desktopSlideToShow={3} slidesToScroll={1} slidesToShow={3}>
+      <SlickSlider
+        desktopSlideToShow={3}
+        tabSlideToShow={2}
+        slidesToScroll={1}
+        slidesToShow={3}
+      >
         <Box>
           <PopularDestinationCard />
         </Box>
