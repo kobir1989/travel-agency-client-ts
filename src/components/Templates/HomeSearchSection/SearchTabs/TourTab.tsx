@@ -33,13 +33,17 @@ const TourTab = () => {
       <Box>
         <Grid container spacing={1}>
           <GridItem
-            column={12}
+            lg={12}
+            sm={12}
+            md={12}
+            xs={12}
             label="LOCATION / TOUR"
             isPopupOpen={isLocationsOptionsOpen}
             onHandleClick={() => dispatch(setOpenLocationOptions())}
             selectedValue={selectedTour}
           >
             <OptionsList
+              onClose={() => dispatch(setCloseLocationOptions())}
               titleKey="location"
               onOptionSelect={handleSelectedLocation}
               placeholder="Search Location..."

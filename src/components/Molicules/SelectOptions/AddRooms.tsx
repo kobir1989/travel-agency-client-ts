@@ -1,6 +1,7 @@
 'use client';
 
 import Icons from '@/components/Atoms/Icons';
+import { AddRoomsProps } from '@/components/Molicules/SelectOptions/types/types';
 import {
   closeOptionPopups,
   setAddGuests,
@@ -40,17 +41,23 @@ const StyledSpan = styled('span')({
   fontWeight: 600,
 });
 
-const AddRooms = () => {
+const AddRooms = ({ onClose }: AddRoomsProps) => {
   const { roomCount, guests } = useSelector(
     (state: RootState) => state.searchHotel,
   );
   const dispatch = useDispatch();
   return (
     <Box
-      width="25rem"
       sx={(theme) => ({
         background: theme.palette.info.light,
         borderRadius: '8px',
+        width: '100%',
+        height: '100%',
+        padding: '1rem',
+        [theme.breakpoints.up('sm')]: {
+          width: '25rem',
+          padding: '0',
+        },
       })}
       onClick={(e) => e.stopPropagation()}
     >
@@ -93,15 +100,23 @@ const AddRooms = () => {
       </List>
 
       <Stack
-        justifyContent="flex-end"
-        alignItems="flex-end"
+        sx={(theme) => ({
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          [theme.breakpoints.up('sm')]: {
+            justifyContent: 'flex-end',
+          },
+        })}
         pb={2}
         pt={1}
         pr={2}
       >
+        <IconButton onClick={onClose}>
+          <Icons name="backArrow" size="1.3rem" />
+        </IconButton>
         <Button
           variant="secondary"
-          sx={{ padding: '0.3rem' }}
+          sx={{ padding: '0.3rem', width: '5rem' }}
           onClick={() => dispatch(closeOptionPopups())}
         >
           Done

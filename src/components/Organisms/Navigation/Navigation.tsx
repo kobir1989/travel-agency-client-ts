@@ -21,14 +21,15 @@ const Navigation = () => {
     <AppBar
       position="fixed"
       sx={{
-        background: currentScrollPosition > 200 ? '#ffffffd1' : 'none',
+        background: currentScrollPosition > 50 ? '#ffffffd1' : 'none',
         boxShadow:
-          currentScrollPosition > 200
+          currentScrollPosition > 50
             ? ' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
             : 'none',
         height: '5rem',
-        backdropFilter: currentScrollPosition > 200 ? 'blur(2px)' : 'none',
+        backdropFilter: currentScrollPosition > 50 ? 'blur(2px)' : 'none',
         transition: 'all 0.2s ease-in-out',
+        zIndex: 50,
       }}
     >
       <Container maxWidth="lg" disableGutters>

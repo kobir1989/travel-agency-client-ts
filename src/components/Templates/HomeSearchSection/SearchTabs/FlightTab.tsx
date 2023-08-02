@@ -118,7 +118,10 @@ const FlightTab = () => {
         <Grid container spacing={1}>
           {/* depart from  */}
           <GridItem
-            column={4}
+            lg={4}
+            md={3}
+            sm={6}
+            xs={12}
             isPopupOpen={openOptionsPopup.isDepartOptionsOpen}
             label="FROM"
             onSwapValue={swapSelectedValue}
@@ -135,6 +138,7 @@ const FlightTab = () => {
             selectedValue={selectedDepartValue}
           >
             <OptionsList
+              onClose={handleCloseSelect}
               options={departOptions}
               onOptionSelect={handleSelectDepartOption}
               subtitleKey="location"
@@ -144,7 +148,10 @@ const FlightTab = () => {
           </GridItem>
           {/* arrival to */}
           <GridItem
-            column={4}
+            lg={4}
+            md={3}
+            sm={6}
+            xs={12}
             isPopupOpen={openOptionsPopup.isArrivalOptionsOpen}
             label="TO"
             onHandleClick={() =>
@@ -160,6 +167,7 @@ const FlightTab = () => {
             selectedValue={selectedArrival}
           >
             <OptionsList
+              onClose={handleCloseSelect}
               options={arrivalOptions}
               onOptionSelect={handleSelectArrivalOption}
               subtitleKey="location"
@@ -169,7 +177,10 @@ const FlightTab = () => {
           </GridItem>
           {/* depart date */}
           <GridItem
-            column={flightType === 'roundWay' ? 2 : 4}
+            lg={flightType === 'roundWay' ? 2 : 4}
+            md={flightType === 'roundWay' ? 3 : 4}
+            sm={6}
+            xs={6}
             isPopupOpen={openOptionsPopup.isDepartDateOpen}
             label="DEPARTURE DATE"
             onHandleClick={() =>
@@ -188,6 +199,7 @@ const FlightTab = () => {
             }}
           >
             <MuiDatePicker
+              onClose={handleCloseSelect}
               lable="Select Departure date"
               onDateValue={handleDepartDate}
               value={departDate}
@@ -197,7 +209,10 @@ const FlightTab = () => {
           {/* arrival date show when round way selectd */}
           <Condition condition={flightType === 'roundWay'}>
             <GridItem
-              column={2}
+              lg={2}
+              md={3}
+              sm={6}
+              xs={6}
               isPopupOpen={openOptionsPopup.isArrivalDateOpen}
               label="RETURN DATE"
               positionRight="0"
@@ -217,6 +232,7 @@ const FlightTab = () => {
               }}
             >
               <MuiDatePicker
+                onClose={handleCloseSelect}
                 lable="Select Return date"
                 onDateValue={handleSelectedArrivalDate}
                 value={arrivalDate}

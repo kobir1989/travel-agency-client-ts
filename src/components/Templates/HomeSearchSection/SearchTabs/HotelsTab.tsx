@@ -108,12 +108,16 @@ const HotelsTab = () => {
           {/* location */}
           <GridItem
             label="CITY / HOTEL / RESORT / AREA"
-            column={6}
+            lg={6}
+            md={6}
+            sm={6}
+            xs={12}
             isPopupOpen={openOptionsPopup.isLocationOptionsOpen}
             onHandleClick={handleOpenLocationOptions}
             selectedValue={selectedlocation}
           >
             <OptionsList
+              onClose={() => dispatch(closeOptionPopups())}
               options={HotelOptions}
               subtitleKey="country"
               titleKey="location"
@@ -123,7 +127,10 @@ const HotelsTab = () => {
           </GridItem>
           {/* check in calander */}
           <GridItem
-            column={2}
+            lg={2}
+            md={6}
+            sm={6}
+            xs={6}
             isPopupOpen={openOptionsPopup.isCheckInCalanderOpen}
             label="CHECK IN"
             onHandleClick={handleOpenCheckInCalander}
@@ -133,6 +140,7 @@ const HotelsTab = () => {
             }}
           >
             <MuiDatePicker
+              onClose={() => dispatch(closeOptionPopups())}
               lable="Select check in Date"
               value={checkIn}
               onDateValue={handleCheckinValue}
@@ -141,7 +149,10 @@ const HotelsTab = () => {
           </GridItem>
           {/* check out calander */}
           <GridItem
-            column={2}
+            lg={2}
+            md={6}
+            sm={6}
+            xs={6}
             isPopupOpen={openOptionsPopup.isCheckOutCalanderOpen}
             label="CHECK OUT"
             selectedValue={{
@@ -151,6 +162,7 @@ const HotelsTab = () => {
             onHandleClick={handleOpenCheckOutCalander}
           >
             <MuiDatePicker
+              onClose={() => dispatch(closeOptionPopups())}
               lable="Select check out Date"
               value={checkOut}
               onDateValue={handleCheckOutValue}
@@ -160,7 +172,10 @@ const HotelsTab = () => {
           {/* rooms and guests */}
           <GridItem
             label="ROOMS & GUESTS"
-            column={2}
+            lg={2}
+            md={6}
+            sm={6}
+            xs={12}
             positionRight="0"
             isPopupOpen={openOptionsPopup.isRoomOptionsOpen}
             onHandleClick={handleOpenRoomsPopup}
@@ -169,7 +184,7 @@ const HotelsTab = () => {
               subtitle: `${guests} Guests`,
             }}
           >
-            <AddRooms />
+            <AddRooms onClose={() => dispatch(closeOptionPopups())} />
           </GridItem>
         </Grid>
       </Box>
