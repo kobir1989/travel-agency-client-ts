@@ -3,24 +3,31 @@ import { SelectButtonProps } from './types/types';
 
 const StyledTitleInput = styled('input')(({ theme }) => ({
   border: 'none',
-  fontSize: '1.1rem',
+  fontSize: '0.9rem',
   textAlign: 'start',
   background: 'none',
   fontWeight: 600,
   color: theme.palette.primary.main,
   lineHeight: '1.6rem',
   cursor: 'pointer',
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1.1rem',
+  },
 }));
 
 const StyledSubtitleInput = styled('input')(({ theme }) => ({
   border: 'none',
-  fontSize: '0.81rem',
+  fontSize: '0.78rem',
   textAlign: 'start',
   background: 'none',
   fontWeight: 300,
   color: theme.palette.info.dark,
   lineHeight: '1.6rem',
   cursor: 'pointer',
+  [theme.breakpoints.up('md')]: {
+    fontSize: '0.81rem',
+    fontWeight: 500,
+  },
 }));
 
 const StyledLabel = styled('label')({

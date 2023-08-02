@@ -47,6 +47,11 @@ export const theme = createTheme({
             '&:hover': {
               background: palette.secondary.light,
             },
+            '@media (max-width: 600px)': {
+              fontSize: '0.85rem',
+              letterSpacing: '0.2px',
+              padding: '0.5rem 1.3rem',
+            },
           },
         },
       ],
@@ -55,7 +60,7 @@ export const theme = createTheme({
   // breakpoints
   breakpoints: {
     values: {
-      xs: 412,
+      xs: 0,
       sm: 576,
       md: 850,
       lg: 1280,

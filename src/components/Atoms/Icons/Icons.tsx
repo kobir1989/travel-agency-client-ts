@@ -34,6 +34,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import ConnectingAirportsIcon from '@mui/icons-material/ConnectingAirports';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 const icons: IconMap = {
   search: TravelExploreIcon,
@@ -69,6 +70,7 @@ const icons: IconMap = {
   tour: LandscapeIcon,
   web: LanguageIcon,
   swap: SyncAltIcon,
+  arrowOutWard: ArrowOutwardIcon,
 };
 
 const Icons = (props: IconsProps) => {

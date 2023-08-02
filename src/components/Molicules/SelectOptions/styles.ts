@@ -1,7 +1,7 @@
 import { ListItem, styled } from '@mui/material';
 
 export const StyledInput = styled('input')(({ theme }) => ({
-  padding: '1.3rem 1.3rem 1rem 3rem',
+  padding: '1.3rem 1.3rem 1rem 4rem',
   borderTop: 'none',
   borderLeft: 'none',
   borderRight: 'none',
@@ -24,7 +24,7 @@ export const StyledListItem = styled(ListItem)({
 
 export const StyledSpan = styled('span')({
   position: 'absolute',
-  left: '1rem',
+  left: '2.5rem',
   top: '50%',
   transform: 'translate(0,-50%)',
   lineHeight: '0',

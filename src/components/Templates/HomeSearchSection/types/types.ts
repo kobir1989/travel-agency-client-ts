@@ -2,7 +2,10 @@ import { SelectedValueType } from '@/components/Molicules/SelectOptions/types/ty
 
 export interface GridItemProps {
   onHandleClick(): void;
-  column: number;
+  lg: number;
+  sm: number;
+  xs: number;
+  md: number;
   isPopupOpen: boolean;
   selectedValue: SelectedValueType;
   label: string;

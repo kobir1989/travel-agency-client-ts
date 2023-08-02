@@ -20,8 +20,13 @@ export interface OptionType {
 // Define a generic component props
 export interface OptionsListProps {
   options: OptionType[];
+  onClose(): void;
   onOptionSelect(option: OptionType): void;
   placeholder: string;
   titleKey: keyof OptionType; // The key to be used for the title (e.g., 'location' or 'airport')
   subtitleKey: keyof OptionType; // The key to be used for the subtitle (e.g., 'hotel' or 'airport')
+}
+
+export interface AddRoomsProps {
+  onClose(): void;
 }

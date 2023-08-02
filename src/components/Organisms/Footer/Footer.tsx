@@ -33,8 +33,8 @@ const Footer = () => {
       })}
     >
       <Container maxWidth="lg">
-        <Grid container width="100%">
-          <Grid item lg={3}>
+        <Grid container>
+          <Grid item lg={3} xs={5} sm={6} md={3}>
             <List sx={(theme) => ({ color: theme.palette.info.light })}>
               <ListItem sx={{ fontSize: '1rem', fontWeight: 600 }}>
                 Discover
@@ -45,7 +45,7 @@ const Footer = () => {
             </List>
           </Grid>
 
-          <Grid item lg={3}>
+          <Grid item lg={3} xs={7} sm={6} md={3}>
             <List sx={(theme) => ({ color: theme.palette.info.light })}>
               <ListItem sx={{ fontSize: '1rem', fontWeight: 600 }}>
                 We Accept
@@ -72,7 +72,7 @@ const Footer = () => {
               </ListItem>
             </List>
           </Grid>
-          <Grid item lg={4}>
+          <Grid item lg={4} xs={12} sm={6} md={3}>
             <List sx={(theme) => ({ color: theme.palette.info.light })}>
               <ListItem sx={{ fontSize: '1rem', fontWeight: 600 }}>
                 Need Help?
@@ -85,7 +85,7 @@ const Footer = () => {
               </ListItem>
             </List>
           </Grid>
-          <Grid item lg={2}>
+          <Grid item lg={2} xs={12} sm={6} md={3}>
             <List sx={(theme) => ({ color: theme.palette.info.light })}>
               <ListItem sx={{ fontSize: '1rem', fontWeight: 600 }}>
                 Contract Us

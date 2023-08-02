@@ -14,7 +14,10 @@ const StyledMuiTab = styled(Tab)(({ theme }) => ({
   color: theme.palette.primary.main,
   textTransform: 'capitalize',
   fontWeight: 600,
-  fontSize: '1rem',
+  fontSize: '0.81rem',
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1rem',
+  },
 }));
 
 const MuiTabs = ({ tabLabels, tabComponents, tabsStyles }: MuiTabsProps) => {
