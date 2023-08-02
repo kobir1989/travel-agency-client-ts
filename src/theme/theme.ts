@@ -47,6 +47,11 @@ export const theme = createTheme({
             '&:hover': {
               background: palette.secondary.light,
             },
+            '@media (max-width: 600px)': {
+              fontSize: '0.85rem',
+              letterSpacing: '0.2px',
+              padding: '0.5rem 1.3rem',
+            },
           },
         },
       ],

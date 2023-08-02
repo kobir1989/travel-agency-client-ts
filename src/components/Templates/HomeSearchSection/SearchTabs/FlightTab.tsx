@@ -119,7 +119,7 @@ const FlightTab = () => {
           {/* depart from  */}
           <GridItem
             lg={4}
-            md={3}
+            md={flightType === 'roundWay' ? 3.5 : 4}
             sm={6}
             xs={12}
             isPopupOpen={openOptionsPopup.isDepartOptionsOpen}
@@ -149,7 +149,7 @@ const FlightTab = () => {
           {/* arrival to */}
           <GridItem
             lg={4}
-            md={3}
+            md={flightType === 'roundWay' ? 3.5 : 4}
             sm={6}
             xs={12}
             isPopupOpen={openOptionsPopup.isArrivalOptionsOpen}
@@ -178,9 +178,9 @@ const FlightTab = () => {
           {/* depart date */}
           <GridItem
             lg={flightType === 'roundWay' ? 2 : 4}
-            md={flightType === 'roundWay' ? 3 : 4}
-            sm={6}
-            xs={6}
+            md={flightType === 'roundWay' ? 2.5 : 4}
+            sm={flightType === 'roundWay' ? 6 : 12}
+            xs={flightType === 'roundWay' ? 6 : 12}
             isPopupOpen={openOptionsPopup.isDepartDateOpen}
             label="DEPARTURE DATE"
             onHandleClick={() =>
@@ -210,7 +210,7 @@ const FlightTab = () => {
           <Condition condition={flightType === 'roundWay'}>
             <GridItem
               lg={2}
-              md={3}
+              md={2.5}
               sm={6}
               xs={6}
               isPopupOpen={openOptionsPopup.isArrivalDateOpen}

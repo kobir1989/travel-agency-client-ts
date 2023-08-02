@@ -4,10 +4,14 @@ export const typography = {
   fontFamily: `Open Sans, sans-serif`,
   h1: {
     fontSize: '2.75rem',
-    lineHeight: '2.6875rem',
+    lineHeight: '3.2rem',
     letterSpacing: '0.1px',
     fontWeight: '700',
     color: palette.primary.main,
+    '@media (max-width: 600px)': {
+      fontSize: '2rem',
+      lineHeight: '2.4rem',
+    },
   },
   h2: {
     fontSize: '1.71rem',
@@ -15,6 +19,10 @@ export const typography = {
     letterSpacing: '0.1px',
     fontWeight: '700',
     color: palette.primary.main,
+    '@media (max-width: 600px)': {
+      fontSize: '1.4rem',
+      lineHeight: '2rem',
+    },
   },
   h3: {
     fontSize: '1.1rem',
@@ -22,12 +30,20 @@ export const typography = {
     letterSpacing: '0.1px',
     fontWeight: '600',
     color: palette.primary.main,
+    '@media (max-width: 600px)': {
+      fontSize: '0.95rem',
+      lineHeight: '1.5rem',
+    },
   },
   h4: {
-    fontSize: '1.2rem',
-    lineHeight: '2.375rem',
+    fontSize: '1rem',
+    lineHeight: '2.3rem',
     fontWeight: '500',
     color: palette.primary.main,
+    '@media (max-width: 600px)': {
+      fontSize: '0.9rem',
+      lineHeight: '1.5rem',
+    },
   },
   body1: {
     fontSize: '0.9rem',
@@ -35,6 +51,11 @@ export const typography = {
     letterSpacing: '0.2px',
     fontWeight: '300',
     color: palette.info.dark,
+    '@media (max-width: 600px)': {
+      fontSize: '0.85rem',
+      lineHeight: '1.2rem',
+      letterSpacing: '0.2px',
+    },
   },
   body2: {
     fontSize: '0.81rem',
@@ -42,5 +63,10 @@ export const typography = {
     letterSpacing: '0.1px',
     fontWeight: '300',
     color: palette.info.dark,
+    '@media (max-width: 600px)': {
+      fontSize: '0.78rem',
+      lineHeight: '1rem',
+      letterSpacing: '0.2px',
+    },
   },
 };

@@ -8,7 +8,10 @@ import Footer from '@/components/Organisms/Footer/Footer';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const opensans = Open_Sans({ subsets: ['latin'] });
+const opensans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: 'Horizon Explorers',

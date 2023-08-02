@@ -16,7 +16,7 @@ const Home = () => {
     >
       <Box
         sx={{
-          backgroundImage: `url('/assets/cover.avif')`,
+          backgroundImage: `url('/assets/cover2.jpg')`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           height: '100vh',
@@ -26,6 +26,9 @@ const Home = () => {
           alignItems: 'center',
           justifyContent: 'center',
           imageRendering: 'auto',
+          '@media (max-width: 600px)': {
+            paddingTop: '4rem',
+          },
         }}
       >
         <Container maxWidth="lg">
