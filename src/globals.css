@@ -31,7 +31,7 @@ body {
 
 /* Resetting the default styles of the HTML elements. */
 a {
-  color: inherit;
+  color: #828d99;
   text-decoration: none;
 }
 
@@ -58,4 +58,16 @@ p {
 
 textarea {
   resize: none;
+}
+
+img {
+  vertical-align: middle;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+.slick-slide > div {
+  margin: 2rem 10px;
+}
+.slick-list {
+  margin: 0 -10px;
 }

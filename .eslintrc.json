@@ -19,7 +19,11 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/forbid-prop-types": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": "off",
+    "arrow-body-style": "off",
+    "no-param-reassign": "off"
   }
 }
 

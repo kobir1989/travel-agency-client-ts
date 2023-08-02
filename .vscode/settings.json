@@ -5,5 +5,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.format": true
-  }
+  },
+  "editor.acceptSuggestionOnEnter": "on",
+  "typescript.suggest.autoImports": true
 }

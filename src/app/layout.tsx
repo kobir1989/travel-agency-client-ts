@@ -2,8 +2,16 @@ import '@/globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import ReduxProvider from '@/redux/store/provider';
+import ThemeRegistry from '@/theme';
+import Navigation from '@/components/Organisms/Navigation/Navigation';
+import Footer from '@/components/Organisms/Footer/Footer';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-const opensans = Open_Sans({ subsets: ['latin'] });
+const opensans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: 'Horizon Explorers',
@@ -21,8 +29,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={opensans.className}>
-        <ReduxProvider>{children}</ReduxProvider>
+      <body className={opensans.className} style={{ background: '#ebf0f4' }}>
+        <ReduxProvider>
+          <ThemeRegistry>
+            <Navigation />
+            {children}
+            <div id="portal" />
+            <Footer />
+          </ThemeRegistry>
+        </ReduxProvider>
       </body>
     </html>
   );
