@@ -19,4 +19,6 @@ export interface MuiTabsProps {
   tabLabels: TabLabel[];
   tabComponents: TabComponents[];
   tabsStyles?: object;
+  onHandleChange(event: React.SyntheticEvent, newValue: number): void;
+  value: number;
 }

@@ -2,7 +2,6 @@ import MuiDatePicker from '@/components/Molicules/MuiDatePicker';
 import { OptionsList } from '@/components/Molicules/SelectOptions';
 import AddRooms from '@/components/Molicules/SelectOptions/AddRooms';
 import { OptionType } from '@/components/Molicules/SelectOptions/types/types';
-import GridItem from '@/components/Templates/HomeSearchSection/SearchTabs/GridItem';
 import {
   closeOptionPopups,
   setCheckIn,
@@ -14,6 +13,7 @@ import { RootState } from '@/redux/store/store';
 import { Box, Grid, ClickAwayListener } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
 import { useSelector, useDispatch } from 'react-redux';
+import GridItem from './GridItem';
 
 const HotelOptions = [
   {

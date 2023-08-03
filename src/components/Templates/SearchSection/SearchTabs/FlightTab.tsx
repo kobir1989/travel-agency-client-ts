@@ -15,7 +15,7 @@ import {
   setSelectedDepartValue,
 } from '@/redux/features/searchFlight/searhFlightSlice';
 import { OptionType } from '@/components/Molicules/SelectOptions/types/types';
-import GridItem from '@/components/Templates/HomeSearchSection/SearchTabs/GridItem';
+import GridItem from './GridItem';
 
 const departOptions = [
   {

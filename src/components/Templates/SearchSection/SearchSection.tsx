@@ -1,18 +1,18 @@
 'use client';
 
-import {
-  Box,
-  styled,
-  // Stack,
-  // Typography,
-  Button,
-  Container,
-} from '@mui/material';
+import { Box, styled, Button, Container } from '@mui/material';
 import MuiTabs from '@/components/Molicules/MuiTabs';
-import FlightTab from '@/components/Templates/HomeSearchSection/SearchTabs/FlightTab';
-import HotelsTab from '@/components/Templates/HomeSearchSection/SearchTabs/HotelsTab';
-import TourTab from '@/components/Templates/HomeSearchSection/SearchTabs/TourTab';
 import { theme as muiTheme } from '@/theme/theme';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store/store';
+import dayjs from 'dayjs';
+import {
+  TourTab,
+  HotelsTab,
+  FlightTab,
+} from '@/components/Templates/SearchSection/SearchTabs';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   background: theme.palette.info.light,
@@ -76,7 +76,41 @@ const tabsStyles = {
   },
 };
 
-const HomeSearchSection = () => {
+const SearchSection = () => {
+  const [value, setValue] = useState(0);
+  const { selectedArrival, selectedDepartValue, departDate } = useSelector(
+    (state: RootState) => state.searchFlight,
+  );
+  const { checkIn, checkOut, selectedlocation, roomCount, guests } =
+    useSelector((state: RootState) => state.searchHotel);
+  const { selectedTour } = useSelector((state: RootState) => state.searchTour);
+  const router = useRouter();
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
+  // navigte to pages based on tab value
+  const handleSearch = () => {
+    if (value === 0) {
+      router.push(
+        `/flight-list?depart=${selectedDepartValue.title.toLocaleLowerCase()}&arrival=${selectedArrival.title.toLocaleLowerCase()}&date=${dayjs(
+          departDate,
+        ).format('MM-DD-YYYY')}`,
+      );
+    }
+    if (value === 1) {
+      router.push(
+        `/hotel-list?location=${selectedlocation.title.toLowerCase()}&checkin=${dayjs(
+          checkIn,
+        ).format('MM-DD-YYYY')}&checkout=${dayjs(checkOut).format(
+          'MM-DD-YYYY',
+        )}&rooms=${roomCount}&guests=${guests}`,
+      );
+    }
+    if (value === 2) {
+      router.push(`/tour/list?location=${selectedTour.title.toLowerCase()}`);
+    }
+  };
   return (
     <StyledContainer maxWidth="lg">
       <Box width="100%">
@@ -84,6 +118,8 @@ const HomeSearchSection = () => {
           tabsStyles={tabsStyles}
           tabLabels={tabLabels}
           tabComponents={tabComponents}
+          value={value}
+          onHandleChange={handleChange}
         />
       </Box>
       <Box
@@ -95,6 +131,7 @@ const HomeSearchSection = () => {
         }}
       >
         <Button
+          onClick={handleSearch}
           variant="secondary"
           sx={{ width: '12rem', fontSize: '1.1rem', borderRadius: '0.7rem' }}
         >
@@ -105,4 +142,4 @@ const HomeSearchSection = () => {
   );
 };
 
-export default HomeSearchSection;
+export default SearchSection;

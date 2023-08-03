@@ -2,10 +2,11 @@
 
 import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
-import { Box, Button, Stack, Typography, styled } from '@mui/material';
+import { Box, Button, Stack, Typography, styled, Grid } from '@mui/material';
+import dayjs from 'dayjs';
 
-const ArrowSpan = styled('span')({
-  width: '6rem',
+const ArrowBox = styled('div')({
+  width: '8rem',
   height: '2px',
   background: '#525371a4',
   position: 'relative',
@@ -24,37 +25,38 @@ const ArrowSpan = styled('span')({
     content: '"Non-Stop"',
     position: 'absolute',
     top: '-1.7rem',
-    left: '0.5rem',
+    left: '50%',
+    transform: 'translate(-50%,0)',
     fontSize: '0.8rem',
+    fontWeight: 400,
   },
 });
 
 const OldPrice = styled('span')({
   fontSize: '0.9rem',
   textDecoration: 'line-through',
+  fontWeight: 400,
 });
 
 const FlightCard = () => {
   return (
-    <Stack
+    <Box
       sx={(theme) => ({
         background: theme.palette.info.light,
-        maxWidth: '60rem',
+        width: '100%',
         borderRadius: '6px',
-        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
       })}
     >
-      <Box width="75%">
-        <Stack
-          p="1rem"
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          height="100%"
-        >
-          <Stack direction="row" gap={1} alignItems="center">
+      <Grid container alignItems="center" rowSpacing={3}>
+        <Grid item lg={3} md={3} sm={5} xs={12}>
+          <Stack
+            direction="row"
+            gap={1}
+            alignItems="center"
+            width="100%"
+            ml={2}
+          >
             <NextImage
               alt="amerats"
               imgUrl="/assets/emitates.png"
@@ -65,18 +67,27 @@ const FlightCard = () => {
               Amerats Airlines
             </Typography>
           </Stack>
-
+        </Grid>
+        {/* middle */}
+        <Grid item lg={6} md={6} sm={7} xs={12}>
           <Stack
             direction="row"
+            justifyContent="space-between"
             alignItems="center"
-            justifyContent="center"
             gap={2}
+            padding={2}
           >
             <Box>
-              <Typography variant="h4" lineHeight="1.4rem">
+              <Typography variant="h3" lineHeight="1.4rem">
                 12.00
               </Typography>
+
+              <Typography variant="body2" lineHeight="1.5rem">
+                {dayjs(new Date()).format('dddd')} <br />
+                {dayjs(new Date()).format('MMM YYYY')}
+              </Typography>
               <Typography
+                fontWeight={600}
                 variant="body1"
                 sx={(theme) => ({ color: theme.palette.info.dark })}
               >
@@ -84,55 +95,94 @@ const FlightCard = () => {
               </Typography>
             </Box>
             {/* arrow */}
-            <ArrowSpan />
+            <ArrowBox>
+              <Typography
+                variant="body1"
+                sx={(theme) => ({
+                  position: 'absolute',
+                  top: '0.5rem',
+                  left: '50%',
+                  transform: 'translate(-50%,0)',
+                  [theme.breakpoints.up('md')]: {
+                    display: 'none',
+                  },
+                })}
+              >
+                1h 30m
+              </Typography>
+            </ArrowBox>
+
             <Box>
-              <Typography variant="h4" lineHeight="1.4rem">
-                12.00
+              <Typography variant="h3" lineHeight="1.4rem">
+                01: 15
+              </Typography>
+
+              <Typography variant="body2" lineHeight="1.5rem">
+                {dayjs(new Date()).format('dddd')} <br />
+                {dayjs(new Date()).format('MMM YYYY')}
               </Typography>
               <Typography
                 variant="body1"
-                textAlign="end"
-                sx={(theme) => ({ color: theme.palette.info.main })}
+                fontWeight={600}
+                sx={(theme) => ({ color: theme.palette.info.dark })}
               >
-                DUB
+                DAC
               </Typography>
             </Box>
-          </Stack>
-          <Box>
-            <Typography variant="body1" fontSize="1rem" fontWeight="600">
+            <Typography
+              variant="h3"
+              fontSize="1rem"
+              fontWeight="600"
+              sx={(theme) => ({
+                display: 'none',
+                [theme.breakpoints.up('md')]: {
+                  display: 'unset',
+                },
+              })}
+            >
               1h 15m
             </Typography>
-          </Box>
-        </Stack>
-      </Box>
-      <Box
-        sx={(theme) => ({
-          background: theme.palette.primary.light,
-          p: '1rem',
-          width: '25%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 1,
-        })}
-      >
-        <Typography variant="body1">Flight Number: AE85</Typography>
-        <Typography variant="h4">
-          <OldPrice>BDT 4500</OldPrice> BDT 5000
-        </Typography>
-        <Button
-          variant="secondary"
-          sx={{
-            display: 'flex',
-            gap: 1,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}
+          </Stack>
+        </Grid>
+        {/* last */}
+        <Grid
+          item
+          lg={3}
+          md={3}
+          sm={12}
+          xs={12}
+          sx={(theme) => ({ background: theme.palette.primary.light })}
         >
-          Select <Icons name="lognArrow" />
-        </Button>
-      </Box>
-    </Stack>
+          <Box
+            sx={{
+              p: '1rem',
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 1,
+            }}
+          >
+            <Typography variant="body1">Flight Number: AE85</Typography>
+            <Typography variant="h3" lineHeight="2rem">
+              <OldPrice>BDT 4500</OldPrice> BDT 5000
+            </Typography>
+            <Button
+              variant="secondary"
+              sx={{
+                display: 'flex',
+                gap: 1,
+                justifyContent: 'space-between',
+                width: '100%',
+                padding: '0.3rem 1rem',
+              }}
+            >
+              Select <Icons name="lognArrow" />
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
