@@ -1,8 +1,8 @@
 import Condition from '@/components/Atoms/Condition';
 import Icons from '@/components/Atoms/Icons';
 import { SelectButton } from '@/components/Molicules/SelectOptions';
-import { GridItemProps } from '@/components/Templates/HomeSearchSection/types/types';
 import { Grid, styled, Box, IconButton } from '@mui/material';
+import { GridItemProps } from '@/components/Templates/SearchSection/types/types';
 
 const StyledOptionsWrapper = styled(Box)(({ theme, right }) => ({
   position: 'fixed',
