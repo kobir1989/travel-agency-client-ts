@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Tab, Tabs, Stack, styled } from '@mui/material';
 import {
   MuiTabsProps,
@@ -20,17 +19,18 @@ const StyledMuiTab = styled(Tab)(({ theme }) => ({
   },
 }));
 
-const MuiTabs = ({ tabLabels, tabComponents, tabsStyles }: MuiTabsProps) => {
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
+const MuiTabs = ({
+  tabLabels,
+  tabComponents,
+  tabsStyles,
+  value,
+  onHandleChange,
+}: MuiTabsProps) => {
   return (
     <Stack position="relative" alignItems="center">
       <Tabs
         value={value}
-        onChange={handleChange}
+        onChange={onHandleChange}
         indicatorColor="secondary"
         centered
         TabIndicatorProps={{
