@@ -86,7 +86,6 @@ const HotelsTab = () => {
   };
   const handleCheckOutValue = (newValue: Dayjs) => {
     dispatch(setCheckOut(newValue));
-    dispatch(setCheckIn(newValue && newValue < checkOut ? newValue : checkOut));
     dispatch(closeOptionPopups());
   };
 

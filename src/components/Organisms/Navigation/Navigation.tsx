@@ -1,6 +1,7 @@
 'use client';
 
 import NextImage from '@/components/Atoms/NextImage';
+import Link from 'next/link';
 // import AvaterDropdown from '@/components/Organisms/Navigation/AvaterDropdown';
 import {
   AppBar,
@@ -34,14 +35,14 @@ const Navigation = () => {
     >
       <Container maxWidth="lg" disableGutters>
         <Toolbar sx={{ justifyContent: 'space-between', height: '5rem' }}>
-          <Box>
+          <Link href="/">
             <NextImage
               imgUrl="/assets/logo.svg"
               alt="logo"
               width={180}
               height={50}
             />
-          </Box>
+          </Link>
           <Box position="relative">
             {/* <IconButton>
               <Avatar src="/assets/user.jpg" />

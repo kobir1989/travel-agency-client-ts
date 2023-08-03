@@ -12,8 +12,8 @@ const HotelsCard = () => {
       sx={(theme) => ({
         background: theme.palette.info.light,
         padding: '1rem',
-        borderRadius: '4px',
-        boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+        borderRadius: '0.5rem',
+        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
         width: '100%',
       })}
     >
@@ -33,7 +33,7 @@ const HotelsCard = () => {
             width: '100%',
             height: '220px',
             [theme.breakpoints.up('sm')]: { width: '100%', height: '220px' },
-            [theme.breakpoints.up('md')]: { width: '250px', height: '220px' },
+            [theme.breakpoints.up('md')]: { width: '280px', height: '220px' },
           })}
         >
           <NextImage
@@ -41,20 +41,26 @@ const HotelsCard = () => {
             alt="hotel"
             width={250}
             height={220}
-            styles={{ width: '100%', height: '100%', borderRadius: '8px' }}
+            styles={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '8px',
+              objectFit: 'cover',
+            }}
           />
         </Box>
         {/* details */}
         <Stack
           justifyContent="space-between"
-          sx={(theme) => ({
+          sx={{
             flexDirection: 'column',
-            gap: 4,
-            [theme.breakpoints.up('sm')]: {
+            gap: 1,
+            '@media (min-width: 422px)': {
               flexDirection: 'row',
               flex: 2,
+              gap: 2,
             },
-          })}
+          }}
         >
           {/* center Box */}
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -96,7 +102,17 @@ const HotelsCard = () => {
                 7 Rooms Remaining
               </Typography>
             </Box>
-            <Stack direction="row" gap={1} alignItems="center">
+            <Stack
+              sx={(theme) => ({
+                flexDirection: 'column',
+                gap: 1,
+                alignItems: 'flex-start',
+                [theme.breakpoints.up('md')]: {
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                },
+              })}
+            >
               <Typography
                 variant="body2"
                 sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
@@ -156,7 +172,9 @@ const HotelsCard = () => {
             <Typography variant="h3" mt={1}>
               BDT 1500
             </Typography>
-            <Typography variant="body2">for 1 Night per person</Typography>
+            <Typography variant="body2" lineHeight="1.5rem">
+              for 1 Night per person
+            </Typography>
           </Stack>
         </Stack>
       </Stack>
