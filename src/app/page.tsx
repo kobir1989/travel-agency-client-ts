@@ -1,8 +1,10 @@
-import HotDealSection from '@/components/Templates/HomeHotDealsSection';
-import HomeSearchSection from '@/components/Templates/HomeSearchSection';
-import PopularDestination from '@/components/Templates/PopularDestinationSection';
-import PopularHotels from '@/components/Templates/PopularHotelsSection';
+import {
+  HotDealSection,
+  PopularDestination,
+  PopularHotels,
+} from '@/components/Templates/Home';
 import { Container, Box } from '@mui/material';
+import HomeSearchSection from '@/components/Templates/SearchSection';
 
 const Home = () => {
   return (

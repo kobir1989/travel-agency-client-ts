@@ -1,6 +1,5 @@
 import { OptionsList } from '@/components/Molicules/SelectOptions';
 import { OptionType } from '@/components/Molicules/SelectOptions/types/types';
-import GridItem from '@/components/Templates/HomeSearchSection/SearchTabs/GridItem';
 import {
   setCloseLocationOptions,
   setLocation,
@@ -9,6 +8,7 @@ import {
 import { RootState } from '@/redux/store/store';
 import { Box, Grid, ClickAwayListener } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
+import GridItem from './GridItem';
 
 const locationOptions = [
   {
