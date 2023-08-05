@@ -12,7 +12,7 @@ import {
   TourTab,
   HotelsTab,
   FlightTab,
-} from '@/components/Templates/SearchSection/SearchTabs';
+} from '@/components/Templates/HomePageSections/SearchSection/SearchTabs';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   background: theme.palette.info.light,

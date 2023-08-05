@@ -1,10 +1,10 @@
+import { Container, Box } from '@mui/material';
 import {
   HotDealSection,
   PopularDestination,
   PopularHotels,
-} from '@/components/Templates/Home';
-import { Container, Box } from '@mui/material';
-import HomeSearchSection from '@/components/Templates/SearchSection';
+  SearchSection,
+} from '@/components/Templates/HomePageSections';
 
 const Home = () => {
   return (
@@ -34,7 +34,7 @@ const Home = () => {
         }}
       >
         <Container maxWidth="lg">
-          <HomeSearchSection />
+          <SearchSection />
         </Container>
       </Box>
       <Container maxWidth="lg">

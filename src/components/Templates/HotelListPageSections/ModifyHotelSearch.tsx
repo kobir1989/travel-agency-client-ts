@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Container, Stack, styled } from '@mui/material';
-import { HotelsTab } from '@/components/Templates/SearchSection/SearchTabs';
+import { HotelsTab } from '@/components/Templates/HomePageSections/SearchSection/SearchTabs';
 
 const StyledStack = styled(Stack)(({ theme }) => ({
   background: theme.palette.info.light,
