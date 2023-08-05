@@ -108,7 +108,7 @@ const SearchSection = () => {
       );
     }
     if (value === 2) {
-      router.push(`/tour/list?location=${selectedTour.title.toLowerCase()}`);
+      router.push(`/tour-list?location=${selectedTour.title.toLowerCase()}`);
     }
   };
   return (
