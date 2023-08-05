@@ -1,6 +1,6 @@
 'use client';
 
-import { FlightTab } from '@/components/Templates/SearchSection/SearchTabs';
+import { FlightTab } from '@/components/Templates/HomePageSections/SearchSection/SearchTabs';
 import { Stack, Container, Button, styled } from '@mui/material';
 
 const StyledStack = styled(Stack)(({ theme }) => ({
