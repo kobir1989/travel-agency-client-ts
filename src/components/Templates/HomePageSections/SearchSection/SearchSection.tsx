@@ -12,7 +12,7 @@ import {
   TourTab,
   HotelsTab,
   FlightTab,
-} from '@/components/Templates/SearchSection/SearchTabs';
+} from '@/components/Templates/HomePageSections/SearchSection/SearchTabs';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   background: theme.palette.info.light,
@@ -108,7 +108,7 @@ const SearchSection = () => {
       );
     }
     if (value === 2) {
-      router.push(`/tour/list?location=${selectedTour.title.toLowerCase()}`);
+      router.push(`/tour-list?location=${selectedTour.title.toLowerCase()}`);
     }
   };
   return (

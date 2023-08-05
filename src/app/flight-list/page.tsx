@@ -1,8 +1,8 @@
 import {
-  ModifySearchSection,
+  ModifyFlightSearch,
   FilterSection,
   FlightListSection,
-} from '@/components/Templates/FlightListSections';
+} from '@/components/Templates/FlightListPageSections';
 
 const FlightList = () => {
   return (
@@ -11,7 +11,7 @@ const FlightList = () => {
         margin: '8rem 0 5rem 0',
       }}
     >
-      <ModifySearchSection />
+      <ModifyFlightSearch />
       <FilterSection />
       <FlightListSection />
     </main>
