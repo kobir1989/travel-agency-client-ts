@@ -21,4 +21,5 @@ export interface MuiTabsProps {
   tabsStyles?: object;
   onHandleChange(event: React.SyntheticEvent, newValue: number): void;
   value: number;
+  isCenter: boolean;
 }

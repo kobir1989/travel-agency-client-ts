@@ -115,6 +115,7 @@ const SearchSection = () => {
     <StyledContainer maxWidth="lg">
       <Box width="100%">
         <MuiTabs
+          isCenter
           tabsStyles={tabsStyles}
           tabLabels={tabLabels}
           tabComponents={tabComponents}

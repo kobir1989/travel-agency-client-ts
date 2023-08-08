@@ -25,14 +25,15 @@ const MuiTabs = ({
   tabsStyles,
   value,
   onHandleChange,
+  isCenter,
 }: MuiTabsProps) => {
   return (
     <Stack position="relative" alignItems="center">
       <Tabs
+        centered={!!isCenter}
         value={value}
         onChange={onHandleChange}
         indicatorColor="secondary"
-        centered
         TabIndicatorProps={{
           style: {
             height: '3px',
