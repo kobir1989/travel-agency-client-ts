@@ -26,6 +26,13 @@ const GenderLabel = styled('label')({
   },
 });
 
+const InputWrapperStack = styled(Stack)(({ theme }) => ({
+  flexDirection: 'column',
+  [theme.breakpoints.up('sm')]: {
+    flexDirection: 'row',
+  },
+}));
+
 const StyledTextfield = styled(TextField)(({ theme }) => ({
   '& .MuiOutlinedInput-root': {
     '&.Mui-focused fieldset': {
@@ -53,16 +60,16 @@ const BookingFrom = () => {
           <FormLabel sx={{ fontWeight: 600 }}>Select Title</FormLabel>
           <Stack direction="row" gap={2}>
             <GenderLabel>
-              <RadioButton type="radio" name="gender" />
+              <RadioButton type="radio" name="gender" required />
               MR.
             </GenderLabel>
 
             <GenderLabel>
-              <RadioButton type="radio" name="gender" />
+              <RadioButton type="radio" name="gender" required />
               MS.
             </GenderLabel>
             <GenderLabel>
-              <RadioButton type="radio" name="gender" />
+              <RadioButton type="radio" name="gender" required />
               MRS.
             </GenderLabel>
           </Stack>
@@ -73,37 +80,39 @@ const BookingFrom = () => {
         <FormLabel sx={{ mb: '-1rem', fontWeight: 600 }}>
           Personal Information
         </FormLabel>
-        <Stack direction="row" gap={4} width="100%">
-          <StyledTextfield placeholder="First Name" fullWidth />
-          <StyledTextfield placeholder="Last Name" fullWidth />
-        </Stack>
+        <InputWrapperStack gap={4} width="100%">
+          <StyledTextfield placeholder="First Name" fullWidth required />
+          <StyledTextfield placeholder="Last Name" fullWidth required />
+        </InputWrapperStack>
         {/* Name ends */}
 
         {/* Country & City Start */}
-        <Stack direction="row" gap={4}>
-          <StyledTextfield placeholder="Country" fullWidth />
-          <StyledTextfield placeholder="City" fullWidth />
-        </Stack>
+        <InputWrapperStack gap={4}>
+          <StyledTextfield placeholder="Country" fullWidth required />
+          <StyledTextfield placeholder="City" fullWidth required />
+        </InputWrapperStack>
         {/* Country & City ends */}
 
         {/* Password & ID  start */}
-        <Stack direction="row" gap={4}>
-          <StyledTextfield placeholder="Passport" fullWidth />
+        <InputWrapperStack gap={4}>
+          <StyledTextfield placeholder="Passport" fullWidth required />
           <StyledTextfield placeholder="NID (*Optional)" fullWidth />
-        </Stack>
+        </InputWrapperStack>
         {/* Password & ID  ends */}
         <FormLabel sx={{ mb: '-1rem', fontWeight: 600 }}>
           Contract Details
         </FormLabel>
         {/* Mobile & email  start */}
-        <Stack direction="row" gap={4}>
-          <StyledTextfield placeholder="Mobile" fullWidth />
-          <StyledTextfield placeholder="Email" fullWidth />
-        </Stack>
+        <InputWrapperStack gap={4}>
+          <StyledTextfield placeholder="Mobile" fullWidth required />
+          <StyledTextfield placeholder="Email" fullWidth required />
+        </InputWrapperStack>
         {/* Mobile & email  ends */}
 
         {/* Submit Button */}
-        <Button variant="secondary">Submit</Button>
+        <Button variant="secondary" type="submit">
+          Submit
+        </Button>
       </FormControl>
     </Box>
   );
