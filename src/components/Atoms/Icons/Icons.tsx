@@ -37,6 +37,7 @@ import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 
 const icons: IconMap = {
   search: TravelExploreIcon,
@@ -75,6 +76,7 @@ const icons: IconMap = {
   arrowOutWard: ArrowOutwardIcon,
   customarCare: SupportAgentIcon,
   message: TelegramIcon,
+  airline: LocalAirportIcon,
 };
 
 const Icons = (props: IconsProps) => {
