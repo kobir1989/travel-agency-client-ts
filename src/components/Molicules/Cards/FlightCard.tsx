@@ -1,7 +1,9 @@
 'use client';
 
+import Condition from '@/components/Atoms/Condition';
 import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
+import { FlightCardProps } from '@/components/Molicules/Cards/types/types';
 import { Box, Button, Stack, Typography, styled, Grid } from '@mui/material';
 import dayjs from 'dayjs';
 
@@ -38,7 +40,7 @@ const OldPrice = styled('span')({
   fontWeight: 400,
 });
 
-const FlightCard = () => {
+const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
   return (
     <Box
       sx={(theme) => ({
@@ -48,9 +50,10 @@ const FlightCard = () => {
         boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
       })}
     >
-      <Grid container alignItems="center" rowSpacing={3}>
-        <Grid item lg={3} md={3} sm={5} xs={12}>
+      <Grid container alignItems="center">
+        <Grid item lg={isPrice ? 3 : 4} md={isPrice ? 3 : 4} sm={5} xs={12}>
           <Stack
+            padding="1rem 0"
             direction="row"
             gap={1}
             alignItems="center"
@@ -69,13 +72,13 @@ const FlightCard = () => {
           </Stack>
         </Grid>
         {/* middle */}
-        <Grid item lg={6} md={6} sm={7} xs={12}>
+        <Grid item lg={isPrice ? 6 : 8} md={isPrice ? 6 : 8} sm={7} xs={12}>
           <Stack
             direction="row"
             justifyContent="space-between"
             alignItems="center"
             gap={2}
-            padding={2}
+            padding={3}
           >
             <Box>
               <Typography variant="h3" lineHeight="1.4rem">
@@ -145,42 +148,45 @@ const FlightCard = () => {
           </Stack>
         </Grid>
         {/* last */}
-        <Grid
-          item
-          lg={3}
-          md={3}
-          sm={12}
-          xs={12}
-          sx={(theme) => ({ background: theme.palette.primary.light })}
-        >
-          <Box
-            sx={{
-              p: '1rem',
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 1,
-            }}
+        <Condition condition={isPrice}>
+          <Grid
+            item
+            lg={3}
+            md={3}
+            sm={12}
+            xs={12}
+            sx={(theme) => ({ background: theme.palette.primary.light })}
           >
-            <Typography variant="body1">Flight Number: AE85</Typography>
-            <Typography variant="h3" lineHeight="2rem">
-              <OldPrice>BDT 4500</OldPrice> BDT 5000
-            </Typography>
-            <Button
-              variant="secondary"
+            <Box
               sx={{
-                display: 'flex',
-                gap: 1,
-                justifyContent: 'space-between',
+                p: '2rem',
                 width: '100%',
-                padding: '0.3rem 1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 1,
               }}
             >
-              Select <Icons name="lognArrow" />
-            </Button>
-          </Box>
-        </Grid>
+              <Typography variant="body1">Flight Number: AE85</Typography>
+              <Typography variant="h3" lineHeight="2rem">
+                <OldPrice>BDT 4500</OldPrice> BDT 5000
+              </Typography>
+              <Button
+                onClick={onNavigate ? () => onNavigate('test') : undefined}
+                variant="secondary"
+                sx={{
+                  display: 'flex',
+                  gap: 1,
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  padding: '0.3rem 1rem',
+                }}
+              >
+                Select <Icons name="lognArrow" />
+              </Button>
+            </Box>
+          </Grid>
+        </Condition>
       </Grid>
     </Box>
   );
