@@ -29,7 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={opensans.className} style={{ background: '#ebf0f4' }}>
+      <body
+        className={opensans.className}
+        style={{ background: '#ebf0f4', overflowX: 'hidden' }}
+      >
         <ReduxProvider>
           <ThemeRegistry>
             <Navigation />
