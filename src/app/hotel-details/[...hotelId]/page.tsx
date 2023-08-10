@@ -1,20 +1,27 @@
 import {
   HotelInfo,
   Policy,
+  PricingSummary,
   RoomDetails,
 } from '@/components/Templates/HotelDetailsPageSections';
-import { Container } from '@mui/material';
+import { Container, Grid, Stack } from '@mui/material';
 
 const HotelDetailsPage = () => {
   return (
     <main style={{ margin: '8rem 0' }}>
-      <Container
-        maxWidth="lg"
-        sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}
-      >
+      <Container maxWidth="lg">
         <HotelInfo />
-        <RoomDetails />
-        <Policy />
+        <Grid container spacing={3} mt={2}>
+          <Grid item lg={9} md={8} sm={12} xs={12}>
+            <Stack gap={3}>
+              <RoomDetails />
+              <Policy />
+            </Stack>
+          </Grid>
+          <Grid item lg={3} md={4} sm={12} xs={12}>
+            <PricingSummary />
+          </Grid>
+        </Grid>
       </Container>
     </main>
   );
