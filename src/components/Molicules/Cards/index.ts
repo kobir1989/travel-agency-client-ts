@@ -4,6 +4,7 @@ import HotDealsCard from './HotDealsCard';
 import HotelsCard from './HotelsCard';
 import PopularDestinationCard from './PopularDestinationCard';
 import PriceDetailsCard from './PriceDetailsCard';
+import TourCard from './TourCard';
 
 export {
   FlightCard,
@@ -12,4 +13,5 @@ export {
   PopularDestinationCard,
   PopularHotelCard,
   PriceDetailsCard,
+  TourCard,
 };

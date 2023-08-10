@@ -60,10 +60,9 @@ const Policy = () => {
       </Typography>
       <Stack gap={3}>
         {policyList.map((policy, index) => (
-          <>
+          <Box key={policy?.id}>
             <Typography
               variant="body1"
-              key={policy?.id}
               sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -75,8 +74,12 @@ const Policy = () => {
               </TitleSpan>
               <StyledValue>{policy?.value}</StyledValue>
             </Typography>
-            {index !== 3 && <Divider />}
-          </>
+            {index !== 3 && (
+              <Box mt={3}>
+                <Divider />
+              </Box>
+            )}
+          </Box>
         ))}
       </Stack>
     </Box>
