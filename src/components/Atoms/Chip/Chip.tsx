@@ -16,7 +16,7 @@ const ChipComponent = styled(MuiChip)(({ theme }) => ({
 const Chip = ({ iconName, label, chipVariant = 'filled' }: ChipProps) => {
   return (
     <ChipComponent
-      icon={<Icons name={iconName} />}
+      icon={<Icons name={iconName} size="1.3rem" />}
       label={label}
       variant={chipVariant}
     />
