@@ -1,6 +1,6 @@
 'use client';
 
-import HotelPreview from '@/components/Templates/HotelDetailsPageSections/HotelInfo/HotelPreview';
+import PreviewImages from '@/components/Molicules/PreviewImages';
 import { Stack, Typography, Box, Grid } from '@mui/material';
 import Icons from '@/components/Atoms/Icons';
 import Ratings from '@/components/Atoms/Ratings';
@@ -24,7 +24,7 @@ const HotelInfo = () => {
               },
             })}
           >
-            <HotelPreview />
+            <PreviewImages />
           </Box>
         </Grid>
         <Grid item lg={5} md={5} sm={12} xs={12}>

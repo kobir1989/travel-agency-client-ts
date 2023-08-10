@@ -1,6 +1,6 @@
-import HotelInfo from './HotelInfo/HotelInfo';
-import RoomDetails from './RoomDetails/RoomDetails';
-import Policy from './Policy/Policy';
-import PricingSummary from './PricingSummary/PricingSummary';
+import HotelInfo from './HotelInfo';
+import RoomDetails from './RoomDetails';
+import Policy from './Policy';
+import PricingSummary from './PricingSummary';
 
 export { HotelInfo, RoomDetails, Policy, PricingSummary };
