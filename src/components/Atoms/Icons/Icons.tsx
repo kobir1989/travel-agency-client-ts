@@ -38,6 +38,12 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import LocalAirportIcon from '@mui/icons-material/LocalAirport';
+import InfoIcon from '@mui/icons-material/Info';
+import PeopleIcon from '@mui/icons-material/People';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+import PetsIcon from '@mui/icons-material/Pets';
 
 const icons: IconMap = {
   search: TravelExploreIcon,
@@ -77,6 +83,12 @@ const icons: IconMap = {
   customarCare: SupportAgentIcon,
   message: TelegramIcon,
   airline: LocalAirportIcon,
+  info: InfoIcon,
+  people: PeopleIcon,
+  restaurant: RestaurantIcon,
+  time: AccessTimeIcon,
+  child: ChildCareIcon,
+  pets: PetsIcon,
 };
 
 const Icons = (props: IconsProps) => {

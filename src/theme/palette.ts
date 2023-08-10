@@ -23,6 +23,6 @@ export const palette = {
   success: {
     main: '#66bb6a',
     dark: '#388e3c',
-    light: '#81c784',
+    light: '#20c997',
   },
 };
