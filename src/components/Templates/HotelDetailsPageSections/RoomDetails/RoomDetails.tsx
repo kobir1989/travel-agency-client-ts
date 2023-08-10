@@ -57,14 +57,14 @@ const RoomDetails = () => {
         </Grid>
         <Grid item lg={8} md={8} sm={12} xs={12}>
           <Stack
-            sx={(theme) => ({
+            sx={{
               flexDirection: 'column',
               gap: 3,
               '@media screen and (min-width: 498px)': {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
               },
-            })}
+            }}
           >
             <Box>
               <Typography variant="h3">Delux Double With Balcony</Typography>
@@ -100,12 +100,12 @@ const RoomDetails = () => {
             </Box>
             <Stack
               gap={1}
-              sx={(theme) => ({
+              sx={{
                 alignItems: 'flex-start',
                 '@media screen and (min-width: 498px)': {
                   alignItems: 'flex-end',
                 },
-              })}
+              }}
             >
               <Typography
                 variant="body1"
