@@ -2,7 +2,7 @@
 
 import { Stack, styled, Container, Typography, Grid } from '@mui/material';
 import { useState } from 'react';
-import { StyledFilterButtonProps, StyledStopsButtonProps } from './types/types';
+import { StyledFilterButtonProps, StyledStopsButtonProps } from './types';
 
 const StyledFilterButton = styled('button')<StyledFilterButtonProps>(
   ({ theme, background }) => ({

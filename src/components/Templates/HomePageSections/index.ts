@@ -1,6 +1,6 @@
-import HotDealSection from './HotDealsSection/HotDealSection';
-import PopularDestination from './PopularDestinationSection/PopularDestination';
-import PopularHotels from './PopularHotelsSection/PopularHotels';
+import HotDealSection from './HotDealSection';
+import PopularDestination from './PopularDestination';
+import PopularHotels from './PopularHotels';
 import SearchSection from './SearchSection/SearchSection';
 
 export { HotDealSection, PopularDestination, PopularHotels, SearchSection };

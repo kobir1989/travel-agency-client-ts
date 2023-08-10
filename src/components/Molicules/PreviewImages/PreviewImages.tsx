@@ -1,3 +1,5 @@
+'use client';
+
 import NextImage from '@/components/Atoms/NextImage';
 import { Box, Stack } from '@mui/material';
 
@@ -20,7 +22,7 @@ const previewImg = [
   },
 ];
 
-const HotelPreview = () => {
+const PreviewImages = () => {
   return (
     <Stack
       gap="1rem"
@@ -78,4 +80,4 @@ const HotelPreview = () => {
   );
 };
 
-export default HotelPreview;
+export default PreviewImages;

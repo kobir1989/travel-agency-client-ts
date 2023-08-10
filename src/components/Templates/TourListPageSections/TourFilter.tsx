@@ -31,9 +31,8 @@ const TourFilter = () => {
     <Container maxWidth="lg" sx={{ mt: '2rem' }}>
       <Grid container spacing={2}>
         {categories.map((category) => (
-          <Grid item lg={3} md={3} sm={6} xs={6}>
+          <Grid item lg={3} md={3} sm={6} xs={6} key={category?.id}>
             <Stack
-              key={category?.id}
               direction="row"
               gap={2}
               justifyContent="space-between"
