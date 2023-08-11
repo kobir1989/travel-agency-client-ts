@@ -5,6 +5,7 @@ import PreviewImages from '@/components/Molicules/PreviewImages';
 import { Box, Grid, Typography, Stack, Button, styled } from '@mui/material';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 
 const StyledSpan = styled('span')({
   fontSize: '0.87rem',
@@ -15,14 +16,7 @@ const StyledSpan = styled('span')({
 const TourPreview = () => {
   const params = useParams();
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        borderRadius: '8px',
-        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-        padding: '1rem',
-      })}
-    >
+    <SectionContainer>
       <Grid container spacing={3}>
         <Grid item lg={7} md={7} sm={12} xs={12}>
           <Box
@@ -97,7 +91,7 @@ const TourPreview = () => {
           </Stack>
         </Grid>
       </Grid>
-    </Box>
+    </SectionContainer>
   );
 };
 

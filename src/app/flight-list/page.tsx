@@ -3,18 +3,15 @@ import {
   FilterSection,
   FlightListSection,
 } from '@/components/Templates/FlightListPageSections';
+import PageContainer from '@/components/Atoms/PageContainer';
 
 const FlightList = () => {
   return (
-    <main
-      style={{
-        margin: '8rem 0 5rem 0',
-      }}
-    >
+    <PageContainer isFlex>
       <ModifyFlightSearch />
       <FilterSection />
       <FlightListSection />
-    </main>
+    </PageContainer>
   );
 };
 

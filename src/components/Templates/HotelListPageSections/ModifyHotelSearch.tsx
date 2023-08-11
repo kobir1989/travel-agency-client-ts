@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Container, Stack, styled } from '@mui/material';
+import { Button, Stack, styled } from '@mui/material';
 import { HotelsTab } from '@/components/Templates/HomePageSections/SearchSection/SearchTabs';
 
 const StyledStack = styled(Stack)(({ theme }) => ({
@@ -13,14 +13,12 @@ const StyledStack = styled(Stack)(({ theme }) => ({
 
 const ModifyHotelSearch = () => {
   return (
-    <Container maxWidth="lg">
-      <StyledStack>
-        <HotelsTab />
-        <Stack justifyContent="center" alignItems="center">
-          <Button variant="secondary">Modify Search</Button>
-        </Stack>
-      </StyledStack>
-    </Container>
+    <StyledStack>
+      <HotelsTab />
+      <Stack justifyContent="center" alignItems="center">
+        <Button variant="secondary">Modify Search</Button>
+      </Stack>
+    </StyledStack>
   );
 };
 

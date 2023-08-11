@@ -1,6 +1,6 @@
 'use client';
 
-import { Stack, styled, Container, Typography, Grid } from '@mui/material';
+import { Stack, styled, Box, Typography, Grid } from '@mui/material';
 import { useState } from 'react';
 import { StyledFilterButtonProps, StyledStopsButtonProps } from './types';
 
@@ -68,7 +68,7 @@ const FilterSection = () => {
   });
 
   return (
-    <Container maxWidth="lg" sx={{ mt: '2rem' }}>
+    <Box>
       <Grid
         rowSpacing={1}
         container
@@ -154,7 +154,7 @@ const FilterSection = () => {
           </StyledStopsButtonWrapper>
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 };
 

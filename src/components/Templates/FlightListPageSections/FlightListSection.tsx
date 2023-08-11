@@ -1,7 +1,7 @@
 'use client';
 
+import SectionContainer from '@/components/Atoms/SectionContainer';
 import { FlightCard } from '@/components/Molicules/Cards';
-import { Container } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
 const FlightListSection = () => {
@@ -10,9 +10,9 @@ const FlightListSection = () => {
     router.push(`/flight-booking?${id}`);
   };
   return (
-    <Container maxWidth="lg" sx={{ mt: '3rem' }}>
+    <SectionContainer>
       <FlightCard onNavigate={handleNavigate} />
-    </Container>
+    </SectionContainer>
   );
 };
 
