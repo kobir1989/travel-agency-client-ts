@@ -44,6 +44,7 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ChildCareIcon from '@mui/icons-material/ChildCare';
 import PetsIcon from '@mui/icons-material/Pets';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 const icons: IconMap = {
   search: TravelExploreIcon,
@@ -89,6 +90,7 @@ const icons: IconMap = {
   time: AccessTimeIcon,
   child: ChildCareIcon,
   pets: PetsIcon,
+  rightArrow: ArrowRightAltIcon,
 };
 
 const Icons = (props: IconsProps) => {

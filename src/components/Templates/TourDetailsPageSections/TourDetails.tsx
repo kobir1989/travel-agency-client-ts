@@ -12,20 +12,20 @@ const accordionList = [
     iconName: 'location',
   },
   {
-    id: 'acr1',
+    id: 'acr2',
     title: 'Timing',
     description: 'Everyday From 10.00 AM to 5.00 PM Duration : 7 minutes',
     iconName: 'time',
   },
   {
-    id: 'acr1',
+    id: 'acr3',
     title: 'Group Details',
     description:
       'From 1 to 50 people Any healthy person aged between 5 to 60 years are eligible for this activity.',
     iconName: 'people',
   },
   {
-    id: 'acr1',
+    id: 'acr4',
     title: 'Travel Tips',
     description:
       'We advise that the travelers carry drinking water. Stay hydrated, travel healthy.',

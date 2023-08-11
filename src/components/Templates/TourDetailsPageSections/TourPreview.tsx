@@ -3,6 +3,8 @@
 import Icons from '@/components/Atoms/Icons';
 import PreviewImages from '@/components/Molicules/PreviewImages';
 import { Box, Grid, Typography, Stack, Button, styled } from '@mui/material';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
 const StyledSpan = styled('span')({
   fontSize: '0.87rem',
@@ -11,6 +13,7 @@ const StyledSpan = styled('span')({
 });
 
 const TourPreview = () => {
+  const params = useParams();
   return (
     <Box
       sx={(theme) => ({
@@ -79,11 +82,18 @@ const TourPreview = () => {
                 checklist!
               </Typography>
             </Box>
-            <Box mt={4} width="100%">
-              <Button variant="secondary" sx={{ width: '100%' }}>
-                Book Now
-              </Button>
-            </Box>
+            <Link
+              href={{
+                pathname: '/tour-booking',
+                query: { tourId: params.slug },
+              }}
+            >
+              <Box mt={4} width="100%">
+                <Button variant="secondary" sx={{ width: '100%' }}>
+                  Book Now
+                </Button>
+              </Box>
+            </Link>
           </Stack>
         </Grid>
       </Grid>
