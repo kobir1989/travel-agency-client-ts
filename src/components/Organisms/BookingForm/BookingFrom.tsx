@@ -111,7 +111,7 @@ const BookingFrom = () => {
 
         {/* Submit Button */}
         <Button variant="secondary" type="submit">
-          Submit
+          Confirm Booking
         </Button>
       </FormControl>
     </Box>
