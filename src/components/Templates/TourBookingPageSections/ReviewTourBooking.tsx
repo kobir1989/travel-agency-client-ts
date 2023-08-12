@@ -1,25 +1,11 @@
-'use client';
-
-import {
-  Box,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  Stack,
-} from '@mui/material';
+import { Typography, Accordion, AccordionSummary, Stack } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Icons from '@/components/Atoms/Icons';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 
 const ReviewTourBooking = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        padding: '1rem',
-        borderRadius: '8px',
-        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-      })}
-    >
+    <SectionContainer>
       <Accordion sx={{ boxShadow: 'none' }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -68,7 +54,7 @@ const ReviewTourBooking = () => {
           </Typography>
         </Stack>
       </Accordion>
-    </Box>
+    </SectionContainer>
   );
 };
 

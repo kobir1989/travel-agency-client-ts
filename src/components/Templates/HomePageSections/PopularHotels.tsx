@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 
 const PopularHotels = () => {
   return (
-    <Box>
+    <Box pb={8}>
       <Box>
         <Typography variant="h2">Popular Hotels & Resorts</Typography>
       </Box>

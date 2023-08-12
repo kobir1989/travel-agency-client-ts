@@ -1,13 +1,7 @@
-import { Container } from '@mui/material';
+import PageContainer from '@/components/Atoms/PageContainer';
 
 const PaymentPage = () => {
-  return (
-    <main>
-      <Container maxWidth="lg" sx={{ mt: '8rem', mb: '5rem' }}>
-        Payment Page
-      </Container>
-    </main>
-  );
+  return <PageContainer>Payment Page</PageContainer>;
 };
 
 export default PaymentPage;

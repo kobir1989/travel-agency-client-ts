@@ -1,4 +1,4 @@
-import { SelectedValueType } from '@/components/Molicules/SelectOptions/types/types';
+import { SelectedValueType } from '@/components/Molicules/SearchSelectOptions/types';
 
 export interface GridItemProps {
   onHandleClick(): void;

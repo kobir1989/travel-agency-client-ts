@@ -4,17 +4,11 @@ import PreviewImages from '@/components/Molicules/PreviewImages';
 import { Stack, Typography, Box, Grid } from '@mui/material';
 import Icons from '@/components/Atoms/Icons';
 import Ratings from '@/components/Atoms/Ratings';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 
 const HotelInfo = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        borderRadius: '8px',
-        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-        padding: '1rem',
-      })}
-    >
+    <SectionContainer>
       <Grid container spacing={3}>
         <Grid item lg={7} md={7} sm={12} xs={12}>
           <Box
@@ -94,7 +88,7 @@ const HotelInfo = () => {
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </SectionContainer>
   );
 };
 

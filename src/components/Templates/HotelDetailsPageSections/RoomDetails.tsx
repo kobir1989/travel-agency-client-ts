@@ -2,6 +2,7 @@
 
 import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 import { Box, Grid, Typography, Stack, Button } from '@mui/material';
 
 const roomInfo = [
@@ -30,14 +31,7 @@ const roomInfo = [
 
 const RoomDetails = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        padding: '1rem',
-        borderRadius: '8px',
-        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-      })}
-    >
+    <SectionContainer>
       <Grid container spacing={3}>
         <Grid item lg={4} md={4} sm={12} xs={12}>
           <Box width="100%" height="220px">
@@ -143,7 +137,7 @@ const RoomDetails = () => {
           </Stack>
         </Grid>
       </Grid>
-    </Box>
+    </SectionContainer>
   );
 };
 

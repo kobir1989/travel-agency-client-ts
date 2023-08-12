@@ -1,18 +1,12 @@
 'use client';
 
 import Icons from '@/components/Atoms/Icons';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 import { Typography, Box, Stack, Divider } from '@mui/material';
 
 const ReviewHotelBooking = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        borderRadius: '8px',
-        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-        padding: '1rem',
-      })}
-    >
+    <SectionContainer>
       <Stack gap={3}>
         <Box>
           <Typography variant="h3">Ocean Paradise Hotel & Resort</Typography>
@@ -57,7 +51,7 @@ const ReviewHotelBooking = () => {
           </Box>
         </Stack>
       </Stack>
-    </Box>
+    </SectionContainer>
   );
 };
 

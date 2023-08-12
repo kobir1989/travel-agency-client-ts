@@ -2,7 +2,6 @@
 
 import Icons from '@/components/Atoms/Icons';
 import { Chip as MuiChip, styled } from '@mui/material';
-import React from 'react';
 import { ChipProps } from '@/components/Atoms/Chip/types';
 
 const ChipComponent = styled(MuiChip)(({ theme }) => ({

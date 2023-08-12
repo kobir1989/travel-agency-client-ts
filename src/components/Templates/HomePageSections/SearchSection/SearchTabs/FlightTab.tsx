@@ -1,6 +1,6 @@
 import Condition from '@/components/Atoms/Condition';
 import MuiDatePicker from '@/components/Molicules/MuiDatePicker';
-import { OptionsList } from '@/components/Molicules/SelectOptions';
+import { OptionsList } from '@/components/Molicules/SearchSelectOptions';
 import RadioButtonGroup from '@/components/Atoms/RadioButtons';
 import { Box, ClickAwayListener, Grid } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
@@ -14,7 +14,7 @@ import {
   setSelectedArrivalValue,
   setSelectedDepartValue,
 } from '@/redux/features/searchFlight/searhFlightSlice';
-import { OptionType } from '@/components/Molicules/SelectOptions/types/types';
+import { OptionType } from '@/components/Molicules/SearchSelectOptions/types';
 import GridItem from './GridItem';
 
 const departOptions = [

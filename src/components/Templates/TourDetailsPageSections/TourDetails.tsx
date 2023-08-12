@@ -1,8 +1,7 @@
-'use client';
-
-import { Typography, Box, Accordion, AccordionSummary } from '@mui/material';
+import { Typography, Accordion, AccordionSummary } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Icons from '@/components/Atoms/Icons';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 
 const accordionList = [
   {
@@ -35,14 +34,7 @@ const accordionList = [
 
 const TourDetails = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        borderRadius: '8px',
-        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-        padding: '1rem',
-      })}
-    >
+    <SectionContainer>
       {accordionList.map((list) => (
         <Accordion sx={{ boxShadow: 'none' }} key={list?.id}>
           <AccordionSummary
@@ -59,7 +51,7 @@ const TourDetails = () => {
           <Typography variant="body1">{list?.description}</Typography>
         </Accordion>
       ))}
-    </Box>
+    </SectionContainer>
   );
 };
 

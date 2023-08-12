@@ -1,3 +1,4 @@
+import PageContainer from '@/components/Atoms/PageContainer';
 import {
   FilterResult,
   HotelListSection,
@@ -6,11 +7,11 @@ import {
 
 const HotelList = () => {
   return (
-    <main style={{ margin: '8rem 0 5rem 0' }}>
+    <PageContainer isFlex>
       <ModifyHotelSearch />
       <FilterResult />
       <HotelListSection />
-    </main>
+    </PageContainer>
   );
 };
 
