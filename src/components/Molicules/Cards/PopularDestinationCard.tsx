@@ -1,9 +1,13 @@
 'use client';
 
+import { PopularDestinationCardProps } from '@/components/Molicules/Cards/types';
 import { Stack, Box, Typography, Button } from '@mui/material';
 import Image from 'next/image';
 
-const PopularDestinationCard = () => {
+const PopularDestinationCard = ({
+  image,
+  title,
+}: PopularDestinationCardProps) => {
   return (
     <Box
       sx={(theme) => ({
@@ -20,17 +24,22 @@ const PopularDestinationCard = () => {
       })}
     >
       <Stack gap={2} width="100%">
-        <Box width="100%">
+        <Box width="100%" height="12rem">
           <Image
-            src="/assets/instanbul.jpg"
-            alt="istanbul"
+            src={image}
+            alt={title}
             width={310}
             height={200}
-            style={{ borderRadius: '12px', width: '100%' }}
+            style={{
+              borderRadius: '12px',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
           />
         </Box>
-        <Typography variant="h3">
-          Stopover opportunity in İstanbul with Turkish Airlines
+        <Typography variant="h3" height="3.5rem">
+          {title}
         </Typography>
       </Stack>
       <Box sx={{ position: 'absolute', right: '0.54rem', bottom: '-1.3rem' }}>

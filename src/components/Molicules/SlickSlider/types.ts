@@ -1,5 +1,5 @@
 export interface SlickSliderProps {
-  children: React.ReactNode[];
+  children: React.ReactNode;
   desktopSlideToShow: number;
   slidesToShow: number;
   slidesToScroll: number;
