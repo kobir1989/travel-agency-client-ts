@@ -1,5 +1,5 @@
 import { Stack, styled } from '@mui/material';
-import { SelectButtonProps } from './types/types';
+import { SelectButtonProps } from './types';
 
 const StyledTitleInput = styled('input')(({ theme }) => ({
   border: 'none',

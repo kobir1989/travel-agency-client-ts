@@ -1,7 +1,7 @@
 import MuiDatePicker from '@/components/Molicules/MuiDatePicker';
-import { OptionsList } from '@/components/Molicules/SelectOptions';
-import AddRooms from '@/components/Molicules/SelectOptions/AddRooms';
-import { OptionType } from '@/components/Molicules/SelectOptions/types/types';
+import { OptionsList } from '@/components/Molicules/SearchSelectOptions';
+import AddRooms from '@/components/Molicules/SearchSelectOptions/AddRooms';
+import { OptionType } from '@/components/Molicules/SearchSelectOptions/types';
 import {
   closeOptionPopups,
   setCheckIn,

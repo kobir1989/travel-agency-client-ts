@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Icons from '@/components/Atoms/Icons';
 import { Box, List, Typography, Stack, IconButton } from '@mui/material';
 import { StyledInput, StyledListItem, StyledSpan } from './styles';
-import { OptionsListProps, OptionType } from './types/types';
+import { OptionsListProps, OptionType } from './types';
 
 const OptionsList = ({
   options,

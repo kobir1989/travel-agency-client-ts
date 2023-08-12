@@ -4,7 +4,7 @@ import React from 'react';
 import { Stack, Box, Typography, Button } from '@mui/material';
 import Chip from '@/components/Atoms/Chip';
 import NextImage from '@/components/Atoms/NextImage';
-import { HotDealsCardProps } from '@/components/Molicules/Cards/types/types';
+import { HotDealsCardProps } from '@/components/Molicules/Cards/types';
 import Icons from '@/components/Atoms/Icons';
 
 const HotDealsCard = ({

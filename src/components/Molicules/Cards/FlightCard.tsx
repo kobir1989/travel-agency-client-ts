@@ -3,7 +3,7 @@
 import Condition from '@/components/Atoms/Condition';
 import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
-import { FlightCardProps } from '@/components/Molicules/Cards/types/types';
+import { FlightCardProps } from '@/components/Molicules/Cards/types';
 import { Box, Button, Stack, Typography, styled, Grid } from '@mui/material';
 import dayjs from 'dayjs';
 
