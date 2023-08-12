@@ -3,7 +3,11 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { PopularHotelCardProps } from './types';
 
-const PopularHotelCard = ({ title, subTitle }: PopularHotelCardProps) => {
+const PopularHotelCard = ({
+  title,
+  subTitle,
+  image,
+}: PopularHotelCardProps) => {
   return (
     <Box
       sx={{
@@ -22,7 +26,7 @@ const PopularHotelCard = ({ title, subTitle }: PopularHotelCardProps) => {
     >
       <Box
         sx={{
-          backgroundImage: `url('/assets/hotel.jpg')`,
+          backgroundImage: `url(${image})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           width: '100%',
