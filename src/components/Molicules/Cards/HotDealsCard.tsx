@@ -50,7 +50,12 @@ const HotDealsCard = ({
             alt="offer"
             width={180}
             height={130}
-            styles={{ borderRadius: '8px', width: '100%', height: '100%' }}
+            styles={{
+              borderRadius: '8px',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
           />
         </Box>
 
@@ -96,7 +101,11 @@ const HotDealsCard = ({
         </Stack>
       </Stack>
       <Box mb={-1} mt={2}>
-        <Chip label={discount} iconName="discount" chipVariant="filled" />
+        <Chip
+          label={`${discount}% Discount`}
+          iconName="discount"
+          chipVariant="filled"
+        />
       </Box>
       <Box sx={{ position: 'absolute', right: '1.5rem', bottom: '-1.3rem' }}>
         <Button variant="secondary">
