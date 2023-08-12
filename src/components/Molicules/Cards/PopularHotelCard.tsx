@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Stack, Typography } from '@mui/material';
-import { PopularHotelCardProps } from './types/types';
+import { PopularHotelCardProps } from './types';
 
 const PopularHotelCard = ({ title, subTitle }: PopularHotelCardProps) => {
   return (

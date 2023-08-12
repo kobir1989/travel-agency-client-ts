@@ -1,7 +1,7 @@
 'use client';
 
 import Icons from '@/components/Atoms/Icons';
-import { AddRoomsProps } from '@/components/Molicules/SelectOptions/types/types';
+import { AddRoomsProps } from '@/components/Molicules/SearchSelectOptions/types';
 import {
   closeOptionPopups,
   setAddGuests,

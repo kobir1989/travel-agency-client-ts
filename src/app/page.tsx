@@ -8,12 +8,11 @@ import {
 
 const Home = () => {
   return (
-    <main
+    <section
       style={{
         display: 'flex',
         flexDirection: 'column',
         gap: '4rem',
-        marginBottom: '5rem',
       }}
     >
       <Box
@@ -46,7 +45,7 @@ const Home = () => {
       <Container maxWidth="lg">
         <PopularHotels />
       </Container>
-    </main>
+    </section>
   );
 };
 export default Home;

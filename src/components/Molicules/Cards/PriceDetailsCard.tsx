@@ -2,6 +2,7 @@
 
 import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 import {
   Box,
   Divider,
@@ -26,13 +27,7 @@ const StyledSpan = styled('span')({
 
 const PriceDetailsCard = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        borderRadius: '4px',
-        boxShadow: '0 4px 24px 0 rgba(34,41,47,.1)',
-      })}
-    >
+    <SectionContainer>
       {/* header */}
       <Stack
         direction="row"
@@ -105,7 +100,7 @@ const PriceDetailsCard = () => {
           </Typography>
         </Stack>
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 

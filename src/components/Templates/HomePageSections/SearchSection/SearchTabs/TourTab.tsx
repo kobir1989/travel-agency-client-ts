@@ -1,5 +1,5 @@
-import { OptionsList } from '@/components/Molicules/SelectOptions';
-import { OptionType } from '@/components/Molicules/SelectOptions/types/types';
+import { OptionsList } from '@/components/Molicules/SearchSelectOptions';
+import { OptionType } from '@/components/Molicules/SearchSelectOptions/types';
 import {
   setCloseLocationOptions,
   setLocation,

@@ -36,8 +36,10 @@ export default function RootLayout({
         <ReduxProvider>
           <ThemeRegistry>
             <Navigation />
-            {children}
-            <div id="portal" />
+            <main>
+              {children}
+              <div id="portal" />
+            </main>
             <Footer />
           </ThemeRegistry>
         </ReduxProvider>

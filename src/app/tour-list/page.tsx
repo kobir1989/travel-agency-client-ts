@@ -1,3 +1,4 @@
+import PageContainer from '@/components/Atoms/PageContainer';
 import {
   ModifyTourSearch,
   TourFilter,
@@ -6,11 +7,11 @@ import {
 
 const TourList = () => {
   return (
-    <main style={{ margin: '8rem 0 5rem 0' }}>
+    <PageContainer isFlex>
       <ModifyTourSearch />
       <TourFilter />
       <TourListSection />
-    </main>
+    </PageContainer>
   );
 };
 

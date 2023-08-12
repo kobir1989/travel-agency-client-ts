@@ -3,7 +3,6 @@
 import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
 import {
-  Box,
   Container,
   List,
   ListItem,
@@ -20,18 +19,18 @@ const StyledIconButton = styled(IconButton)({
   color: '#FFF',
 });
 
+const StyledFooter = styled('footer')(({ theme }) => ({
+  background: theme.palette.primary.main,
+  minHeight: '50vh',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
 const Footer = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.primary.main,
-        minHeight: '50vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      })}
-    >
+    <StyledFooter>
       <Container maxWidth="lg">
         <Grid container>
           <Grid item lg={3} xs={5} sm={6} md={3}>
@@ -140,7 +139,7 @@ const Footer = () => {
           </Typography>
         </Stack>
       </Container>
-    </Box>
+    </StyledFooter>
   );
 };
 

@@ -1,6 +1,7 @@
 'use client';
 
 import Icons from '@/components/Atoms/Icons';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 import { Box, Typography, Stack, styled, Divider } from '@mui/material';
 
 const StyledValue = styled('span')(({ theme }) => ({
@@ -47,14 +48,7 @@ const policyList = [
 
 const Policy = () => {
   return (
-    <Box
-      sx={(theme) => ({
-        background: theme.palette.info.light,
-        padding: '1rem',
-        borderRadius: '8px',
-        boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-      })}
-    >
+    <SectionContainer>
       <Typography variant="h3" mb={3}>
         Policy
       </Typography>
@@ -82,7 +76,7 @@ const Policy = () => {
           </Box>
         ))}
       </Stack>
-    </Box>
+    </SectionContainer>
   );
 };
 

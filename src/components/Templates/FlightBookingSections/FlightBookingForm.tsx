@@ -1,7 +1,7 @@
-import SectionContainer from '@/components/Atoms/SectionContainer';
 import BookingFrom from '@/components/Organisms/BookingForm/BookingFrom';
+import SectionContainer from '@/components/Atoms/SectionContainer';
 
-const HotelBookingForm = () => {
+const FlightBookingForm = () => {
   return (
     <SectionContainer>
       <BookingFrom />
@@ -9,4 +9,4 @@ const HotelBookingForm = () => {
   );
 };
 
-export default HotelBookingForm;
+export default FlightBookingForm;
