@@ -34,6 +34,8 @@ const HotDealSection = () => {
                   descriptions={tour?.description}
                   image={tour?.images[0]}
                   discount={tour?.discount}
+                  // eslint-disable-next-line no-underscore-dangle
+                  id={tour?._id}
                 />
               </Box>
             ))}

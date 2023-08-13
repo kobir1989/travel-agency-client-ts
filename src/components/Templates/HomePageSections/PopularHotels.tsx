@@ -29,6 +29,8 @@ const PopularHotels = () => {
                 title={hotel?.name}
                 subTitle={hotel?.description}
                 image={hotel?.images[0]}
+                // eslint-disable-next-line no-underscore-dangle
+                id={hotel?._id}
               />
             </Box>
           ))}

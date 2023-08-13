@@ -34,13 +34,21 @@ const ArrowBox = styled('div')({
   },
 });
 
-const OldPrice = styled('span')({
-  fontSize: '0.9rem',
-  textDecoration: 'line-through',
-  fontWeight: 400,
-});
-
-const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
+const FlightCard = ({
+  isPrice = true,
+  onNavigate,
+  airlinesName,
+  flightNumber,
+  arrivalDate,
+  departureDate,
+  duration,
+  arrivalAirportCode,
+  departureAirportCode,
+  flightClass,
+  price,
+  airlinesLogo,
+  id,
+}: FlightCardProps) => {
   return (
     <Grid container alignItems="center">
       <Grid item lg={isPrice ? 3 : 4} md={isPrice ? 3 : 4} sm={5} xs={12}>
@@ -54,13 +62,24 @@ const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
         >
           <NextImage
             alt="amerats"
-            imgUrl="/assets/emitates.png"
+            imgUrl={airlinesLogo}
             width={70}
-            height={20}
+            height={40}
+            styles={{ objectFit: 'fill' }}
           />
-          <Typography variant="body1" fontSize="1rem">
-            Amerats Airlines
-          </Typography>
+          <Box>
+            <Typography
+              variant="body1"
+              fontSize="0.9rem"
+              fontWeight={600}
+              textTransform="capitalize"
+            >
+              {airlinesName}
+            </Typography>
+            <Typography variant="body2" textTransform="capitalize">
+              Class - {flightClass}
+            </Typography>
+          </Box>
         </Stack>
       </Grid>
       {/* middle */}
@@ -74,19 +93,19 @@ const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
         >
           <Box>
             <Typography variant="h3" lineHeight="1.4rem">
-              12.00
+              12
             </Typography>
 
             <Typography variant="body2" lineHeight="1.5rem">
-              {dayjs(new Date()).format('dddd')} <br />
-              {dayjs(new Date()).format('MMM YYYY')}
+              {dayjs(departureDate).format('dddd')} <br />
+              {dayjs(arrivalDate).format('MMM YYYY')}
             </Typography>
             <Typography
               fontWeight={600}
               variant="body1"
               sx={(theme) => ({ color: theme.palette.info.dark })}
             >
-              DAC
+              {departureAirportCode}
             </Typography>
           </Box>
           {/* arrow */}
@@ -103,7 +122,7 @@ const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
                 },
               })}
             >
-              1h 30m
+              {duration}
             </Typography>
           </ArrowBox>
 
@@ -121,7 +140,7 @@ const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
               fontWeight={600}
               sx={(theme) => ({ color: theme.palette.info.dark })}
             >
-              DAC
+              {arrivalAirportCode}
             </Typography>
           </Box>
           <Typography
@@ -135,7 +154,7 @@ const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
               },
             })}
           >
-            1h 15m
+            {duration}
           </Typography>
         </Stack>
       </Grid>
@@ -159,12 +178,14 @@ const FlightCard = ({ isPrice = true, onNavigate }: FlightCardProps) => {
               gap: 1,
             }}
           >
-            <Typography variant="body1">Flight Number: AE85</Typography>
+            <Typography variant="body1" textTransform="uppercase">
+              {flightNumber}
+            </Typography>
             <Typography variant="h3" lineHeight="2rem">
-              <OldPrice>BDT 4500</OldPrice> BDT 5000
+              BDT {price}
             </Typography>
             <Button
-              onClick={onNavigate ? () => onNavigate('test') : undefined}
+              onClick={onNavigate ? () => onNavigate(id) : undefined}
               variant="secondary"
               sx={{
                 display: 'flex',

@@ -5,6 +5,8 @@ import Icons from '@/components/Atoms/Icons';
 import { Box, Stack, Grid, Typography, styled } from '@mui/material';
 import Chip from '@/components/Atoms/Chip';
 import Link from 'next/link';
+import { TourCardProps } from '@/components/Molicules/Cards/types';
+import dayjs from 'dayjs';
 
 const StyledTypography = styled(Typography)({
   display: 'flex',
@@ -12,9 +14,18 @@ const StyledTypography = styled(Typography)({
   gap: '5px',
 });
 
-const TourCard = () => {
+const TourCard = ({
+  title,
+  groupSize,
+  location,
+  startDate,
+  id,
+  image,
+  oldPrice,
+  discount,
+}: TourCardProps) => {
   return (
-    <Link href="/tour-details/dfdfdfd">
+    <Link href={`/tour-details/${id}`}>
       <Box
         sx={(theme) => ({
           background: theme.palette.info.light,
@@ -28,7 +39,7 @@ const TourCard = () => {
           <Grid item lg={4} md={4} sm={12} xs={12}>
             <Box height="15rem">
               <NextImage
-                imgUrl="/assets/campaign_DFLY2023_hotdeal.jpg"
+                imgUrl={image}
                 alt="tour"
                 width={200}
                 height={200}
@@ -39,18 +50,18 @@ const TourCard = () => {
           <Grid item lg={8} md={8} sm={12} xs={12}>
             <Stack direction="row" justifyContent="space-between">
               <Stack gap={3}>
-                <Typography variant="h3">Camping in coxs Bazar</Typography>
-                <StyledTypography variant="body1">
+                <Typography variant="h3">{title}</Typography>
+                <StyledTypography variant="body1" textTransform="capitalize">
                   <Icons name="location" size="1.2rem" />
-                  Coxs Bazar
+                  {location}
                 </StyledTypography>
                 <StyledTypography variant="body1">
                   <Icons name="time" size="1.2rem" />
-                  00:00:00
+                  Starts From {dayjs(startDate).format('DD MMM YYYY')}
                 </StyledTypography>
                 <StyledTypography variant="body1">
                   <Icons name="people" size="1.2rem" />
-                  From 1 to 200 People
+                  {groupSize} People Max
                 </StyledTypography>
                 <Chip
                   iconName="child"
@@ -65,11 +76,17 @@ const TourCard = () => {
                   color="error"
                   sx={{ textDecoration: 'line-through' }}
                 >
-                  BDT 300
+                  BDT {oldPrice}
                 </Typography>
-                <Typography variant="h3">BDT 285</Typography>
+                <Typography variant="h3">
+                  BDT {Math.floor(oldPrice - (discount / 100) * oldPrice)}
+                </Typography>
                 <Typography variant="body2">Per Person</Typography>
-                <Chip iconName="discount" label="5%" chipVariant="filled" />
+                <Chip
+                  iconName="discount"
+                  label={`${discount}%`}
+                  chipVariant="filled"
+                />
               </Stack>
             </Stack>
           </Grid>

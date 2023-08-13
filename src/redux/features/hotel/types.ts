@@ -8,6 +8,8 @@ export interface Hotels {
   facilities: string;
   images: string[];
   description: string;
+  discount: number;
+  price: number;
 }
 
 export interface HotelsResponse {

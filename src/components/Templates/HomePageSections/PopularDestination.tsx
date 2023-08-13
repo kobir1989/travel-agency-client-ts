@@ -27,6 +27,8 @@ const PopularDestination = () => {
               <PopularDestinationCard
                 image={tour?.images[0]}
                 title={tour?.title}
+                // eslint-disable-next-line no-underscore-dangle
+                id={tour?._id}
               />
             </Box>
           ))}

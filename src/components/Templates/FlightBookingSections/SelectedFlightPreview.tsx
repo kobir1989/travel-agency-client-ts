@@ -1,5 +1,5 @@
 import SectionContainer from '@/components/Atoms/SectionContainer';
-import { FlightCard } from '@/components/Molicules/Cards';
+// import { FlightCard } from '@/components/Molicules/Cards';
 import FlightDetails from '@/components/Organisms/FlightDetails';
 import { Accordion, AccordionSummary, Stack, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -8,7 +8,7 @@ const SelectedFlightPreview = () => {
   return (
     <Stack gap={3}>
       <SectionContainer>
-        <FlightCard isPrice={false} />
+        {/* <FlightCard isPrice={false} /> */}
       </SectionContainer>
       <SectionContainer>
         <Accordion sx={{ boxShadow: 'none' }}>

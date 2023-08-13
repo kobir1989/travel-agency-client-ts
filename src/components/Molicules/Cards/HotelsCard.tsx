@@ -6,10 +6,21 @@ import NextImage from '@/components/Atoms/NextImage';
 import Icons from '@/components/Atoms/Icons';
 import Chip from '@/components/Atoms/Chip';
 import Link from 'next/link';
+import { HotelsCardProps } from '@/components/Molicules/Cards/types';
 
-const HotelsCard = () => {
+const HotelsCard = ({
+  image,
+  name,
+  country,
+  city,
+  ratings,
+  id,
+  facilities,
+  discount,
+  price,
+}: HotelsCardProps) => {
   return (
-    <Link href="/hotel-details/dfdfdddf">
+    <Link href={`/hotel-details/${id}`}>
       <Box
         sx={(theme) => ({
           background: theme.palette.info.light,
@@ -39,7 +50,7 @@ const HotelsCard = () => {
             })}
           >
             <NextImage
-              imgUrl="/assets/237084661.jpg"
+              imgUrl={image}
               alt="hotel"
               width={250}
               height={220}
@@ -66,7 +77,7 @@ const HotelsCard = () => {
           >
             {/* center Box */}
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Typography variant="h3">Hotel Regal Palace</Typography>
+              <Typography variant="h3">{name}</Typography>
               <Stack direction="row" gap={1}>
                 <Typography
                   variant="body1"
@@ -78,13 +89,14 @@ const HotelsCard = () => {
                     alignItems: 'center',
                   }}
                 >
-                  <Icons name="star" color="#fccd03" size="1.3rem" />3 Star
+                  <Icons name="star" color="#fccd03" size="1.3rem" />
+                  {ratings} Star
                 </Typography>
                 <Typography
                   variant="body1"
                   sx={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}
                 >
-                  <Icons name="location" size="1rem" /> Dhaka, Bangladesh
+                  <Icons name="location" size="1rem" /> {city}, {country}
                 </Typography>
               </Stack>
               {/* Rooms red border */}
@@ -126,7 +138,7 @@ const HotelsCard = () => {
                   sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
                 >
                   <Icons name="accessible" size="1.2rem" />
-                  Accessable BeathRooms
+                  {facilities}
                 </Typography>
               </Stack>
               <Typography
@@ -146,7 +158,11 @@ const HotelsCard = () => {
                 },
               })}
             >
-              <Chip iconName="star" label="3.3/5" chipVariant="filled" />
+              <Chip
+                iconName="star"
+                label={`${ratings}/5`}
+                chipVariant="filled"
+              />
               <Typography
                 variant="body1"
                 sx={(theme) => ({
@@ -159,7 +175,7 @@ const HotelsCard = () => {
                   margin: '0.9rem 0 0.5rem 0',
                 })}
               >
-                52% off
+                {discount}% off
               </Typography>
               <Typography variant="body2">Starts from</Typography>
               <Typography
@@ -172,7 +188,7 @@ const HotelsCard = () => {
                 BDT 3100
               </Typography>
               <Typography variant="h3" mt={1}>
-                BDT 1500
+                BDT {price}
               </Typography>
               <Typography variant="body2" lineHeight="1.5rem">
                 for 1 Night per person
