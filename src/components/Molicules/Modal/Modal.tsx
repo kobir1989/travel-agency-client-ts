@@ -1,17 +1,15 @@
 'use client';
 
+import { ChildrenType } from '@/types/commonTypes';
 import { Box } from '@mui/material';
-
-import * as React from 'react';
 import { createPortal } from 'react-dom';
+import { useEffect, useState } from 'react';
 
-export default function Modal({ children }: React.PropsWithChildren) {
-  const [mounted, setMounted] = React.useState(false);
+export default function Modal({ children }: ChildrenType) {
+  const [mounted, setMounted] = useState<boolean>(false);
   const portalDiv = document.getElementById('portal') as HTMLElement;
 
-  React.useEffect(() => setMounted(true), []);
-
-  // eslint-disable-next-line react/jsx-no-useless-fragment
+  useEffect(() => setMounted(true), []);
   return (
     mounted &&
     createPortal(

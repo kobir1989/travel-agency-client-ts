@@ -15,6 +15,7 @@ const Home = () => {
         gap: '4rem',
       }}
     >
+      {/* Hero With search Section */}
       <Box
         sx={{
           backgroundImage: `url('/assets/cover2.jpg')`,
@@ -36,12 +37,15 @@ const Home = () => {
           <SearchSection />
         </Container>
       </Box>
+      {/* Hot deal Section  */}
       <Container maxWidth="lg">
         <HotDealSection />
       </Container>
+      {/* Popular Destination section */}
       <Container maxWidth="lg">
         <PopularDestination />
       </Container>
+      {/* Popular Hotels section */}
       <Container maxWidth="lg">
         <PopularHotels />
       </Container>

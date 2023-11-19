@@ -1,12 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { NextImageProps } from '@/components/Atoms/NextImage/types';
 
 const NextImage = ({ imgUrl, alt, width, height, styles }: NextImageProps) => {
   const [imageSrc, setImageSrc] = useState(imgUrl);
 
+  useEffect(() => {
+    setImageSrc(imgUrl);
+  }, [imgUrl]);
   return (
     <Image
       src={imageSrc}
