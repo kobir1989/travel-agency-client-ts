@@ -3,8 +3,8 @@ import {
   HotDealSection,
   PopularDestination,
   PopularHotels,
-  SearchSection,
-} from '@/components/Templates/HomePageSections';
+  Search,
+} from '@/components/Templates/Home';
 
 const Home = () => {
   return (
@@ -34,7 +34,7 @@ const Home = () => {
         }}
       >
         <Container maxWidth="lg">
-          <SearchSection />
+          <Search />
         </Container>
       </Box>
       {/* Hot deal Section  */}
