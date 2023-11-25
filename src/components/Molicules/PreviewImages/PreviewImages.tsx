@@ -2,7 +2,9 @@
 
 import NextImage from '@/components/Atoms/NextImage';
 import { Box, Stack } from '@mui/material';
+import { useState } from 'react';
 
+// will be replace with real data
 const previewImg = [
   {
     id: 'pv1',
@@ -10,19 +12,24 @@ const previewImg = [
   },
   {
     id: 'pv2',
-    url: '/assets/hotel.jpg',
+    url: '/assets/hotel2.webp',
   },
   {
     id: 'pv3',
     url: '/assets/hotel.jpg',
   },
   {
-    id: 'pv',
+    id: 'pv4',
     url: '/assets/hotel.jpg',
   },
 ];
 
 const PreviewImages = () => {
+  const [currentImg, setCurrentImg] = useState<string>('/assets/hotel.jpg');
+
+  const handleSelectedImage = (img: string) => {
+    setCurrentImg(img);
+  };
   return (
     <Stack
       gap="1rem"
@@ -37,7 +44,7 @@ const PreviewImages = () => {
     >
       <Box sx={{ width: '100%', height: '100%' }}>
         <NextImage
-          imgUrl="/assets/hotel.jpg"
+          imgUrl={currentImg}
           alt="hotel"
           width={400}
           height={400}
@@ -60,7 +67,18 @@ const PreviewImages = () => {
         })}
       >
         {previewImg.map((img) => (
-          <Box sx={{ width: '100px', height: '95px' }} key={img.id}>
+          <div
+            role="button"
+            tabIndex={0}
+            style={{ width: '100px', height: '95px', cursor: 'pointer' }}
+            key={img.id}
+            onClick={() => handleSelectedImage(img.url)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSelectedImage(img.id);
+              }
+            }}
+          >
             <NextImage
               imgUrl={img.url}
               alt="hotel"
@@ -73,7 +91,7 @@ const PreviewImages = () => {
                 objectFit: 'cover',
               }}
             />
-          </Box>
+          </div>
         ))}
       </Stack>
     </Stack>

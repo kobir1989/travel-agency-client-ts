@@ -3,11 +3,17 @@
 import { PopularDestinationCardProps } from '@/components/Molicules/Cards/types';
 import { Stack, Box, Typography, Button } from '@mui/material';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const PopularDestinationCard = ({
   image,
   title,
+  id,
 }: PopularDestinationCardProps) => {
+  const router = useRouter();
+  const handleNavigaton = () => {
+    router.push(`/tour-details/${id}`);
+  };
   return (
     <Box
       sx={(theme) => ({
@@ -43,7 +49,9 @@ const PopularDestinationCard = ({
         </Typography>
       </Stack>
       <Box sx={{ position: 'absolute', right: '0.54rem', bottom: '-1.3rem' }}>
-        <Button variant="secondary">Book Now</Button>
+        <Button variant="secondary" onClick={handleNavigaton}>
+          Book Now
+        </Button>
       </Box>
     </Box>
   );

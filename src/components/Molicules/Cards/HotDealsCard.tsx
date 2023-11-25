@@ -6,13 +6,19 @@ import Chip from '@/components/Atoms/Chip';
 import NextImage from '@/components/Atoms/NextImage';
 import { HotDealsCardProps } from '@/components/Molicules/Cards/types';
 import Icons from '@/components/Atoms/Icons';
+import { useRouter } from 'next/navigation';
 
 const HotDealsCard = ({
   title,
   descriptions,
   image,
   discount,
+  id,
 }: HotDealsCardProps) => {
+  const router = useRouter();
+  const handleNaigate = () => {
+    router.push(`/tour-details/${id}`);
+  };
   return (
     <Box
       sx={(theme) => ({
@@ -108,7 +114,7 @@ const HotDealsCard = ({
         />
       </Box>
       <Box sx={{ position: 'absolute', right: '1.5rem', bottom: '-1.3rem' }}>
-        <Button variant="secondary">
+        <Button variant="secondary" onClick={handleNaigate}>
           <Icons name="arrowOutWard" size="1.3rem" /> Learn More
         </Button>
       </Box>

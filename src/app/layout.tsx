@@ -7,6 +7,7 @@ import Navigation from '@/components/Organisms/Navigation/Navigation';
 import Footer from '@/components/Organisms/Footer/Footer';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const opensans = Open_Sans({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({
             <Footer />
           </ThemeRegistry>
         </ReduxProvider>
+        <Analytics />
       </body>
     </html>
   );

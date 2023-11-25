@@ -5,8 +5,8 @@ import { OpenOptionsPopup } from './types';
 
 const initialState = {
   selectedlocation: {
-    title: 'Gulmarg',
-    subtitle: 'Kashmir',
+    city: 'Gulmarg',
+    country: 'Kashmir',
   },
   checkIn: dayjs(new Date()),
   checkOut: dayjs(new Date()).add(1, 'week'),

@@ -3,8 +3,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
   selectedTour: {
-    title: 'Gulmarg',
-    subtitle: 'Kashmir',
+    city: 'Gulmarg',
+    country: 'Kashmir',
   },
   isLocationsOptionsOpen: false,
 };

@@ -1,22 +1,53 @@
-export interface HotDealsCardProps {
+interface CommonCardProps {
+  id: string;
   image: string;
-  descriptions: string;
-  discount: number;
   title: string;
 }
 
-export interface PopularHotelCardProps {
-  title: string;
+export interface HotDealsCardProps extends CommonCardProps {
+  descriptions: string;
+  discount: number;
+}
+
+export interface PopularHotelCardProps extends CommonCardProps {
   subTitle: string;
-  image: string;
 }
 
 export interface FlightCardProps {
+  airlinesName: string;
+  flightNumber: string;
+  arrivalDate: string;
+  departureDate: string;
+  duration: string;
+  arrivalAirportCode: string;
+  departureAirportCode: string;
   isPrice?: boolean;
+  price: string;
+  airlinesLogo: string;
+  flightClass: string;
+  id: string;
   onNavigate?(id: string): void;
 }
 
-export interface PopularDestinationCardProps {
+export interface PopularDestinationCardProps extends CommonCardProps {}
+
+export interface HotelsCardProps {
   image: string;
-  title: string;
+  name: string;
+  country: string;
+  city: string;
+  ratings: number;
+  id: string;
+  facilities: string;
+  discount: number;
+  price: number;
+}
+
+export interface TourCardProps extends CommonCardProps {
+  groupSize: string;
+  location: string;
+  startDate: string;
+  newPrice?: number;
+  oldPrice: number;
+  discount: number;
 }

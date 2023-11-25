@@ -3,8 +3,8 @@ import {
   HotDealSection,
   PopularDestination,
   PopularHotels,
-  SearchSection,
-} from '@/components/Templates/HomePageSections';
+  Search,
+} from '@/components/Templates/Home';
 
 const Home = () => {
   return (
@@ -15,6 +15,7 @@ const Home = () => {
         gap: '4rem',
       }}
     >
+      {/* Hero With search Section */}
       <Box
         sx={{
           backgroundImage: `url('/assets/cover2.jpg')`,
@@ -33,15 +34,18 @@ const Home = () => {
         }}
       >
         <Container maxWidth="lg">
-          <SearchSection />
+          <Search />
         </Container>
       </Box>
+      {/* Hot deal Section  */}
       <Container maxWidth="lg">
         <HotDealSection />
       </Container>
+      {/* Popular Destination section */}
       <Container maxWidth="lg">
         <PopularDestination />
       </Container>
+      {/* Popular Hotels section */}
       <Container maxWidth="lg">
         <PopularHotels />
       </Container>

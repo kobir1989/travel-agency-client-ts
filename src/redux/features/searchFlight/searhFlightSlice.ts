@@ -5,12 +5,12 @@ import { OptionsListPopup } from './types';
 
 const initialState = {
   selectedDepartValue: {
-    title: 'Dhaka, Bangladesh',
-    subtitle: 'Shazalal int Airport',
+    city: 'Dhaka, Bangladesh',
+    airport: 'Shazalal int Airport',
   },
   selectedArrival: {
-    title: 'Delhi, India',
-    subtitle: 'Delhi Airport',
+    city: 'Delhi, India',
+    airport: 'Delhi Airport',
   },
   departDate: dayjs(new Date()),
   arrivalDate: dayjs(new Date()).add(1, 'week'),
