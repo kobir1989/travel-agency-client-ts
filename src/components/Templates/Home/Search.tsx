@@ -5,7 +5,12 @@ import MuiTabs from '@/components/Molicules/MuiTabs';
 import { theme as muiTheme } from '@/theme/theme';
 import { useState } from 'react';
 import { tabLabels } from '@/constants/searchTabLabels';
-import { FlightTab } from '@/components/Organisms/SearchTabs';
+import {
+  FlightTab,
+  HotelsTab,
+  TourTab,
+} from '@/components/Organisms/SearchTabs';
+import { useRouter } from 'next/navigation';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   background: theme.palette.info.light,
@@ -23,11 +28,11 @@ const tabComponents = [
   },
   {
     id: 'Cmp2',
-    component: <div>tab 2</div>,
+    component: <HotelsTab />,
   },
   {
     id: 'Cmp3',
-    component: <div>tab 3</div>,
+    component: <TourTab />,
   },
 ];
 
@@ -54,13 +59,19 @@ const tabsStyles = {
 
 const Search = () => {
   const [value, setValue] = useState(0);
+  const router = useRouter();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  // Handle tab change
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   // navigte to pages based on tab value
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    if (value === 0) router.push('/flight-list');
+    if (value === 1) router.push('/hotel-list');
+    if (value === 2) router.push('/tour-list');
+  };
   return (
     <StyledContainer maxWidth="lg">
       <Box width="100%">

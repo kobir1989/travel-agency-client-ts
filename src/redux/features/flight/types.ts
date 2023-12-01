@@ -27,3 +27,16 @@ export interface FlightsResponse {
   totalPages?: number;
   totalCount?: number;
 }
+
+export type OpenArrival = boolean;
+export type OpenDepart = boolean;
+// Flight Initial State Type
+export interface InitialStateType {
+  selectedDepartValue: string;
+  selectedArrival: string;
+  departDate: string;
+  arrivalDate: string;
+  flightType: string;
+  isArrivalDateOpen: OpenArrival;
+  isDepartDateOpen: OpenArrival;
+}

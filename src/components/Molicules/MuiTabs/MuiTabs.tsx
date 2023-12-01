@@ -1,6 +1,6 @@
 'use client';
 
-import { Tab, Tabs, Stack, styled } from '@mui/material';
+import { Tab, Tabs, Stack, styled, Grow, Box } from '@mui/material';
 import {
   MuiTabsProps,
   TabLabel,
@@ -56,7 +56,15 @@ const MuiTabs = ({
       </Tabs>
       {tabComponents.map((tab: TabComponents, index) => (
         <TabPanel value={value} index={index} key={tab?.id}>
-          {tab?.component}
+          <Grow
+            in={value === index}
+            unmountOnExit
+            style={{
+              transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
+            <Box>{tab?.component}</Box>
+          </Grow>
         </TabPanel>
       ))}
     </Stack>
