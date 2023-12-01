@@ -19,3 +19,12 @@ export interface HotelsResponse {
   totalPages?: number;
   totalCount?: number;
 }
+
+// Hotel Search Initial state Type
+export interface HotelSearch {
+  selectedlocation: string;
+  checkInDate: string;
+  checkOutDate: string;
+  isCheckInCalanderOpen: boolean;
+  isCheckOutCalanderOpen: boolean;
+}
