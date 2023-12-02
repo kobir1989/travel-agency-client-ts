@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
-import { InitialStateType, OpenArrival, OpenDepart } from './types';
+import {
+  InitialStateType,
+  OpenArrival,
+  OpenDepart,
+} from '@/types/redux-state-type';
 
 // Initial State
 const initialState: InitialStateType = {

@@ -1,5 +1,5 @@
 import apiSlice from '@/redux/api/apiSlice';
-import { HotelsResponse } from './types';
+import { HotelsResponse } from '@/types/api-data-type';
 
 export const hotelApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

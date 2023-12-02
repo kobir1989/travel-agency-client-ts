@@ -1,6 +1,6 @@
 'use client';
 
-import { ChildrenType } from '@/types/commonTypes';
+import { ChildrenType } from '@/types/common-type';
 import { Box } from '@mui/material';
 import { createPortal } from 'react-dom';
 import { useEffect, useState } from 'react';

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
-import { HotelSearch } from './types';
+import { HotelSearch } from '@/types/redux-state-type';
 
 // Initial Hotel search State
 const initialState: HotelSearch = {

@@ -2,11 +2,10 @@
 
 import { HotDealsCard } from '@/components/Molicules/Cards';
 import SlickSlider from '@/components/Molicules/SlickSlider';
-import { useGetTourListQuery } from '@/redux/features/tour/tourApi';
 import { Box, Stack, Typography } from '@mui/material';
+import { TourResponse } from '@/types/api-data-type';
 
-const HotDealSection = () => {
-  const { data: tours, isLoading, isError } = useGetTourListQuery();
+const HotDealSection = ({ hotDeals }: { hotDeals: TourResponse }) => {
   return (
     <Box>
       <Box mb={1}>
@@ -19,26 +18,22 @@ const HotDealSection = () => {
           slidesToScroll={1}
           slidesToShow={2}
         >
-          {!isError &&
-            !isLoading &&
-            tours?.tours.map((tour) => (
-              <Box
-                sx={{
-                  padding: '0 0 2rem 1rem',
-                }}
-                // eslint-disable-next-line no-underscore-dangle
-                key={tour?._id}
-              >
-                <HotDealsCard
-                  title={tour?.title}
-                  descriptions={tour?.description}
-                  image={tour?.images[0]}
-                  discount={tour?.discount}
-                  // eslint-disable-next-line no-underscore-dangle
-                  id={tour?._id}
-                />
-              </Box>
-            ))}
+          {hotDeals?.tours.map((tour) => (
+            <Box
+              sx={{
+                padding: '0 0 2rem 1rem',
+              }}
+              key={tour?._id}
+            >
+              <HotDealsCard
+                title={tour?.title}
+                descriptions={tour?.description}
+                image={tour?.images[0]}
+                discount={tour?.discount}
+                id={tour?._id}
+              />
+            </Box>
+          ))}
         </SlickSlider>
       </Stack>
     </Box>

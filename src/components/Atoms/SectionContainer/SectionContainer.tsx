@@ -1,7 +1,7 @@
 'use client';
 
 import { styled } from '@mui/material';
-import { ChildrenType } from '@/types/commonTypes';
+import { ChildrenType } from '@/types/common-type';
 
 const StyledSection = styled('section')(({ theme }) => ({
   background: theme.palette.info.light,
