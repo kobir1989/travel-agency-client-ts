@@ -1,5 +1,5 @@
 import apiSlice from '@/redux/api/apiSlice';
-import { FlightsResponse } from '@/redux/features/flight/types';
+import { FlightsResponse } from '@/types/api-data-type';
 
 export const flightApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

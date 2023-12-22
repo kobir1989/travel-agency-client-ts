@@ -2,12 +2,10 @@
 
 import { PopularHotelCard } from '@/components/Molicules/Cards';
 import SlickSlider from '@/components/Molicules/SlickSlider';
-import { useGetHotelsListQuery } from '@/redux/features/hotel/hotelApi';
+import { HotelsResponse } from '@/types/api-data-type';
 import { Box, Typography } from '@mui/material';
 
-const PopularHotels = () => {
-  const { data: hotels, isError, isLoading } = useGetHotelsListQuery();
-
+const PopularHotels = ({ hotels }: HotelsResponse) => {
   return (
     <Box pb={8}>
       <Box>
@@ -20,20 +18,16 @@ const PopularHotels = () => {
         slidesToShow={4}
         slidesToScroll={1}
       >
-        {!isLoading &&
-          !isError &&
-          hotels?.hotels.map((hotel) => (
-            // eslint-disable-next-line no-underscore-dangle
-            <Box key={hotel?._id}>
-              <PopularHotelCard
-                title={hotel?.name}
-                subTitle={hotel?.description}
-                image={hotel?.images[0]}
-                // eslint-disable-next-line no-underscore-dangle
-                id={hotel?._id}
-              />
-            </Box>
-          ))}
+        {hotels.map((hotel) => (
+          <Box key={hotel?._id}>
+            <PopularHotelCard
+              title={hotel?.name}
+              subTitle={hotel?.description}
+              image={hotel?.images[0]}
+              id={hotel?._id}
+            />
+          </Box>
+        ))}
       </SlickSlider>
     </Box>
   );

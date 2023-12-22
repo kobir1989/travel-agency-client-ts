@@ -1,5 +1,5 @@
 import apiSlice from '@/redux/api/apiSlice';
-import { TourResponse } from '@/redux/features/tour/types';
+import { TourResponse } from '@/types/api-data-type';
 
 export const tourApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

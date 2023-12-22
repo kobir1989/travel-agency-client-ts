@@ -35,6 +35,7 @@ import {
   selectStyles,
   gridItemWrapperStyles,
   calanderWrapperStyles,
+  calanderWrapperStylesFlight,
 } from './styles';
 // will be removed
 const flights = [
@@ -227,7 +228,7 @@ const FlightTab = () => {
                 transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
-              <Box sx={calanderWrapperStyles}>
+              <Box sx={calanderWrapperStylesFlight}>
                 <Calendar
                   date={new Date(departDate)}
                   onChange={getJourneyDate}

@@ -3,6 +3,7 @@
 import { HotelsCard } from '@/components/Molicules/Cards';
 import { Stack } from '@mui/material';
 import { useGetHotelsListQuery } from '@/redux/features/hotel/hotelApi';
+import PaginationButtons from '@/components/Molicules/PaginationButtons';
 
 const HotelListSection = () => {
   const { data: hotels, isLoading, isError } = useGetHotelsListQuery();
@@ -26,6 +27,7 @@ const HotelListSection = () => {
             ratings={hotel?.ratings}
           />
         ))}
+      {!isError && !isLoading && <PaginationButtons count={10} />}
     </Stack>
   );
 };

@@ -30,6 +30,7 @@ const MuiTabs = ({
   return (
     <Stack position="relative" alignItems="center">
       <Tabs
+        aria-label="tab"
         centered={!!isCenter}
         value={value}
         onChange={onHandleChange}

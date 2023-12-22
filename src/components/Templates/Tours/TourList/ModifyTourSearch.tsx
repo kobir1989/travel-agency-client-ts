@@ -1,7 +1,7 @@
 'use client';
 
+import { TourTab } from '@/components/Organisms/SearchTabs';
 import { styled, Stack, Button } from '@mui/material';
-// import { TourTab } from '@/components/Templates/HomePageSections/SearchSection/SearchTabs';
 
 const StyledStack = styled(Stack)(({ theme }) => ({
   background: theme.palette.info.light,
@@ -14,7 +14,7 @@ const StyledStack = styled(Stack)(({ theme }) => ({
 const ModifyTourSearch = () => {
   return (
     <StyledStack>
-      {/* <TourTab /> */}
+      <TourTab />
       <Stack justifyContent="center" alignItems="center">
         <Button variant="secondary">Modify Search</Button>
       </Stack>

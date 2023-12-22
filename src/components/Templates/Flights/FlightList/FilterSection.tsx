@@ -1,14 +1,17 @@
 'use client';
 
 import { Stack, styled, Box, Typography, Grid } from '@mui/material';
-import { useState } from 'react';
+import { RootState } from '@/redux/store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setFlightCategory,
+  setFlightStops,
+} from '@/redux/features/flight/flightSlice';
 import { StyledFilterButtonProps, StyledStopsButtonProps } from './types';
 
 const StyledFilterButton = styled('button')<StyledFilterButtonProps>(
-  ({ theme, background }) => ({
-    background: background
-      ? theme.palette.primary.light
-      : theme.palette.info.light,
+  ({ theme, bg }) => ({
+    background: bg ? theme.palette.primary.light : theme.palette.info.light,
     border: 'unset',
     padding: '0.4rem 0.7rem',
     borderRadius: '4px',
@@ -36,17 +39,15 @@ const StyledSpan = styled('span')({
 });
 
 const StyledStopsButton = styled('button')<StyledStopsButtonProps>(
-  ({ theme, background }) => ({
-    background: background
-      ? theme.palette.primary.main
-      : theme.palette.info.light,
+  ({ theme, bg }) => ({
+    background: bg ? theme.palette.primary.main : theme.palette.info.light,
     border: '1px solid #D1D1D1',
     padding: '5px 0.8rem',
     borderRadius: '4px',
     fontWeight: 600,
     cursor: 'pointer',
     transition: 'all 0.3s ease-in-out',
-    color: background ? theme.palette.info.light : theme.palette.info.dark,
+    color: bg ? theme.palette.info.light : theme.palette.info.dark,
     '&:hover': {
       background: theme.palette.primary.main,
       color: theme.palette.info.light,
@@ -56,16 +57,18 @@ const StyledStopsButton = styled('button')<StyledStopsButtonProps>(
 );
 
 const FilterSection = () => {
-  const [selectedButton, setSelectedButton] = useState({
-    btn1: true,
-    btn2: false,
-  });
+  const { stops, flightCategory } = useSelector(
+    (state: RootState) => state.searchFlight,
+  );
+  const dispatch = useDispatch();
 
-  const [selectedStop, setSelectedStop] = useState({
-    stops0: true,
-    stops1: false,
-    stops2: false,
-  });
+  const fliterFlightCategory = (category: string): void => {
+    dispatch(setFlightCategory(category));
+  };
+
+  const fliterFlightStops = (flightStops: number): void => {
+    dispatch(setFlightStops(flightStops));
+  };
 
   return (
     <Box>
@@ -81,8 +84,8 @@ const FilterSection = () => {
       >
         <Grid item xs={12} sm={6} md={4.5} lg={4}>
           <StyledFilterButton
-            background={selectedButton.btn1}
-            onClick={() => setSelectedButton({ btn1: true, btn2: false })}
+            bg={flightCategory === 'cheapest'}
+            onClick={() => fliterFlightCategory('cheapest')}
           >
             Cheapest
             <StyledSpan>
@@ -93,8 +96,8 @@ const FilterSection = () => {
 
         <Grid item xs={12} sm={6} md={4.5} lg={4}>
           <StyledFilterButton
-            background={selectedButton.btn2}
-            onClick={() => setSelectedButton({ btn1: false, btn2: true })}
+            bg={flightCategory === 'fastest'}
+            onClick={() => fliterFlightCategory('fastest')}
           >
             Fastest
             <StyledSpan>
@@ -115,38 +118,20 @@ const FilterSection = () => {
             </Typography>
             <Stack direction="row" gap={1}>
               <StyledStopsButton
-                background={selectedStop.stops0}
-                onClick={() =>
-                  setSelectedStop({
-                    stops0: true,
-                    stops1: false,
-                    stops2: false,
-                  })
-                }
+                bg={stops === 0}
+                onClick={() => fliterFlightStops(0)}
               >
                 0
               </StyledStopsButton>
               <StyledStopsButton
-                background={selectedStop.stops1}
-                onClick={() =>
-                  setSelectedStop({
-                    stops0: false,
-                    stops1: true,
-                    stops2: false,
-                  })
-                }
+                bg={stops === 1}
+                onClick={() => fliterFlightStops(1)}
               >
                 1
               </StyledStopsButton>
               <StyledStopsButton
-                background={selectedStop.stops2}
-                onClick={() =>
-                  setSelectedStop({
-                    stops0: false,
-                    stops1: false,
-                    stops2: true,
-                  })
-                }
+                bg={stops === 2}
+                onClick={() => fliterFlightStops(2)}
               >
                 2
               </StyledStopsButton>

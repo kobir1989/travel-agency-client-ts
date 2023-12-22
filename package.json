@@ -36,10 +36,12 @@
     "react": "^18.2.0",
     "react-date-range": "^1.4.0",
     "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.5.3",
     "react-redux": "^8.1.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "uuid": "^9.0.1"
   },
   "lint-staged": {
     "./*/**/*.{js,jsx,ts,tsx,css}": [
@@ -53,6 +55,7 @@
   "devDependencies": {
     "@types/react-date-range": "^1.4.8",
     "@types/react-slick": "^0.23.10",
+    "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.45.0",

@@ -1,5 +1,5 @@
 export interface ButtonProps {
-  background: boolean;
+  bg: boolean;
 }
 
 export interface StyledFilterButtonProps extends ButtonProps {}
