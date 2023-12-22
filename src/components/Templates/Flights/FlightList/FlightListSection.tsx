@@ -1,10 +1,12 @@
 'use client';
 
-import { Stack } from '@mui/material';
+import { Skeleton, Stack } from '@mui/material';
 import { FlightCard } from '@/components/Molicules/Cards';
 import { useGetFlightsQuery } from '@/redux/features/flight/flightApi';
 import { useRouter } from 'next/navigation';
 import SectionContainer from '@/components/Atoms/SectionContainer';
+import { v4 as uuidv4 } from 'uuid';
+import PaginationButtons from '@/components/Molicules/PaginationButtons';
 
 const FlightListSection = () => {
   const { data: flights, isError, isLoading } = useGetFlightsQuery();
@@ -17,7 +19,6 @@ const FlightListSection = () => {
       {!isError &&
         !isLoading &&
         flights?.flight_list.map((flight) => (
-          // eslint-disable-next-line no-underscore-dangle
           <SectionContainer key={flight?._id}>
             <FlightCard
               onNavigate={handleNavigate}
@@ -31,11 +32,28 @@ const FlightListSection = () => {
               price={flight?.price}
               flightClass={flight?.flightClass}
               airlinesLogo={flight?.airlinesLogo}
-              // eslint-disable-next-line no-underscore-dangle
               id={flight?._id}
             />
           </SectionContainer>
         ))}
+      {/* Pagination Buttons */}
+      {!isLoading && !isError && <PaginationButtons count={10} />}
+      {/* Loading State */}
+      {!isError && isLoading && (
+        <Stack gap={2}>
+          {Array.from({ length: 3 })
+            .fill(0)
+            .map(() => (
+              <Skeleton
+                key={uuidv4()}
+                width="100%"
+                height={230}
+                animation="wave"
+                variant="rounded"
+              />
+            ))}
+        </Stack>
+      )}
     </Stack>
   );
 };

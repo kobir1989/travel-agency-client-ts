@@ -37,7 +37,11 @@ export default function RootLayout({
         <ReduxProvider>
           <ThemeRegistry>
             <Navigation />
-            <main>
+            <main
+              style={{
+                minHeight: '60vh',
+              }}
+            >
               {children}
               <div id="portal" />
             </main>

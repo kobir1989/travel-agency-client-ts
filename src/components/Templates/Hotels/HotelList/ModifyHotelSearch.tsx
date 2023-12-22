@@ -1,5 +1,6 @@
 'use client';
 
+import { HotelsTab } from '@/components/Organisms/SearchTabs';
 import { Button, Stack, styled } from '@mui/material';
 
 const StyledStack = styled(Stack)(({ theme }) => ({
@@ -13,7 +14,7 @@ const StyledStack = styled(Stack)(({ theme }) => ({
 const ModifyHotelSearch = () => {
   return (
     <StyledStack>
-      {/* <HotelsTab /> */}
+      <HotelsTab />
       <Stack justifyContent="center" alignItems="center">
         <Button variant="secondary">Modify Search</Button>
       </Stack>

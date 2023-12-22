@@ -27,6 +27,7 @@ import {
   StyledH3,
   StyledH4,
   calanderWrapperStyles,
+  calanderWrapperStylesRight,
   gridItemWrapperStyles,
   selectStyles,
 } from './styles';
@@ -168,10 +169,10 @@ const HotelsTab = () => {
             <Typography mb="0.3rem">CHECK OUT</Typography>
             <Box sx={gridItemWrapperStyles} onClick={toggleCheckOutCalander}>
               <StyledH3 variant="h3">
-                {format(new Date(checkInDate), 'dd MMM  yyyy')}
+                {format(new Date(checkOutDate), 'dd MMM  yyyy')}
               </StyledH3>
               <StyledH4 variant="h4">
-                {format(new Date(checkInDate), 'iiii')}
+                {format(new Date(checkOutDate), 'iiii')}
               </StyledH4>
             </Box>
             <Grow
@@ -181,11 +182,11 @@ const HotelsTab = () => {
                 transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
-              <Box sx={calanderWrapperStyles}>
+              <Box sx={calanderWrapperStylesRight}>
                 <Calendar
                   date={new Date(checkOutDate)}
                   onChange={handleCheckOutDate}
-                  minDate={new Date()}
+                  minDate={new Date(checkInDate)}
                   // maxDate={getMaxDate()}
                 />
               </Box>

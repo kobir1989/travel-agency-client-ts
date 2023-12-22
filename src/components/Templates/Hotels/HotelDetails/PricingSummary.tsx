@@ -4,7 +4,6 @@ import Condition from '@/components/Atoms/Condition';
 import Icons from '@/components/Atoms/Icons';
 import { Box, Stack, Typography, IconButton, Button } from '@mui/material';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import { useState } from 'react';
 
 const addedRooms = [
@@ -13,7 +12,6 @@ const addedRooms = [
 ];
 
 const PricingSummary = () => {
-  const params = useParams();
   const [rooms, setRooms] = useState(addedRooms);
   const handleRemoveRoom = (id: string) => {
     const findSelectedRoom = rooms.filter((room) => room.id !== id);
@@ -111,8 +109,7 @@ const PricingSummary = () => {
         <Box pt={3} pb={3} width="90%" margin="auto">
           <Link
             href={{
-              pathname: '/hotel-booking',
-              query: { hotelId: params.slug },
+              pathname: '/hotel-booking/roomid',
             }}
           >
             <Button variant="secondary" sx={{ width: '100%' }}>

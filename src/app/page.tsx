@@ -1,5 +1,5 @@
 import { Container, Box } from '@mui/material';
-import { getHotDeals } from '@/services/api';
+import { getHotDeals, getHotels } from '@/services/api';
 import {
   HotDealSection,
   PopularDestination,
@@ -25,6 +25,7 @@ const searchContainerStyles = {
 
 const Home = async () => {
   const hotDeals = await getHotDeals();
+  const hotels = await getHotels();
 
   return (
     <section
@@ -42,15 +43,15 @@ const Home = async () => {
       </Box>
       {/* Hot deal Section  */}
       <Container maxWidth="lg">
-        <HotDealSection hotDeals={hotDeals} />
+        <HotDealSection tours={hotDeals.tours} />
       </Container>
       {/* Popular Destination section */}
       <Container maxWidth="lg">
-        <PopularDestination />
+        <PopularDestination tours={hotDeals?.tours} />
       </Container>
       {/* Popular Hotels section */}
       <Container maxWidth="lg">
-        <PopularHotels />
+        <PopularHotels hotels={hotels?.hotels} />
       </Container>
     </section>
   );

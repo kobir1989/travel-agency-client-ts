@@ -3,7 +3,6 @@
 import Icons from '@/components/Atoms/Icons';
 import PreviewImages from '@/components/Molicules/PreviewImages';
 import { Box, Grid, Typography, Stack, Button, styled } from '@mui/material';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import SectionContainer from '@/components/Atoms/SectionContainer';
 
@@ -14,7 +13,6 @@ const StyledSpan = styled('span')({
 });
 
 const TourPreview = () => {
-  const params = useParams();
   return (
     <SectionContainer>
       <Grid container spacing={3}>
@@ -78,8 +76,7 @@ const TourPreview = () => {
             </Box>
             <Link
               href={{
-                pathname: '/tour-booking',
-                query: { tourId: params.slug },
+                pathname: '/tour-booking/tourid',
               }}
             >
               <Box mt={4} width="100%">

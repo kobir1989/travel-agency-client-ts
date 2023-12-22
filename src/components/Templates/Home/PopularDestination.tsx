@@ -2,11 +2,10 @@
 
 import { PopularDestinationCard } from '@/components/Molicules/Cards';
 import SlickSlider from '@/components/Molicules/SlickSlider';
+import { TourResponse } from '@/types/api-data-type';
 import { Typography, Box } from '@mui/material';
-import { useGetTourListQuery } from '@/redux/features/tour/tourApi';
 
-const PopularDestination = () => {
-  const { data: tours, isError, isLoading } = useGetTourListQuery();
+const PopularDestination = ({ tours }: TourResponse) => {
   return (
     <Box>
       <Box>
@@ -18,20 +17,15 @@ const PopularDestination = () => {
         slidesToScroll={1}
         slidesToShow={3}
       >
-        {!isError &&
-          !isLoading &&
-          tours?.tours &&
-          tours?.tours.map((tour) => (
-            // eslint-disable-next-line no-underscore-dangle
-            <Box key={tour?._id}>
-              <PopularDestinationCard
-                image={tour?.images[0]}
-                title={tour?.title}
-                // eslint-disable-next-line no-underscore-dangle
-                id={tour?._id}
-              />
-            </Box>
-          ))}
+        {tours.map((tour) => (
+          <Box key={tour?._id}>
+            <PopularDestinationCard
+              image={tour?.images[0]}
+              title={tour?.title}
+              id={tour?._id}
+            />
+          </Box>
+        ))}
       </SlickSlider>
     </Box>
   );

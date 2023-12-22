@@ -5,7 +5,7 @@ import SlickSlider from '@/components/Molicules/SlickSlider';
 import { Box, Stack, Typography } from '@mui/material';
 import { TourResponse } from '@/types/api-data-type';
 
-const HotDealSection = ({ hotDeals }: { hotDeals: TourResponse }) => {
+const HotDealSection = ({ tours }: TourResponse) => {
   return (
     <Box>
       <Box mb={1}>
@@ -18,7 +18,7 @@ const HotDealSection = ({ hotDeals }: { hotDeals: TourResponse }) => {
           slidesToScroll={1}
           slidesToShow={2}
         >
-          {hotDeals?.tours.map((tour) => (
+          {tours.map((tour) => (
             <Box
               sx={{
                 padding: '0 0 2rem 1rem',

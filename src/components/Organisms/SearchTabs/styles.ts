@@ -57,10 +57,41 @@ export const selectStyles = {
   },
 };
 
-export const calanderWrapperStyles = {
+const caladerCommonStyles = {
   position: 'absolute',
+  zIndex: '20',
+  background: '#FFF',
+  boxShadow:
+    'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px',
+  borderRadius: '8px',
+};
+
+export const calanderWrapperStyles = {
+  ...caladerCommonStyles,
   top: '6.5rem',
   left: '1rem',
-  zIndex: '20',
-  boxShadow: ' rgba(149, 157, 165, 0.2) 0px 8px 24px',
+};
+
+export const calanderWrapperStylesFlight = {
+  ...caladerCommonStyles,
+  top: '6.5rem',
+  left: '1rem',
+  '@media (min-width: 850px)': {
+    right: '0',
+    left: 'unset',
+  },
+  '@media (min-width: 1075px)': {
+    right: 'unset',
+    left: '1rem',
+  },
+};
+
+export const calanderWrapperStylesRight = {
+  ...caladerCommonStyles,
+  top: '6.5rem',
+  left: '1rem',
+  '@media (min-width: 575px)': {
+    right: '0',
+    left: 'unset',
+  },
 };

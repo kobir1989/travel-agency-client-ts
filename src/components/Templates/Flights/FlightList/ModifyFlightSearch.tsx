@@ -1,5 +1,6 @@
 'use client';
 
+import { FlightTab } from '@/components/Organisms/SearchTabs';
 import { Stack, Button, styled } from '@mui/material';
 
 const StyledStack = styled(Stack)(({ theme }) => ({
@@ -13,7 +14,8 @@ const StyledStack = styled(Stack)(({ theme }) => ({
 const ModifyFlightSearch = () => {
   return (
     <StyledStack>
-      {/* <FlightTab /> */}
+      {/* Flight Tab That used in the Home Page Search flight  */}
+      <FlightTab />
       <Stack justifyContent="center" alignItems="center">
         <Button variant="secondary">Modify Search</Button>
       </Stack>
