@@ -1,21 +1,22 @@
+'use client';
+
 import SectionContainer from '@/components/Atoms/SectionContainer';
 import BookingFrom from '@/components/Organisms/BookingForm/BookingFrom';
 import useForm from '@/hooks/useForm';
+import { bookingInputValidator } from '@/utils/validators';
+import { initialState } from '@/constants/bookingInitialValue';
+import { DynamicObjectType } from '@/types/common-type';
 
 const TourBookingForm = () => {
-  // Initial Form Value
-  const initialState = {
-    firstName: '',
-    lastName: '',
-    country: '',
-    city: '',
-    passport: '',
-    nid: '',
-    phone: '',
-    email: '',
-    gender: '',
+  const handleTourBookingData = (value: DynamicObjectType) => {
+    // eslint-disable-next-line no-console
+    console.log(value);
   };
-  const { formValues, handleChange, handleSubmit } = useForm(initialState);
+  const { errors, formValues, handleChange, handleSubmit } = useForm(
+    initialState,
+    handleTourBookingData,
+    bookingInputValidator,
+  );
   return (
     <SectionContainer>
       <BookingFrom
@@ -30,6 +31,7 @@ const TourBookingForm = () => {
         gender={formValues.gender}
         onChange={handleChange}
         onSubmit={handleSubmit}
+        errors={errors}
       />
     </SectionContainer>
   );

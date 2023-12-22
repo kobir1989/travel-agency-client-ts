@@ -1,19 +1,29 @@
 'use client';
 
+import { DynamicObjectType } from '@/types/common-type';
 import { useState, ChangeEvent } from 'react';
 
-// interface UseFormProps {
-//   initialState: Record<string, string>;
-//   // submitCallback?(data: T): void;
-//   // validationCallback?(data: T): Record<string, string>;
-// }
-
-const useForm = (initialState: Record<string, string>) => {
+/**
+ * @useForm custom hook
+ * @param initialState
+ * @param submitCallback
+ * @param errorValidator
+ * @returns {fromValue} - form value state.
+ * @returns {errors} - object
+ * @returns {fromValue}
+ * @returns {handleChange} - onChange handler
+ * @returns {handleSubmit} - onSubmit handler
+ */
+const useForm = (
+  initialState: DynamicObjectType,
+  submitCallback: (value: DynamicObjectType) => void,
+  errorValidator: (inputValue: DynamicObjectType) => DynamicObjectType,
+) => {
   const [formValues, setFormValues] = useState(initialState);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<DynamicObjectType>({});
 
   // onChange Handler
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setFormValues((prev) => ({
       ...prev,
@@ -25,31 +35,20 @@ const useForm = (initialState: Record<string, string>) => {
   };
 
   // onSubmit Handler
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    // console.log(formValues);
-    // const validationErrors = validationCallback(formValues);
-    // setErrors({ ...validationErrors, ...errors });
-    // if (Object.keys(validationErrors).length === 0) {
-    //   submitCallback(formValues);
-    // }
-  };
+    // validate input value
+    const validationError: DynamicObjectType = errorValidator(formValues);
+    if (Object.keys(validationError).length > 0) {
+      setErrors(validationError);
+      return;
+    }
+    // submit input value
+    submitCallback(formValues);
 
-  // useEffect(() => {
-  //   // if there are any response errors, update the error state.
-  //   if (isError) {
-  //     setErrors((prev) => ({
-  //       ...prev,
-  //       email: 'Invalid credentials',
-  //       password: 'Invalid credentials',
-  //     }));
-  //   }
-  //   // if success, navigate to '/user' and reset form
-  //   if (isSuccess) {
-  //     setFormValues(initialState);
-  //     navigate('/');
-  //   }
-  // }, [initialState, isError, isSuccess]);
+    // rest input value after successfull submition
+    setFormValues(initialState);
+  };
 
   return {
     formValues,

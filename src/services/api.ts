@@ -1,4 +1,4 @@
-// server side data fetching 3
+// server side data fetching
 // Hot Deals API
 export const getHotDeals = async () => {
   try {

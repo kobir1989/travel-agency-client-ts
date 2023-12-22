@@ -6,9 +6,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const SelectedFlightPreview = () => {
   return (
     <Stack gap={3}>
-      <SectionContainer>
-        {/* <FlightCard isPrice={false} /> */}
-      </SectionContainer>
+      {/* <SectionContainer> */}
+      {/* <FlightCard isPrice={false} /> */}
+      {/* </SectionContainer> */}
       <SectionContainer>
         <Accordion sx={{ boxShadow: 'none' }}>
           <AccordionSummary

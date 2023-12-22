@@ -9,6 +9,8 @@ export interface InitialStateType {
   flightType: string;
   isArrivalDateOpen: OpenArrival;
   isDepartDateOpen: OpenArrival;
+  flightCategory: string;
+  stops: number;
 }
 
 // Hotel Search Initial state Type

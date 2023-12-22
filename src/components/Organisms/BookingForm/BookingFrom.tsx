@@ -11,7 +11,9 @@ import {
 import { FormProps } from '@/types/common-type';
 
 const RadioButton = styled('input')({
-  display: 'none',
+  position: 'absolute',
+  opacity: '0',
+  zIndex: -1,
 });
 
 const GenderLabel = styled('label')(({ checked }: { checked: string }) => ({
@@ -39,7 +41,7 @@ const InputWrapperStack = styled(Stack)(({ theme }) => ({
 const StyledTextfield = styled(TextField)(({ theme }) => ({
   '& .MuiOutlinedInput-root': {
     '&.Mui-focused fieldset': {
-      borderColor: theme.palette.secondary.main,
+      borderColor: theme.palette.primary.main,
     },
     '&:hover .MuiOutlinedInput-input': {
       borderColor: theme.palette.secondary.main,
@@ -59,6 +61,7 @@ const BookingFrom = ({
   passport,
   onChange,
   onSubmit,
+  errors,
 }: FormProps) => {
   return (
     <form onSubmit={onSubmit}>
@@ -112,19 +115,21 @@ const BookingFrom = ({
         <InputWrapperStack gap={4} width="100%">
           <StyledTextfield
             name="firstName"
-            placeholder="First Name"
+            placeholder="First Name*"
             fullWidth
-            required
             value={firstName}
             onChange={onChange}
+            error={!!errors.firstName}
+            helperText={errors?.firstName}
           />
           <StyledTextfield
             name="lastName"
-            placeholder="Last Name"
+            placeholder="Last Name*"
             fullWidth
-            required
             value={lastName}
             onChange={onChange}
+            error={!!errors.lastName}
+            helperText={errors?.lastName}
           />
         </InputWrapperStack>
         {/* Name ends */}
@@ -133,19 +138,21 @@ const BookingFrom = ({
         <InputWrapperStack gap={4}>
           <StyledTextfield
             name="country"
-            placeholder="Country"
+            placeholder="Country*"
             fullWidth
-            required
             value={country}
             onChange={onChange}
+            error={!!errors.country}
+            helperText={errors?.country}
           />
           <StyledTextfield
-            placeholder="City"
+            placeholder="City*"
             name="city"
             fullWidth
-            required
             value={city}
             onChange={onChange}
+            error={!!errors.city}
+            helperText={errors?.city}
           />
         </InputWrapperStack>
         {/* Country & City ends */}
@@ -154,18 +161,22 @@ const BookingFrom = ({
         <InputWrapperStack gap={4}>
           <StyledTextfield
             name="passport"
-            placeholder="Passport"
+            placeholder="Passport*"
             fullWidth
-            required
             value={passport}
             onChange={onChange}
+            error={!!errors.passport}
+            helperText={errors?.passport}
           />
           <StyledTextfield
             name="nid"
-            placeholder="NID (*Optional)"
+            type="number"
+            placeholder="NID*"
             fullWidth
             value={nid}
             onChange={onChange}
+            error={!!errors.nid}
+            helperText={errors?.nid}
           />
         </InputWrapperStack>
         {/* Password & ID  ends */}
@@ -176,19 +187,23 @@ const BookingFrom = ({
         <InputWrapperStack gap={4}>
           <StyledTextfield
             name="phone"
-            placeholder="Mobile"
+            placeholder="Mobile*"
+            type="number"
             fullWidth
-            required
             value={phone}
             onChange={onChange}
+            error={!!errors.phone}
+            helperText={errors?.phone}
           />
           <StyledTextfield
             name="email"
-            placeholder="Email"
+            type="email"
+            placeholder="Email*"
             fullWidth
-            required
             value={email}
             onChange={onChange}
+            error={!!errors.email}
+            helperText={errors?.email}
           />
         </InputWrapperStack>
         {/* Mobile & email  ends */}

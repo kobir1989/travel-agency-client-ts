@@ -3,21 +3,22 @@
 import BookingFrom from '@/components/Organisms/BookingForm/BookingFrom';
 import SectionContainer from '@/components/Atoms/SectionContainer';
 import useForm from '@/hooks/useForm';
+import { initialState } from '@/constants/bookingInitialValue';
+import { bookingInputValidator } from '@/utils/validators';
 
 const FlightBookingForm = () => {
-  // Initial Form Value
-  const initialState = {
-    firstName: '',
-    lastName: '',
-    country: '',
-    city: '',
-    passport: '',
-    nid: '',
-    phone: '',
-    email: '',
-    gender: '',
+  // will send the booking data to server later.
+  const handleBookingValue = (value: Record<string, string>) => {
+    // eslint-disable-next-line no-console
+    console.log(value);
   };
-  const { formValues, handleChange, handleSubmit } = useForm(initialState);
+
+  const { errors, formValues, handleChange, handleSubmit } = useForm(
+    initialState,
+    handleBookingValue,
+    bookingInputValidator,
+  );
+
   return (
     <SectionContainer>
       <BookingFrom
@@ -32,6 +33,7 @@ const FlightBookingForm = () => {
         gender={formValues.gender}
         onChange={handleChange}
         onSubmit={handleSubmit}
+        errors={errors}
       />
     </SectionContainer>
   );
