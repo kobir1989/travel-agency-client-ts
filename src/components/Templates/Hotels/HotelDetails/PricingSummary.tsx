@@ -2,30 +2,27 @@
 
 import Condition from '@/components/Atoms/Condition';
 import Icons from '@/components/Atoms/Icons';
+import { removeRoom } from '@/redux/features/hotel/hotelSlice';
+import { RootState } from '@/redux/store/store';
 import { Box, Stack, Typography, IconButton, Button } from '@mui/material';
 import Link from 'next/link';
-import { useState } from 'react';
-
-const addedRooms = [
-  { id: 'ar1', name: 'Regular Room sea Side', price: 4250, taxes: 1100 },
-  { id: 'ar2', name: 'Regular Room', price: 4050, taxes: 1100 },
-];
+import { useDispatch, useSelector } from 'react-redux';
 
 const PricingSummary = () => {
-  const [rooms, setRooms] = useState(addedRooms);
-  const handleRemoveRoom = (id: string) => {
-    const findSelectedRoom = rooms.filter((room) => room.id !== id);
-    setRooms(findSelectedRoom);
-  };
+  const dispatch = useDispatch();
+  const { selectedRooms } = useSelector((state: RootState) => state.hotelSlice);
 
+  // Remove Selected Room
+  const handleRemoveRoom = (id: string): void => {
+    dispatch(removeRoom(id));
+  };
   return (
     <Stack
       sx={(theme) => ({
         background: theme.palette.info.light,
         borderRadius: '8px',
         boxShadow: '5px 2px 10px rgba(28,60,107,.1)',
-        minHeight: '28.5rem',
-        justifyContent: 'space-between',
+        minHeight: '18.5rem',
       })}
     >
       <Box
@@ -44,19 +41,21 @@ const PricingSummary = () => {
           Pricing Summary
         </Typography>
       </Box>
-      <Condition condition={rooms?.length <= 0}>
-        <Typography variant="body1" textAlign="center">
-          Add Rooms To Continue
-        </Typography>
+      <Condition condition={selectedRooms?.length <= 0}>
+        <Box sx={{ mt: '6.5rem' }}>
+          <Typography variant="body1" textAlign="center">
+            Add Rooms To Continue
+          </Typography>
+        </Box>
       </Condition>
-      <Stack>
-        {rooms.map((room) => (
+      <Stack sx={{ margin: '2rem 1.3rem', gap: 3 }}>
+        {selectedRooms.map((room) => (
           <Stack
             key={room?.id}
             gap={2}
             sx={(theme) => ({
               background: theme.palette.info.light,
-              margin: '1.5rem 1rem',
+
               position: 'relative',
               border: '1px solid #D1D1D1',
               padding: '0.7rem',
@@ -78,21 +77,21 @@ const PricingSummary = () => {
               <Icons name="cross" size="1rem" />
             </IconButton>
             <Typography variant="body1" fontSize="1rem" fontWeight={600}>
-              {room?.name}
+              {room?.title}
             </Typography>
             <Box>
               <Typography variant="body1" fontSize="1rem" fontWeight={600}>
                 BDT {room?.price}
               </Typography>
               <Typography variant="body2" mt="0.3rem">
-                + BDT {room?.taxes} Taxes & Fees
+                + BDT 200 Taxes & Fees
               </Typography>
             </Box>
           </Stack>
         ))}
 
         {/* Total Price */}
-        <Condition condition={rooms?.length > 0}>
+        <Condition condition={selectedRooms?.length > 0}>
           <Box
             sx={(theme) => ({
               background: theme.palette.primary.light,
@@ -105,18 +104,15 @@ const PricingSummary = () => {
             </Stack>
           </Box>
         </Condition>
-
-        <Box pt={3} pb={3} width="90%" margin="auto">
-          <Link
-            href={{
-              pathname: '/hotel-booking/roomid',
-            }}
-          >
-            <Button variant="secondary" sx={{ width: '100%' }}>
-              Book Now
-            </Button>
-          </Link>
-        </Box>
+        <Condition condition={selectedRooms.length > 0}>
+          <Box>
+            <Link href="/hotel-booking/roomid">
+              <Button variant="secondary" sx={{ width: '100%' }}>
+                Book Now
+              </Button>
+            </Link>
+          </Box>
+        </Condition>
       </Stack>
     </Stack>
   );

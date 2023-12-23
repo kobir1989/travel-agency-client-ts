@@ -3,7 +3,21 @@
 import Icons from '@/components/Atoms/Icons';
 import NextImage from '@/components/Atoms/NextImage';
 import SectionContainer from '@/components/Atoms/SectionContainer';
-import { Box, Grid, Typography, Stack, Button } from '@mui/material';
+import { getSelectedRooms } from '@/redux/features/hotel/hotelSlice';
+import { RootState } from '@/redux/store/store';
+import { v4 as uuidv4 } from 'uuid';
+import CloseIcon from '@mui/icons-material/Close';
+import {
+  Box,
+  Grid,
+  Typography,
+  Stack,
+  Button,
+  Snackbar,
+  IconButton,
+} from '@mui/material';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const roomInfo = [
   {
@@ -30,8 +44,54 @@ const roomInfo = [
 ];
 
 const RoomDetails = () => {
+  const [isMaxRoom, setIsMaxRoom] = useState<boolean>(false);
+  const [isSnackBarOpen, setIsSnackBarOpen] = useState<boolean>(false);
+  const { selectedRooms } = useSelector((state: RootState) => state.hotelSlice);
+
+  const dispatch = useDispatch();
+  // handle selected Room
+  const handleSelectedRoom = (): void => {
+    if (selectedRooms.length >= 3) {
+      setIsMaxRoom(true);
+      setIsSnackBarOpen(true);
+      return;
+    }
+    dispatch(
+      getSelectedRooms({
+        id: uuidv4(),
+        title: 'Delux Double With Balcony',
+        price: '4000',
+        quantity: 1,
+      }),
+    );
+  };
+  const handleCloseSnackBar = (
+    event: React.SyntheticEvent | Event,
+    reason?: string,
+  ) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setIsSnackBarOpen(false);
+  };
   return (
     <SectionContainer>
+      <Snackbar
+        open={isSnackBarOpen}
+        autoHideDuration={4000}
+        onClose={handleCloseSnackBar}
+        message="No More Room Available!"
+        action={
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleCloseSnackBar}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        }
+      />
       <Grid container spacing={3}>
         <Grid item lg={4} md={4} sm={12} xs={12}>
           <Box width="100%" height="220px">
@@ -131,7 +191,13 @@ const RoomDetails = () => {
               </Typography>
               {/* Add room button */}
               <Stack mt={2}>
-                <Button variant="secondary">Add Room 1</Button>
+                <Button
+                  disabled={isMaxRoom}
+                  variant="secondary"
+                  onClick={handleSelectedRoom}
+                >
+                  Add Room 1
+                </Button>
               </Stack>
             </Stack>
           </Stack>

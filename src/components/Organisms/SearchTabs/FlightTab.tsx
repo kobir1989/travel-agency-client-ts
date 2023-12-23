@@ -22,7 +22,7 @@ import {
   setSelectedDepartValue,
   setArrivalDate,
   setDepartDate,
-} from '@/redux/features/flight/flightSlice';
+} from '@/redux/features/search/flightSearchSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux/store/store';
 import Condition from '@/components/Atoms/Condition';
