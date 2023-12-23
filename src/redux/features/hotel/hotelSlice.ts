@@ -1,45 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { format } from 'date-fns';
-import { HotelSearch } from '@/types/redux-state-type';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-// Initial Hotel search State
-const initialState: HotelSearch = {
-  selectedlocation: 'France',
-  checkInDate: format(new Date(), 'iiii MMM dd yyyy'),
-  checkOutDate: format(new Date(), 'iiii MMM dd yyyy'),
-  isCheckInCalanderOpen: false,
-  isCheckOutCalanderOpen: false,
+interface SelectedHotel {
+  id: string;
+  title: string;
+  price: string;
+  quantity: number;
+}
+
+interface InitialState {
+  selectedRooms: SelectedHotel[];
+}
+
+// Initials state
+const initialState: InitialState = {
+  selectedRooms: [],
 };
 
-// Search Hotel Slice
 const hotelSlice = createSlice({
-  name: 'searchHotel',
+  name: 'hotelSlice',
   initialState,
   reducers: {
-    setSelectedlocation: (state, action: PayloadAction<string>) => {
-      state.selectedlocation = action.payload;
+    getSelectedRooms: (state, action: PayloadAction<SelectedHotel>): void => {
+      state.selectedRooms.push(action.payload);
     },
-    setCheckIn: (state, action: PayloadAction<string>) => {
-      state.checkInDate = action.payload;
-    },
-    setCheckOut: (state, action: PayloadAction<string>) => {
-      state.checkOutDate = action.payload;
-    },
-
-    setOpenCheckOutCalander: (state, action: PayloadAction<boolean>) => {
-      state.isCheckOutCalanderOpen = action.payload;
-    },
-    setOpenCheckInCalander: (state, action: PayloadAction<boolean>) => {
-      state.isCheckInCalanderOpen = action.payload;
+    removeRoom: (state, action: PayloadAction<string>): void => {
+      const updatedRooms = state.selectedRooms.filter(
+        (room) => room.id !== action.payload,
+      );
+      state.selectedRooms = updatedRooms;
     },
   },
 });
-export const {
-  setCheckIn,
-  setCheckOut,
-  setSelectedlocation,
-  setOpenCheckInCalander,
-  setOpenCheckOutCalander,
-} = hotelSlice.actions;
+
+// actions
+export const { getSelectedRooms, removeRoom } = hotelSlice.actions;
+
 export default hotelSlice.reducer;

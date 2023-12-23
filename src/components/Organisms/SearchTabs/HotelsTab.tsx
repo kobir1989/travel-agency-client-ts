@@ -19,7 +19,7 @@ import {
   setOpenCheckInCalander,
   setOpenCheckOutCalander,
   setSelectedlocation,
-} from '@/redux/features/hotel/hotelSlice';
+} from '@/redux/features/search/hotelSearchSlice';
 import { format } from 'date-fns';
 import { Calendar } from 'react-date-range';
 import Icons from '@/components/Atoms/Icons';

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   setFlightCategory,
   setFlightStops,
-} from '@/redux/features/flight/flightSlice';
+} from '@/redux/features/search/flightSearchSlice';
 import { StyledFilterButtonProps, StyledStopsButtonProps } from './types';
 
 const StyledFilterButton = styled('button')<StyledFilterButtonProps>(

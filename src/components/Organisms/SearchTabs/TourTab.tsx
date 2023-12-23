@@ -8,7 +8,7 @@ import {
   InputLabel,
   SelectChangeEvent,
 } from '@mui/material';
-import { setSelectedLocation } from '@/redux/features/tour/tourSlice';
+import { setSelectedLocation } from '@/redux/features/search/tourSearchSlice';
 import Icons from '@/components/Atoms/Icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux/store/store';
